@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table style="margin:0 auto; border-collapse:collapse">
+        <script type="text/javascript">
+            var i=0;
+            while(i<10)
+            {
+                document.write("<tr>");
+                var j=1;
+                while(j<=10)
+                {
+                    document.write("<td style='width:50px;text-align:center;border:1px solid'>"+(i*10+j)+"</td>")
+                    ++j;
+                }
+                document.write("</tr>");
+                ++i;
+            }
+        </script>
+    </table>
+</body>
+</html>

@@ -1,0 +1,1 @@
+alert("http://www.mingrisoft.com");

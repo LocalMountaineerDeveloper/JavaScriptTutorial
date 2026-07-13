@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出10000米比赛需要跑完整的圈数</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var distance=10000;
+        var count=0;
+        while(distance>0)
+        {
+            distance-=400;
+            ++count;
+        }
+        document.write("10000米比赛需要跑完整的"+count+"圈。");
+    </script>
+</body>
+</html>

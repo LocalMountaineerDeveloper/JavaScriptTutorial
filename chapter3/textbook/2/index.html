@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断2024年2月的天数</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var year=2024;
+        var month=0;
+        if(year%4==0 && year%100!=0 || year%400==0)
+        {
+            month=29;
+        }else
+        {
+            month=28;
+        }
+        alert("2024年2月的天数为"+month+"天");
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环输出年份和月份</title>
+</head>
+<body>
+    <script type="text/javascript">
+        document.write("<select name='year'>");
+        for(var i=1980;i<2000;++i)
+        {
+            document.write("<option value='"+i+"'"+(i==1985?" selected":"")+">"+i+"年</option>");
+        }
+        document.write("</select>");
+        document.write("<select name='month'>");
+        for(var i=1;i<=12;++i)
+        {
+            document.write("<option value='"+i+"'>"+i+"月</option>");
+        }
+        document.write("</select>");
+    </script>
+</body>
+</html>
