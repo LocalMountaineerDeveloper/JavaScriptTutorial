@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取选手的平均分</title>
+    <script typte="text/javascript">
+        function getAverage(score1,score2,score3)
+        {
+            var average=(score1+score2+score3)/3;
+            return average;
+        }
+        function getResult(score1,score2,score3)
+        {
+            document.write("3位评委给出的分数分别为"+score1+"分"+score2+"分"+score3+"分");
+            var result=getAverage(score1,score2,score3);
+            document.write("1号选手的最后得分为"+result+"分");
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        getResult(96,92,99);
+    </script>
+</body>
+</html>

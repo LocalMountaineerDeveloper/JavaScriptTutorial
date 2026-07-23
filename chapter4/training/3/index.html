@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>比较两个数字的大小</title>
+    <script type="text/javascript">
+        function compare(n1,n2)
+        {
+            var result="";
+            if(n1>n2)
+            {
+                result=n1+"大于"+n2;
+            }else if(n1<n2)
+            {
+                result=n1+"小于"+n2;
+            }else
+            {
+                result=n1+"等于"+n2;
+            }
+            return result;
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        alert(compare(9,19));
+    </script>
+</body>
+</html>

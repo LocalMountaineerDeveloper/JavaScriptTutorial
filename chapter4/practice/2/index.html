@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出某年某月的天数</title>
+    <script type="text/javascript">
+        function output(y,m,d)
+        {
+            alert(y+"年"+m+"月有"+d+"天");
+        }
+        function days(y,m)
+        {
+            if(m==2)
+            {
+                if(y%4==0 && y%100!=0 || y%400==0)
+                {
+                    output(y,m,29);
+                }else
+                {
+                    output(y,m,28);
+                }
+            }else if(m==4 || m==6 || m==9 || m==11)
+            {
+                output(y,m,30);
+            }else
+            {
+                output(y,m,31);
+            }
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        days(2024,2);
+    </script>
+</body>
+</html>

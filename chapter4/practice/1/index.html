@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断20岁在哪个年龄段</title>
+    <script type="text/javascript">
+        function getAgeGroup(age)
+        {
+            var ageGroup="";
+            if(age>=0 && age<1)
+            {
+                ageGroup="婴儿";
+            }else if(age>=1 && age<6)
+            {
+                ageGroup="幼儿";
+            }else if(age>=6 && age<13)
+            {
+                ageGroup="儿童";
+            }else if(age>=13 && age<18)
+            {
+                ageGroup="少年";
+            }else if(age>=18 && age<40)
+            {
+                ageGroup="青年";
+            }else if(age>=40 && age<65)
+            {
+                ageGroup="中年";
+            }else
+            {
+                ageGroup="老年";
+            }
+            return ageGroup;
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var result=getAgeGroup(20);
+        alert("20岁正处在"+result+"年龄段");
+    </script>
+</body>
+</html>

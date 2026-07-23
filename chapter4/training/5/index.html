@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断顾客是否可以享受优惠活动</title>
+    <script type="text/javascript">
+        function getTotalPrice(price1,price2,price3)
+        {
+            var totalPrice=price1+price2+price3;
+            return totalPrice;
+        }
+        function getResult(price1,price2,price3)
+        {
+            var result=getTotalPrice(price1,price2,price3);
+            document.write("该顾客一共消费"+result+"元<br>");
+            if(result>=500)
+            {
+                document.write("该顾客可以享受9折优惠");
+            }else
+            {
+                document.write("该顾客不可以享受9折优惠");
+            }
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        getResult(199,156,230);
+    </script>
+</body>
+</html>

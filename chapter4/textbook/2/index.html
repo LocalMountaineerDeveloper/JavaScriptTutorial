@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算购物车中商品总价</title>
+    <script type="text/javascript">
+        function price(unitPrice,number)
+        {
+            var totalPrice=unitPrice*number;
+            return totalPrice;
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var phone=price(3699,2);
+        var computer=price(5299,3);
+        var total=phone+computer;
+        alert("购物车中商品总价："+total+"元。");
+    </script>
+</body>
+</html>

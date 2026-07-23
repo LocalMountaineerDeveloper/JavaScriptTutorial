@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取3个数字中的最小值</title>
+    <script type="text/javascript">
+        function getMinValue(num1,num2,num3)
+        {
+            var minValue=num1;
+            if(num2<minValue)
+            {
+                minValue=num2;
+            }
+            if(num3<minValue)
+            {
+                minValue=num3;
+            }
+            return minValue;
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        alert("16、-12、28三个数字的最小值为"+getMinValue(16,-12,28));
+    </script>
+</body>
+</html>
