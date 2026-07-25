@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生成指定位数的每个数字取值在1~6之间的随机数</title>
+    <script type="text/javascript">
+        function random(digit)
+        {
+            var result="";
+            for(var i=0;i<digit;++i)
+            { //由于0≤Math.random()<1，已知0≤Math.random()*6<6，1≤Math.random()*6+1<7，这时再Math.floor()就能得到范围在1~6的数字
+                result+=Math.floor(Math.random()*6)+1;
+            }
+            alert(result);
+        }
+    </script>
+</head>
+<body>
+    <p>请输入要生成随机数的位数：</p>
+    <form name="form">
+        <input type="text" name="digit"/>
+        <input type="button" value="生成" onclick="random(form.digit.value)"/>
+    </form>
+</body>
+</html>

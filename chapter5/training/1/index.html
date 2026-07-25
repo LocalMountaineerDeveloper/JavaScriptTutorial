@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算两个日期的间隔小时数</title>
+    <script type="text/javascript">
+        function interval(beginDate,endDate)
+        {
+            var end=new Date(endDate);
+            var begin=new Date(beginDate);
+            var resultMs=end.getTime()-begin.getTime();
+            var resultHours=Math.round(resultMs/(1000*60*60)); //计算间隔小时数
+            document.write("<span style='font-size:24px;'");
+            document.write("开始日期："+beginDate);
+            document.write("<br>结束日期："+endDate);
+            document.write("<br>两个日期之间的间隔小时数为"+resultHours);
+            document.write("</span>");
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        interval("2023-5-1","2023-6-1");
+    </script>
+</body>
+</html>

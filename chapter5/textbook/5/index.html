@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>右击链接到指定网站</title>
+    <script type="text/javascript">
+        function goSite(e)
+        {
+            if(e.button==2)
+            {
+                alert("欢迎访问明日科技");
+                window.open("https://cn.bing.com");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        document.onmousedown=goSite;
+    </script>
+</body>
+</html>

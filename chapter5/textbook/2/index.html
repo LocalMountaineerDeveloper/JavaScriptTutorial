@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出当前的日期和时间</title>
+</head>
+<body>
+    <h2>输出当前日期和时间</h2>
+    <script type="text/javascript">
+        var now=new Date();
+        var year=now.getFullYear();
+        var month=now.getMonth()+1;
+        var date=now.getDate();
+        var day=now.getDay();
+        var week="";
+        switch(day)
+        {
+            case 1:
+                week="周一";
+                break;
+            case 2:
+                week="周二";
+                break;
+            case 3:
+                week="周三";
+                break;
+            case 4:
+                week="周四";
+                break;
+            case 5:
+                week="周五";
+                break;
+            case 6:
+                week="周六";
+                break;
+            case 7:
+                week="周日";
+                break;
+            default:
+                week="day变量出错！";
+                break;
+        }
+        var hour=now.getHours();
+        var minute=now.getMinutes();
+        var second=now.getSeconds();
+        //为字体设置样式
+        document.write("<span style='font-size:24px;'>");
+        document.write("今天是"+year+"年"+month+"月"+date+"日 "+week);
+        document.write("<br>现在是"+hour+":"+minute+":"+second);
+        document.write("</span>");
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>altKey, ctrlKey, shiftKey属性的综合应用</title>
+    <script type="text/javascript">
+        function example(e)
+        {
+            if(e.ctrlKey && e.altKey && e.shiftKey)
+            {
+                alert("欢迎访问明日科技！");
+                window.location.href="index_ok.html";
+            }
+        }
+    </script>
+</head>
+<body>
+    请同时按下Ctrl键、Shift键和Alt键。
+    <script>
+        document.onkeydown=example; //应用onkeydown事件调用自定义函数example
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跟随鼠标移动的文字</title>
+    <style>
+        .move_out
+        {
+            position:relative;
+            cursor:pointer;
+            font-family:"华文行楷";
+            color:#0000FF;
+            font-size:36px;
+        }
+    </style>
+    <script type="text/javascript">
+        var x,y,z,temp1,temp2;
+        function move(e)
+        {
+            z.style.left=temp1+e.clientX-x+"px"; //设置文字的位置
+            z.style.top=temp2+e.clientY-y+"px";
+            return false;
+        }
+        function down(e)
+        {
+            if(e.target.className=="move_out") //应用target属性获取当前事件的对象
+            {
+                z=e.target;
+                temp1=z.offsetLeft;
+                temp2=z.offsetTop;
+                x=e.clientX; //获取鼠标在窗口中的X位置
+                y=e.clientY;
+                document.onmousemove=move;
+                document.onmouseup=function()
+                {
+                    document.onmousemove=null;
+                }
+            }
+        }
+        document.onmousedown=down;
+    </script>
+</head>
+<body>
+    <span class="move_out">天才出于勤奋</span>
+</body>
+</html>
