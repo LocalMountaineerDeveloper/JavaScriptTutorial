@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将金庸小说人物名称按字数分类</title>
+    <style type="text/css">
+        body
+        {
+            margin-left:80px;
+        }
+    </style>
+</head>
+<body background="bg.jpeg">
+    <script type="text/javascript">
+        var array=new Array("黄药师","狄云","东方不败","虚竹","石中玉","陈家洛","杨康","金轮法王","令狐冲");
+        var twoName="";
+        var threeName="";
+        var fourName="";
+        for(var i=0;i<array.length;++i)
+        {
+            if(array[i].length==2)
+            {
+                twoName+=array[i]+" ";
+            }
+            if(array[i].length==3)
+            {
+                threeName+=array[i]+" ";
+            }
+            if(array[i].length==4)
+            {
+                fourName+=array[i]+" ";
+            }
+        }
+        document.write("二字人物"+twoName);
+        document.write("<br>三字人物"+threeName);
+        document.write("<br>四字人物"+fourName);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出人物本名、字号和主要成就</title>
+</head>
+<body>
+    <table cellspcing="1" bgcolor="#CC00FF">
+        <tr height="30" bgcolor="#FFFFFF">
+            <td align="center" width="50">序号</td>
+            <td align="center" width="100">本名</td>
+            <td align="center" width="100">字号</td>
+            <td align="center" width="260">主要成就</td>
+        </tr>
+        <script type="text/javascript">
+            var givenName=new Array("刘备","关羽","张飞");
+            var courtesyName=new Array("玄德","云长","益德");
+            var achievement=new Array("夺取益州","斩杀颜良","义释严颜");
+            for(var i=0;i<givenName.length;++i)
+            {
+                document.write("<tr height=26 bgcolor='#FFFFFF'>");
+                document.write("<td align='center'>"+(i+1)+"</td>");
+                document.write("<td align='center'>"+givenName[i]+"</td>");
+                document.write("<td align='center'>"+courtesyName[i]+"</td>");
+                document.write("<td align='center'>"+achievement[i]+"</td>");
+                document.write("</tr>");
+            }
+        </script>
+    </table>
+</body>
+</html>

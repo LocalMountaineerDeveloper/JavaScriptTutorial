@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>检索书名是四字的书籍</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var array=["雪山飞狐","连城诀","天龙八部","射雕英雄传","鹿鼎记","笑傲江湖","书剑恩仇录","神雕侠侣","倚天屠龙记","碧血剑"];
+        var newArray=new Array();
+        var j=0;
+        for(var i=0;i<array.length;++i)
+        {
+            if(array[i].length==4)
+            {
+                newArray[j]=array[i];
+                ++j;
+            }
+        }
+        document.write("书名为4个字的书籍："+newArray.join("、"));
+    </script>
+</body>
+</html>

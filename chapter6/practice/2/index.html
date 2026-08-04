@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2022年国内手机销量排行榜</title>
+    <style>
+        body
+        {
+            font-family:微软雅黑;
+            font-size:14px;
+        }
+        .title
+        {
+            background:#B6DF48;
+            font-size:18px;
+        }
+        .content:nth-child(odd)
+        {
+            background:#E8F301;
+        }
+        .title,.content
+        {
+            width:430px;
+            height:36px;
+            line-height:36px;
+            border:1px solid #DDDDDD;
+        }
+        .title,.content:not(:last-child)
+        {
+            border-bottom:none;
+        }
+        .title div
+        {
+            text-align:center;
+            float:left;
+        }
+        .title .col-1,.content .col-1
+        {
+            width:130px;
+        }
+        .title .col-2,.content .col-2
+        {
+            width:160px;
+        }
+        .content
+        {
+            clear:both;
+        }
+        .content div
+        {
+            text-align:center;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        var phones=[{brand:"OPPO",share:17.5},{brand:"小米",share:13.9},{brand:"vivo",share:"19.2"},{brand:"荣耀",share:16.7},{brand:"iPhone",share:18.0}];
+        phones.sort(function(a,b)
+        {
+            return a.share<b.share?1:-1;
+        });
+    </script>
+    <div class="title">
+        <div class="col-1">排名</div>
+        <div class="col-2">品牌</div>
+        <div class="col-1">市场份额</div>
+    </div>
+    <script type="text/javascript">
+        for(var i=0;i<phones.length;++i)
+        {
+            document.write("<div class='content'>");
+            document.write("<div class='col-1'>"+(i+1)+"</div>");
+            document.write("<div class='col-2'>"+phones[i].brand+"</div>");
+            document.write("<div class='col-1'>"+phones[i].share+"%</div>");
+            document.write("</div>");
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

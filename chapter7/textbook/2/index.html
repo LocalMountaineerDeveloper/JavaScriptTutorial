@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>统计指定字符在字符串中的出现次数</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var str="白石滑又滑，搬来白石搭白塔";
+        var position=0;
+        var num=-1;
+        var index=0;
+        while(position!=-1)
+        {
+            position=str.indexOf("白",index);
+            ++num;
+            index=position+1; //指定下次查找的位置
+        }
+        document.write("定义的字符串："+str+"<br>");
+        document.write("字符串中有"+num+"个白。");
+    </script>
+</body>
+</html>

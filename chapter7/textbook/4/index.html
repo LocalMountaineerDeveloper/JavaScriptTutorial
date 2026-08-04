@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出《三国演义》五虎上将人物信息</title>
+    <style type="text/css">
+        table
+        {
+            font-size:14px;
+            color:#0000FF;
+        }
+        th
+        {
+            font-size:16px;
+            color:#FF00FF;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="1" bgcolor="#999999">
+        <tr height="30" bgcolor="#FFFFFF">
+            <th align="center" width="100">本名</th>
+            <th align="center" width="100">字号</th>
+            <th align="center" width="160">官职</th>
+        </tr>
+        <script type="text/javascript">
+            var givenName="关羽，张飞，赵云，马超，黄忠";
+            var courtesyName="云长，益德，子龙，孟起，汉升";
+            var position="前将军，车骑将军，镇东将军，骠骑将军，后将军";
+            var givenNameArray=givenName.split("，");
+            var courtesyNameArray=courtesyName.split("，");
+            var positionArray=position.split("，");
+            for(var i=0;i<givenNameArray.length;++i)
+            {
+                document.write("<tr height=26 bgcolor='#FFFFFF'>");
+                document.write("<td align='center'>"+givenNameArray[i]+"</td>");
+                document.write("<td align='center'>"+courtesyNameArray[i]+"</td>");
+                document.write("<td align='center'>"+positionArray[i]+"</td>");
+                document.write("</tr>");
+            }
+        </script>
+    </table>
+</body>
+</html>

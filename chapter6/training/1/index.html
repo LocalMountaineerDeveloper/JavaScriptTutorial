@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取包含星期信息的当前日期</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var now=new Date();
+        var year=now.getFullYear();
+        var month=now.getMonth()+1;
+        var date=now.getDate();
+        var day=now.getDay();
+        var week=new Array("周日","周一","周二","周三","周四","周五","周六");
+        alert("今天是"+year+"年"+month+"月"+date+"日"+week[day]);
+    </script>
+</body>
+</html>

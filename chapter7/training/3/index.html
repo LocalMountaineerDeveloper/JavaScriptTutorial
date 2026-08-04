@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>截取QQ邮箱中的QQ号</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var email="4006751066@qq.com";
+        var length=parseInt(email).toString().length;
+        var qq=email.slice(0,length);
+        document.write("邮箱地址："+email);
+        document.write("<br>该邮箱地址中的QQ号为"+qq);
+    </script>
+</body>
+</html>

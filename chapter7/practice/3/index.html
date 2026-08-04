@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将一串长数字分位显示</title>
+    <script type="text/javascript">
+        function convert(num)
+        {
+            var result="";
+            var dec="";
+            var pos="";
+            var res="";
+            if(isNaN(num))
+            {
+                result=num+"不是一个数字！";
+            }
+            else
+            {
+                if(num.length<4)
+                {
+                    result=num;
+                }else
+                {
+                    pos=num.indexOf(".",1); //获取数字中小数点的位置
+                    if(pos>0)
+                    {
+                        dec=num.slice(pos); //获取小数部分的字符串，包括小数点
+                        res=num.slice(0,pos);
+                    }else
+                    { //若没有小数部分，将数字赋值给变量res
+                        res=num;
+                    }
+                    var tempResult="";
+                    for(var i=res.length;i>0;i-=3)
+                    {
+                        if(i>3)
+                        { //从整数部分向高位数3个数再加上","号
+                            tempResult=","+res.substr(i-3,3)+tempResult;
+                        }else
+                        {
+                            tempResult=res.substr(0,i)+tempResult;
+                        }
+                    }
+                    result=tempResult+dec; //连接整数部分和小数部分
+                }
+            }
+            return result;
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var number1=13625966.24;
+        var number2="245sfwtp324";
+        var number3="252564.1"
+        document.write(convert(number1.toString())+"<br>"+convert(number2.toString())+"<br>"+convert(number3.toString())+"<br>");
+    </script>
+</body>
+</html>

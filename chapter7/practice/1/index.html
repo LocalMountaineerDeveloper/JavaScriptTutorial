@@ -1,0 +1,29 @@
+<!-- 本案例代码逻辑不全，无法正确判断所有格式的邮箱还会有错误判断，将错误邮箱当成正确邮箱，对于判断邮箱格式是否正确，应使用正则表达式，本案例代码为反面教学 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断邮箱格式是否正确</title>
+    <script type="text/javascript">
+        function check(email)
+        {
+            var index1=email.indexOf("@");
+            var index2=email.indexOf(".");
+            if(index1>0 && index2-index1>1 && index2<email.length-1)
+            {
+                result="注册邮箱符合要求!";
+            }else
+            {
+                result="注册邮箱格式不正确！";
+            }
+            return result;
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var email="abc@@test.com" //这是一个反面教学案例，会误判，对于判断邮箱格式应使用正则表达式
+        alert(check(email));
+    </script>
+</body>
+</html>

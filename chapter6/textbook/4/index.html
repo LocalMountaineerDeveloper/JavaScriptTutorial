@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算歌手的最终得分</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var scoreArray=new Array(97,95,88,91,93);
+        var scoreStr="";
+        for(var i=0;i<scoreArray.length;++i)
+        {
+            scoreStr+=scoreArray[i]+"分";
+        }
+        function desOrder(x,y)
+        { //定义比较函数
+            if(x<y)
+            {
+                return 1;
+            }else
+            {
+                return -1;
+            }
+        }
+        scoreArray.sort(desOrder);
+        var newArray=scoreArray.slice(1,scoreArray.length-1); //去除最高分和最低分
+        var totalScore=0;
+        for(var i=0;i<newArray.length;++i)
+        {
+            totalScore+=newArray[i];
+        }
+        document.write("5位评委打分："+scoreStr);
+        document.write("<br>去除一个最高分："+scoreArray[0]+"分");
+        document.write("<br>去除一个最低分："+scoreArray[scoreArray.length-1]+"分");
+        document.write("<br>歌手最终得分："+totalScore/newArray.length+"分");
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出列车的途径站</title>
+    <style>
+        span
+        {
+            margin-right:10px;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        var stations=["长春","昌图西","铁岭西","沈阳北","绥中北","北京"];
+        document.write("<div><span>途径站：</span>");
+        for(var i=0;i<stations.length;++i)
+        {
+            document.write("<span>"+stations[i]+"</span>");
+        }
+        document.write("</div>");
+        stations.reverse();
+        document.write("<div><span>反向站：</span>");
+        for(var i=0;i<stations.length;++i)
+        {
+            document.write("<span>"+stations[i]+"</span>");
+        }
+        document.write("</div>");
+    </script>
+</body>
+</html>

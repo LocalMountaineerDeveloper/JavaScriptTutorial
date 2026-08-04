@@ -1,0 +1,36 @@
+body
+{
+    font-size:12px;
+}
+td
+{
+    font-size:12px;
+}
+th
+{
+    font-size:12px;
+}
+a:link
+{
+    color:#000000;
+}
+a:visited
+{
+    color:#000000
+}
+a:hover
+{
+    color:#000000;
+}
+a:active
+{
+    color:#990000;
+}
+.textfield
+{
+    border-right:#999999 1px solid; border-top:#999999 1px solid; font-size:9pt; border-left:#999999 1px solid; color:#333333; border-bottom:#999999 1px solid;
+}
+.go-textfield
+{
+    border-right:#666666 1px solid; padding-right:1px; border-top:#FFFFFF 1px solid; padding-top:1px; border-left:#FFFFFF 1px solid; padding-left:1px; border-bottom:#666666 1px solid; padding-bottom:1px; font-size:9pt; color:#333333; height:19px; background-color:#EEEEEE;
+}

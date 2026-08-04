@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>截取超长字符串</title>
+    <style type="text/css">
+        .public
+        {
+            width:202px;
+            height:182px;
+            background-image:url(images/bg.png);
+            background-repeat:no-repeat;
+            font-size:12px;
+            color:#CC00FF;
+            padding-top:65px;
+            line-height:20px;
+        }
+    </style>
+    <script type="text/javascript">
+        function subStr(str)
+        {
+            if(str.length>10)
+            {
+                return str.substr(0,10)+"...";
+            }else
+            {
+                return str;
+            }
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var str1="疯狂双十一热门电子书限时秒杀";
+        var str2="双11优惠超值推荐低至29折";
+        var str3="程序开发资源库买一送一";
+        var str4="编程必备超级魔卡强势来袭";
+    </script>
+    <div class="public">
+        <ul>
+            <script type="text/javascript">
+                document.write("<li>"+subStr(str1)+"</li>");
+                document.write("<li>"+subStr(str2)+"</li>");
+                document.write("<li>"+subStr(str3)+"</li>");
+                document.write("<li>"+subStr(str4)+"</li>");
+            </script>
+        </ul>
+    </div>
+</body>
+</html>

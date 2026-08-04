@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出NBA历史得分榜前五名</title>
+    <style type="text/css">
+        .left
+        {
+            padding-left:10px;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="1" bgcolor="#CC00FF">
+        <tr height="30" bgcolor="#FFFFFF">
+            <td align="center" width="50">排名</td>
+            <td align="center" width="210">姓名</td>
+            <td align="center" width="100">总分</td>
+        </tr>
+        <script type="text/javascript">
+            var nameArray=new Array("卡尔·马龙","科比·布莱恩特","勒布朗·詹姆斯","迈克尔·乔丹","卡里姆·阿卜杜尔·贾巴尔");
+            var scoreArray=new Array(36928,33643,37113,32292,38387);
+            var sortArray=new Array(36928,33643,37113,32292,38387);
+            function ascOrder(x,y)
+            { //定义比较函数
+                if(x<y)
+                {
+                    return 1;
+                }else
+                {
+                    return -1;
+                }
+            }
+            sortArray.sort(ascOrder);
+            for(var i=0;i<sortArray.length;++i)
+            {
+                for(var j=0;j<sortArray.length;++j)
+                {
+                    if(sortArray[i]==scoreArray[j])
+                    {
+                        document.write("<tr height=26 bgcolor='#FFFFFF'>");
+                        document.write("<td align='center'>"+(i+1)+"</td>");
+                        document.write("<td class='left'>"+nameArray[j]+"</td>");
+                        document.write("<td align='center'>"+sortArray[i]+"分</td></tr>");
+                    }
+                }
+            }
+        </script>
+    </table>
+</body>
+</html>

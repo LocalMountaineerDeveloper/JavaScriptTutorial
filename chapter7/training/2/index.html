@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>找出含有0431的手机号</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var telArray=["1330431****","1567766****","1304316****","1526567****","1580433****","139****0431"];
+        var telStr="";
+        for(var i=0;i<telArray.length;++i)
+        {
+            if(telArray[i].indexOf("0431")!=-1)
+            {
+                telStr+=telArray[i]+"<br>";
+            }
+        }
+        document.write("通讯录中含有0431的手机号如下：<p>"+telStr+"</p>");
+    </script>
+</body>
+</html>
