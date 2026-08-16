@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证用户输入的个人信息</title>
+    <script type="text/javascript">
+        function checkUser(form)
+        {
+            var user=form.user.value;
+            var expression1=/^[\u4e00-\u9fa5]{2,4}$/;
+            var regExp1=new RegExp(expression1);
+            if(user=="")
+            {
+                showUser.innerHTML="请输入姓名！";
+                return false;
+            }else if(regExp1.test(user))
+            {
+                showUser.innerHTML="";
+                return true;
+            }else
+            {
+                showUser.innerHTML="姓名格式不正确！";
+                return false;
+            }
+        }
+
+        function checkTel(form)
+        {
+            var tel=form.tel.value;
+            var expression2=/^13(\d{9})$|^18(\d{9})$|^15(\d{9})$/;
+            var regExp2=new RegExp(expression2);
+            if(tel=="")
+            {
+                showTel.innerHTML="请输入移动电话号码！";
+                return false;
+            }else if(regExp2.test(tel))
+            {
+                showTel.innerHTML="";
+                return true;
+            }else
+            {
+                showTel.innerHTML="移动电话号码格式不正确！";
+                return false;
+            }
+        }
+
+        function checkInput(form)
+        {
+            if(checkUser(form) && checkTel(form))
+            {
+                alert("提交成功！");
+            }else
+            {
+                return false;
+            }
+        }
+    </script>
+</head>
+<style type="text/css">
+    body,td,th
+    {
+        font-size:12px;
+    }
+    .red
+    {
+        color:red;
+    }
+</style>
+<body>
+    <form name="form" method="post" action="#" onsubmit="return checkInput(form)">
+        姓&emsp;&emsp;名：<input type="text" name="user" size="20" onblur="checkUser(form)">
+        <span id="showUser" class="red"></span><br>
+        移动电话：<input type="text" name="tel" size="20" onblur="checkTel(form)">
+        <span id="showTel" class="red"></span><br>
+        <input type="submit" name="submit" value="提交">
+    </form>
+</body>
+</html>

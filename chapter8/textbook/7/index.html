@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除重复字符但不保证字符顺序</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var s="abacabefgeeiimnppl";
+        var s1=s.replace(/(.).*\1/g,"$1"); //首先用正则表达式取出字符串s出现重复的字符，形成字符集s1，包含[abeip]
+        var re=new RegExp("["+s1+"]","g"); //以重复的字符建立第二个表达式
+        var s2=s.replace(re,""); //取到不重复的字符，形成字符集s2，包含[cfgmnl]
+        alert(s1+s2); //将重复字符集与不重复字符集结合得到结果
+    </script>
+</body>
+</html>

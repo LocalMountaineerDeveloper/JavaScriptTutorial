@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匹配大小写字母是否相邻</title>
+    <script type="text/javascript">
+        function testDemo(pattern,str)
+        {
+            var result;
+            if(pattern.test(str))
+            {
+                result="匹配";
+            }else
+            {
+                result="不匹配";
+            }
+            document.write("正则表达式"+pattern+result+"字符串\""+str+"\"");
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        testDemo(/[A-Z][a-z]/,"JavaScript从入门到精通");
+    </script>
+</body>
+</html>

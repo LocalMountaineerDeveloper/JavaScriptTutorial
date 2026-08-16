@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式验证邮箱格式</title>
+    <script type="text/javascript">
+        function checkInput()
+        {
+            var email=document.getElementById("email").value; //获取邮箱文本框的值
+            var checkMail=/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+            if(checkMail.test(email))
+            {
+                emailBox.innerHTML="邮箱符合要求。";
+            }else
+            {
+                emailBox.innerHTML="邮箱不符合要求！";
+            }
+        }
+    </script>
+</head>
+<body>
+    邮箱：<input type="text" name="email" id="email" onblur="checkInput()">
+    <span id="emailBox"></span>
+</body>
+</html>

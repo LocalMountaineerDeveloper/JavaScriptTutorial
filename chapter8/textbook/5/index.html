@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆点(.)元字符的使用</title>
+</head>
+<body>
+    <h3>圆点(.)元字符的使用</h3>
+    <script type="text/javascript">
+        var testString="JavaScript网页特效";
+        var regExpression=/c....网/;
+        var result=regExpression.test(testString);
+        if(result)
+        {
+            document.write("在“"+testString+"”中找到正则表达式/c....网/的匹配<br>");
+        }else
+        {
+            document.write("未找到匹配的模式！");
+        }
+    </script>
+</body>
+</html>

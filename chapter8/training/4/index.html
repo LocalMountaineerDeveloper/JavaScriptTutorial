@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>按数字拆分字符串</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var arr=new Array();
+        var str="一12我5帮8您";
+        var pattern=/\d/;
+        arr=str.split(pattern);
+        for(var i=0;i<arr.length;++i)
+        {
+            document.write(arr[i]+" ");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符匹配的使用</title>
+</head>
+<body>
+    <h3>字符匹配的使用</h3>
+    <script type="text/javascript">
+        var testString="Tony";
+        var regExpression=/[A-Z][a-z]ny/;
+        var result=regExpression.test(testString);
+        if(result)
+        {
+            document.write("在“"+testString+"”中找到了正则表达式/[A-Z][a-z]ny/的匹配<br>");
+        }else
+        {
+            document.write("未找到匹配的模式！");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匹配数字格式“4位数字-3位数字”</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var str="1234-567";
+        var pattern=/^\d{4}-\d{3}$/;
+        if(pattern.test(str))
+        {
+            alert("字符串符合指定的格式");
+        }else
+        {
+            alert("字符串不符合指定的格式");
+        }
+    </script>
+</body>
+</html>

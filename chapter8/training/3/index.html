@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>替换英文字符为“*”</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var str="aA12cD34eF56";
+        var pattern=/[a-z]/gi;
+        var newStr=str.replace(pattern,"*");
+        alert("字符串"+str+"被替换为"+newStr);
+    </script>
+</body>
+</html>

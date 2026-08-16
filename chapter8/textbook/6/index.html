@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建正则表达式</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var myString="JavaScript网页特效";
+        var myRegex=new RegExp("网页");
+        if(myRegex.test(myString))
+        {
+            alert("已创建正则表达式，并找到了指定的模式！");
+        }else
+        {
+            alert("已创建正则表达式，但未找到匹配的模式。");
+        }
+
+        /*
+        /[\u4e00-\u9fa5]/ //匹配中文字符
+        /[^x00-xff]/ //匹配双字节字符(非ASCII字符)
+        /<(.*)>.*<\/\1>|<(.*)\/>/ //匹配HTML标记
+        /(^\s+)|(\s+$)/ //匹配首尾空格
+        String.prototype.len=function(){return this.replace(/[^x00-xff]/g,"aa").length;} //计算字符串的长度(双字节字符长度计2，ASCII字符计1)
+        /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]])?/ //匹配网址URL
+        */
+
+        // /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/ //匹配email地址
+
+        /*
+        用正则表达式限制只能输入中文
+        onkeyup="value=value.replace(/[^\u4e00-\u9fa5]/g,'')"
+        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4e00-\u9fa5]/g,'')"
+        用正则表达式限制只能输入数字
+        onkeyup="value=value.replace(/[^\d]/g,'')"
+        onbeforepaste=clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''));
+        用正则表达式限制只能输入数字和英文
+        onkeyup="value=value.replace(/[\W]/g,'')"
+        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\W]/g,''))"
+        用正则表达式限制只能输入全角字符
+        onkeyup="value=value.replace(/[^\uff00-\uffff]/g,'')"
+        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\uff00-\uffff]/g,''))"
+         */
+    </script>
+</body>
+</html>
