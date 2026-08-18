@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用抛出自定义异常消息调试</title>
+    <script type="text/javascript">
+        function test(num1,num2)
+        {
+            try
+            {
+                if(arguments.length<2)
+                {
+                    throw new Error("缺少参数");
+                }
+                if(num1/num2=="Infinity")
+                {
+                    throw new Error("除数不能为0");
+                }
+            }catch(exception)
+            {
+                alert(exception.message+" "+exception.name);
+            }
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        test(1);
+        test(1,0);
+    </script>
+</body>
+</html>

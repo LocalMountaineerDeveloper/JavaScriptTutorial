@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证Error对象的属性</title>
+</head>
+<body>
+    <script type="text/javascript">
+        try
+        {
+            alert(document.getElementById("demo").innerHTML);
+        }catch(exception)
+        {
+            alert("实际的错误消息为："+exception.message+"\n错误类型的字符串为："+exception.name);
+        }finally
+        {
+            alert("结束try catch finally语句");
+        }
+    </script>
+</body>
+</html>

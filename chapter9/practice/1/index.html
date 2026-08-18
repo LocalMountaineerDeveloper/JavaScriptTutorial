@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断输入的数字并弹出异常提示信息对话框</title>
+    <script type="text/javascript">
+        var arr=new Array("A","B","C","D","E");
+        function getError(msg)
+        {
+            var error=new Error(msg);
+            return error;
+        }
+        function getValue(form)
+        {
+            try
+            {
+                var val=form.number.value; //获取文本框的值
+                if(val=="")
+                {
+                    throw getErrot("输入不能为空");
+                }
+                if(isNaN(val))
+                {
+                    throw getError("输入的不是一个数字");
+                }
+                if(!Number.isInteger(val))
+                {
+                    throw getError("输入的数字必须是整数")
+                }
+                if(val <1 || val>5)
+                {
+                    throw getError("输入的数字范围需要在1~5");
+                }
+                form.output.value=arr[val-1]; //获取数组中相应的值
+            }catch(e)
+            {
+                alert(e.message);
+                form.output.value=""; //清空文本框
+                form.number.select(); //选择输入的值
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        输入1~5的数字：<br><input type="text" name="number">
+        <input type="button" value="查找" onclick="getValue(this.form)"><br>
+        <input type="text" name="output">
+    </form>
+</body>
+</html>

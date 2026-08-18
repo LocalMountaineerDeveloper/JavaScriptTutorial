@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证用户注册信息并弹出提示信息对话框</title>
+    <script type="text/javascript">
+        function getError(msg)
+        {
+            var error=new Error(msg);
+            return error;
+        }
+        function checkInput(form)
+        {
+            var user=form.user.value; //获取用户名文本框的值
+            var checkUser=/^[a-zA-Z]\w{4,15}$/;
+            try
+            {
+                if(user=="")
+                {
+                    throw getError("用户名不能为空");
+                }
+                if(!checkUser.test(user))
+                {
+                    throw getError("用户名不符合要求");
+                }
+            }catch(e)
+            {
+                alert(e.message);
+            }
+            var pwd=form.pwd.value; //获取密码文本框的值
+            var checkPwd=/^[a-zA-Z0-9]{6,12}$/;
+            try
+            {
+                if(pwd=="")
+                {
+                    throw getError("密码不能为空");
+                }
+                if(!checkPwd.test(pwd))
+                {
+                    throw getError("密码不符合要求");
+                }
+            }catch(e)
+            {
+                alert(e.message);
+            }
+        }
+    </script>
+</head>
+<style type="text/css">
+    body,td,th
+    {
+        font-size:12px;
+    }
+    .red
+    {
+        color:red;
+    }
+    .green
+    {
+        color:green;
+    }
+</style>
+<body>
+    <form name="form" method="post" action="#">
+        用户名：<input type="text" name="user" id="user">
+        <span id="userBox" class="red">必须是以字母开头，可包含字母、数字或下划线，长度5-16个字节</span><br>
+        密&emsp;码：<input type="password" name="pwd" id="pwd">
+        <span id="pwdbox" class="red">可包含字母、数字，长度6-12个字节</span><br>
+        <input type="button" name="button" value="测试" onclick="checkInput(form)">
+    </form>
+</body>
+</html>

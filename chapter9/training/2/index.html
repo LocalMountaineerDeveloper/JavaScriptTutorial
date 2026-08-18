@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出错误类型和错误信息</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var str="我喜欢JavaScript";
+        try
+        {
+            var err=str.unkown(3,6);
+        }catch(e)
+        {
+            alert("错误类型为："+e.name+"\n错误信息为："+e.message);
+        }
+    </script>
+</body>
+</html>
