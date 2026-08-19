@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出演员简介</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript">
+        class Actor
+        {
+            constructor(name,occupation,works,achievement)
+            {
+                this.name=name;
+                this.occupation=occupation;
+                this.works=works;
+                this.achievement=achievement;
+            }
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var actor=new Actor("莱昂纳多·迪卡普里奥","演员、制片人","泰坦尼克号、猫鼠游戏","第88界奥斯卡金像奖最佳男主角奖");
+        document.write("中文名："+actor.name);
+        document.write("<br>职业："+actor.occupation);
+        document.write("<br>代表作品："+actor.works);
+        document.write("<br>主要成就："+actor.achievement);
+    </script>
+</body>
+</html>

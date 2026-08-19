@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出图书信息</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript">
+        class Book
+        {
+            constructor(name,type,price)
+            {
+                this.name=name;
+                this.type=type;
+                this.price=price;
+            }
+
+            show()
+            {
+                document.write("书名："+this.name+"<br>类型："+this.type+"<br>价格："+this.price);
+            }
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var b=new Book("JavaScript从入门到精通","JavaScript",60);
+        b.show();
+    </script>
+</body>
+</html>

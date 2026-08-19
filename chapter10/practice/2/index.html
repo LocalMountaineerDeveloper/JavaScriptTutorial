@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生成指定行数、列数的表格</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <script type="text/javascript">
+        class Table
+        {
+            constructor(row,col,width,height)
+            {
+                this.row=row;
+                this.col=col;
+                this.width=width;
+                this.height=height;
+            }
+
+            create()
+            {
+                var tableStr="";
+                tableStr+=("<table style='width:"+this.width+";height:"+this.height+";border-collapse:collapse;'>");
+                var bgColor;
+                for(var i=0;i<this.row;++i)
+                {
+                    if(i%2==0)
+                    { //设置奇数行和偶数行的背景颜色
+                        bgColor="#FFFFFF";
+                    }else
+                    {
+                        bgColor="#EEEEEE";
+                    }
+                    tableStr+=("<tr style='background:"+bgColor+"'>");
+                    for(var j=0;j<this.col;++j)
+                    {
+                        tableStr+=("<td style='border:1px solid black;'></td>");
+                    }
+                    tableStr+=("</tr>");
+                }
+                tableStr+=("</table>");
+                document.write(tableStr);
+            }
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var table1=new Table(5,6,"500px","260px");
+        table1.create();
+    </script>
+</body>
+</html>

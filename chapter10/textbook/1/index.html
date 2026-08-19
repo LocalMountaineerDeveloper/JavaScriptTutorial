@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出歌曲信息</title>
+    <script type="text/javascript">
+        class Song
+        {
+            constructor(name,original,time,style)
+            {
+                this.name=name;
+                this.original=original;
+                this.time=time;
+                this.style=style;
+            }
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var song=new Song("我心永恒","席琳·迪翁","1997年12月","流行音乐");
+        document.write("歌曲名称："+song.name);
+        document.write("<br>歌曲原唱："+song.original);
+        document.write("<br>发行时间："+song.time);
+        document.write("<br>音乐风格："+song.style);
+    </script>
+</body>
+</html>
