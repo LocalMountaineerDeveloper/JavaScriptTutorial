@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页加载时缩小图片</title>
+    <script type="text/javascript">
+        var h=0;
+        var w=0;
+        function scaleDown()
+        {
+            h=img1.height;
+            w=img1.width;
+            img1.height=h-100;
+            img1.width=w-100;
+        }
+        function scaleUp()
+        {
+            img1.height=h;
+            img1.width=w;
+        }
+    </script>
+</head>
+<body onload="scaleDown()">
+    <img src="image1.jpg" id="img1" onmouseout="scaleDown()" onmouseover="scaleUp()">
+</body>
+</html>

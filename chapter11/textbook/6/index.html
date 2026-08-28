@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>限制文本框的输入</title>
+    <script type="text/javascript">
+        var canInput=true;
+        function clavier(n)
+        {
+            var k=event.keyCode;
+            if(n==1)
+            {
+                if(k>=65 && k<=90) //键盘"A"键至“Z”键
+                {
+                    canInput=true;
+                }else
+                {
+                    canInput=false;
+                }
+            }else if(n==0)
+            {
+                if(k>=48 && k<=57 || k>=96 && k<=105) //键盘主键区“0”键至“9”键与键盘数字键区“0”键至“9”键
+                {
+                    canInput=true;
+                }else
+                {
+                    canInput=false;
+                }
+            }
+            if(k==37 || k==39 || k==8 || k==46) //键盘“←”键、“→”键、Backspace键、Delete键
+            {
+                canInput=true;
+            }
+            if(canInput==false)
+            {
+                event.preventDefault(); //取消事件传递后的默认处理
+            }
+        }
+    </script>
+</head>
+<style>
+    body
+    {
+        font-size:12px;
+    }
+</style>
+<body>
+    <table width="650" height="34" border="0" align="center" cellpadding="0" cellspacing="0" background="images/top_03.jpg" bgcolor="#B3CAEE">
+        <tr>
+            <td height="22" align="center"><span>======&nbsp;用户注册信息&nbsp;======</span></td>
+        </tr>
+    </table>
+    <table width="650" height="205" border="0" align="center" cellpadding="-2" cellspacing="-2">
+        <tr valign="top">
+            <td height="171" colspan="3">
+                <table width="100%" height="129" border="0" cellpadding="-2" cellspacing="-2">
+                    <tr>
+                        <td valign="top">
+                            <table width="100%" height="265" border="0" cellpadding="-2" cellspacing="-2">
+                                <tr>
+                                    <td height="5"></td>
+                                </tr>
+                                <tr>
+                                    <td width="195" height="263" valign="top">
+                                        <table width="100%" border="0" cellspacing="-2" cellpadding="-2">
+                                            <tr>
+                                                <td width="55%" height="82" align="center" >&nbsp;<img src="images/reg.gif" width="84" height="54"></td>
+                                                <td width="45%" align="left" ><b>注册帮助</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="112" colspan="2" valign="top" >
+                                                    <ul>
+                                                        <li>用户名：为用户登录留言簿的通行证，可使用英文字母、数字和下划线。</li>
+                                                        <li>真实姓名：请输入真实的姓名，只能是英文或数字。</li>
+                                                        <li>年龄：用户的真实年龄，只可以输入数字</li>
+                                                        <li>Email：请填写有效的Email地址，以便与您联系。</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr align="center">
+                                                <td colspan="2" valign="middle" ></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="19" background="images/line.gif"></td>
+                                    <td width="436" valign="top">
+                                        <br><br>
+                                        <table width="90%" border="0" align="center" cellpadding="-2" cellspacing="-2">
+                                            <tr>
+                                                <td>
+                                                    <form name="form">
+                                                        <table width="100%" border="0" cellspacing="-2" cellspacing="-2">
+                                                            <tr>
+                                                                <td width="18%" height="30" align="center">用 户 名：</td>
+                                                                <td width="82%"><input name="username" type="text" id="username" maxlength="20"/></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="28" align="center">真实姓名：</td>
+                                                                <td height="28"><input name="trueName" type="text" id="trueName" maxlength="10" onkeydown="clavier(1)"/></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="28" align="center">年 龄：</td>
+                                                                <td><input name="age" type="text" id="age" onkeydown="clavier(0)"/></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="28" align="center">证件号码：</td>
+                                                                <td ><input name="identity" type="text" id="identity"/></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="28" align="center">联系电话：</td>
+                                                                <td><input name="tel" type="text" id="tel" onkeydown="clavier(0)"/></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="28" align="center" style="padding-left:10px">Email：</td>
+                                                                <td><input name="email" type="text" id="email" size="35"/></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="28" align="center">个人主页：</td>
+                                                                <td><input name="homepage" type="text" id="homepage" size="35"/></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="34">&nbsp;</td>
+                                                                <td><input name="button" type="button" value="确定保存"/><input name="submit" type="reset" value="重新填写"/></td>
+                                                            </tr>
+                                                        </table>
+                                                    </form>
+                                                </td>
+                                           </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="5"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

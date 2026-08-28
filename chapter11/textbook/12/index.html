@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>禁止选择网页中的文字</title>
+    <script type="text/javascript">
+        function textSelect()
+        {
+            alert("不允许选择文本！");
+            return false;
+        }
+    </script>
+</head>
+<body onselectstart="return textSelect()">
+    <h2>欢迎访问明日学院</h2>
+</body>
+</html>

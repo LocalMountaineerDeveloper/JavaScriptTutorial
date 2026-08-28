@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用事件制作超链接文本</title>
+    <script type="text/javascript">
+        function mousedown()
+        {
+            var obj=document.getElementById("p1"); //获取包含文本的元素
+            obj.style.color="#FF0000";
+        }
+        function mouseup()
+        {
+            var obj=document.getElementById("p1");
+            obj.style.color="#0000FF";
+        }
+    </script>
+</head>
+<body>
+    <p id="p1" style="color:#0000FF; cursor:pointer" onmousedown="mousedown()" onmouseup="mouseup()">
+        <u>JavaScript从入门到精通</u>
+    </p>
+</body>
+</html>

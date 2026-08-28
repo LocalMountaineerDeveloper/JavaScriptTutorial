@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出重置表单对话框</title>
+    <script type="text/javascript">
+        function resetForm()
+        {
+            alert("表单已重置！")
+            form.username.focus();
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="form" onreset="return resetForm()">
+        <div class="title">用户登录</div>
+        <div>
+            <label>用户名：</label>
+            <input type="text" name="username"/>
+            <strong style="color:red">*</strong>
+            <span id="showUser"></span>
+        </div>
+        <div>
+            <label>密码：</label>
+            <input type="password" name="password"/>
+            <strong style="color:red">*</strong>
+            <span id="showPassword"></span>
+        </div>
+        <div>
+            <input type="button" id="login" value="登录"/>
+            <input type="reset" id="reset" value="重置"/>
+        </div>
+    </form>
+</body>
+</html>

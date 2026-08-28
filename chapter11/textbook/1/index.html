@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过按钮变换背景颜色</title>
+    <script type="text/javascript">
+        var arrayColor=new Array("red","blue","navy","green","purple","grey","yellow");
+        var n=0;
+        function turnColors()
+        {
+            document.bgColor=arrayColor[n];
+            ++n;
+            if(n==arrayColor.length)
+            {
+                n=0;
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <input type="button" name="submit" value="变换背景" onclick="turnColors()">
+    </p>
+</body>
+</html>

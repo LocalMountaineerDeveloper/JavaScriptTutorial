@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本框获得焦点时改变背景颜色</title>
+    <script type="text/javascript">
+        function txtFocus()
+        {
+            var obj=event.target;
+            obj.style.background="#DDDDDD";
+        }
+        function txtBlur()
+        {
+            var obj=event.target;
+            obj.style.background="#FFFFFF";
+        }
+    </script>
+</head>
+<style>
+    *
+    {
+        margin:0;
+        padding:0;
+    }
+    body
+    {
+        font-size:12px;
+    }
+    .title
+    {
+        font-size:18px;
+        line-height:50px;
+        margin-left:150px;
+    }
+    .one
+    {
+        margin:10px 0; /*第一个值代表顶部（Top）和底部（Bottom）的外边距，第二个值：代表右侧（Right）和左侧（Left）的外边距 */
+    }
+    .one label
+    {
+        width:100px;
+        float:left;
+        text-align:right;
+        height:20px;
+        line-height:20px;
+    }
+    .one input
+    {
+        border:1px solid #999; /*#999是#999999的简写形式，相当于把前三位复制一遍到后三位*/
+        height:20px;
+    }
+    .two
+    {
+        padding-left:150px;
+    }
+</style>
+<body>
+    <form name="form">
+        <div class="title">用户注册</div>
+        <div class="one">
+            <label for="name">用户名：</label>
+            <input type="text" id="name" onfocus="txtFocus()" onblur="txtBlur()"/>
+        </div>
+        <div class="one">
+            <label for="password">密码</label>
+            <input type="password" id="password" onfocus="txtFocus()" onblur="txtBlur()"/>
+        </div>
+        <div class="one">
+            <label for="passwordConfirm">确认密码</label>
+            <input type="password" id="passwordConfirm" onfocus="txtFocus()" onblur="txtBlur()"/>
+        </div>
+        <div class="two">
+            <input type="submit" id="send" value="注册"/>
+            <input type="reset" id="reset" value="重置"/>
+        </div>
+    </form>
+</body>
+</html>

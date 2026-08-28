@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示鼠标指针在页面中的当前位置</title>
+    <script type="text/javascript">
+        var x=0,y=0;
+        function mousePosition(event)
+        {
+            x=event.x;
+            y=event.y;
+            document.getElementById("position").innerHTML="鼠标当前位置的横坐标："+x+"纵坐标："+y;
+        }
+        document.onmousemove=mousePosition; //鼠标在页面中移动时调用函数
+    </script>
+</head>
+<body>
+    <span id="position"></span>
+</body>
+</html>

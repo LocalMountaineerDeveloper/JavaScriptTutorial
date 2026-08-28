@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示选择的文本</title>
+    <script type="text/javascript">
+        function textSelect()
+        {
+            var text=window.getSelection();
+            if(text=="JavaScript")
+            {
+                alert("您选择的内容为："+text);
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="form1" method="post" action="">
+        <input name="textField" type="text" onselect="return textSelect()" value="JavaScript从入门到精通"/>
+    </form>
+</body>
+</html>

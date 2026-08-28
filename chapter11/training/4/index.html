@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取浏览器窗口的宽度和高度</title>
+    <script type="text/javascript">
+        function myFun()
+        {
+            var w=window.outerWidth;
+            var h=window.outerHeight;
+            var txt="窗口大小：宽度="+w+"，高度="+h;
+            document.getElementById("demo").innerHTML=txt;
+        }
+    </script>
+</head>
+<body onresize="myFun()">
+    <p id="demo"></p>
+</body>
+</html>

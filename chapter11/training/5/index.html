@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>改变文本框的边框颜色</title>
+    <script type="text/javascript">
+        function txtFocus(event)
+        {
+            var obj=event.target;
+            obj.style.border="3px solid #FF0000";
+        }
+        function txtBlur(event)
+        {
+            var obj=event.target;
+            obj.style.border="";
+        }
+    </script>
+</head>
+<body>
+    <form name="form1">
+        用户名：<input type="text" onfocus="txtFocus(event)" onblur="txtBlur(event)"/><br>
+        密码：<input type="text" onfocus="txtFocus(event)" onblur="txtBlur(event)"/>
+    </form>
+</body>
+</html>

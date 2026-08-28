@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标指针移动时改变图片焦点</title>
+    <script type="text/javascript">
+        function visible(image,i)
+        {
+            if(i==0)
+            {
+                image.style.opacity=0.5; //将图片的不透明度设置为1
+            }else
+            {
+                image.style.opacity=1;
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="images/Temp.jpg" onmouseover="visible(this,0)" onmouseout="visible(this,1)"/>
+</body>
+</html>

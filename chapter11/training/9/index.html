@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽文本到指定区域</title>
+</head>
+<style>
+    .dropTarget
+    {
+        width:100px;
+        height:35px;
+        margin:15px;
+        padding:10px;
+        border:1px solid #aaaaaa;
+    }
+</style>
+<body>
+    <p draggable="true" id="dragTarget">拖动到矩形中</p>
+    <div class="dropTarget" ondragover="dragOver(event)" ondrop="dragDrop(event)"></div>
+    <script type="text/javascript">
+        var dragTarget=document.getElementById("dragTarget");
+        function dragOver(e)
+        {
+            e.preventDefault();
+        }
+        function dragDrop(e)
+        {
+            e.preventDefault();
+            e.target.appendChild(dragTarget);
+        }
+    </script>
+</body>
+</html>

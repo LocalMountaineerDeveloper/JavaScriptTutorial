@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+.mr-cont
+{
+    width:495px;
+    height:300px;
+    margin:0 auto;
+    text-align:center;
+}
+
+#left,#right
+{
+    height:200px;
+    width:200px;
+    float:left;
+    margin-left:30px;
+    border:1px solid gray;
+}
+
+img
+{
+    height:150px;
+    margin-top:20px;
+}

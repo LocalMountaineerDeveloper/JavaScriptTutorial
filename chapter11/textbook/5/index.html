@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>按A键对页面进行刷新</title>
+    <script type="text/javascript">
+        function refresh(event)
+        {
+            if(event.keyCode==65) //键盘的"A"键
+            {
+                location.reload(); //location是一个浏览器内置对象，用于获取当前网页的网址（URL）以及控制浏览器跳转到新的网页，对页面进行刷新
+            }
+        }
+        document.onkeydown=refresh;
+    </script>
+</head>
+<body>
+    <img src="1.jpg"/>
+</body>
+</html>

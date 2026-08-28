@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟开灯和关灯的效果</title>
+    <script type="text/javascript">
+        window.onload = function()
+        {
+            var btn=document.getElementById("button");
+            btn.onclick=function()
+            {
+                if(btn.value=="关灯")
+                {
+                    document.body.style.backgroundColor="black";
+                    btn.value="开灯";
+                }else
+                {
+                    document.body.style.backgroundColor="white";
+                    btn.value="关灯";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="button" value="关灯"/>
+</body>
+</html>

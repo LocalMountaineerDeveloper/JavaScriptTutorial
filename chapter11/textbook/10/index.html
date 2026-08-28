@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单提交的验证</title>
+    <script type="text/javascript">
+        function allReset()
+        {
+            if(window.confirm("是否进行重置"))
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
+        function allSubmit()
+        {
+            var t=true;
+            var obj=event.target;
+            for(var i=1;i<=7;++i)
+            {
+                if(eval("obj."+"txt"+i).value=="")
+                {
+                    t=false;
+                    break;
+                }
+            }
+            if(!t)
+            {
+                alert("提交信息不允许为空！");
+            }
+            return t;
+        }
+    </script>
+</head>
+<style>
+    *
+    {
+        margin:0;
+        padding:0;
+    }
+    body
+    {
+        font-size:12px;
+    }
+    .title
+    {
+        font-size:18px;
+        line-height:50px;
+        margin-left:150px;
+    }
+    .one
+    {
+        margin:10px 0; /*第一个值代表顶部（Top）和底部（Bottom）的外边距，第二个值：代表右侧（Right）和左侧（Left）的外边距 */
+    }
+    .one label
+    {
+        width:100px;
+        float:left;
+        text-align:right;
+        height:20px;
+        line-height:20px;
+    }
+    .one input
+    {
+        border:1px solid #999;
+        height:20px;
+    }
+    .two
+    {
+        padding-left:150px;
+    }
+</style>
+<body style="font-size:12px">
+    <form name="form" onreset="return allReset()" onsubmit="return allSubmit()">
+        <div class="one">
+            <label for="txt1">所属类别：</label>
+            <select id="txt1">
+                <option value="数码设备">数码设备</option>
+                <option value="家用电器">家用电器</option>
+                <option value="礼品工艺">礼品工艺</option>
+            </select>
+            <select id="txt2">
+                <option value="数码相机">数码相机</option>
+                <option value="打印机">打印机</option>
+            </select>
+        </div>
+        <div class="one">
+            <label for="txt3">商品名称：</label>
+            <input type="text" id="txt3" size="30" maxlength="50"/>
+        </div>
+        <div class="one">
+            <label for="txt4">会员价：</label>
+            <input type="text" id="txt4" size="10"/>
+        </div>
+        <div class="one">
+            <label for="txt5">商品简介：</label>
+            <textarea cols="35" row="4" id="txt5"></textarea>
+        </div>
+        <div class="one">
+            <label for="txt6">商品数量：</label>
+            <input type="text" id="txt6" size="10"/>
+        </div>
+        <div class="two">
+            <input type="submit" id="submit" value="提交"/>
+            <input type="reset" id="reset" value="重置"/>
+        </div>
+    </form>
+</body>
+</html>

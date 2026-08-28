@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右来回拖动图片</title>
+    <script type="text/javascript">
+        function dragOver(e)
+        {
+            e.preventDefault(); //阻止默认行为，即允许被拖动
+        }
+        function dragDrop(e)
+        {
+            var pic=document.getElementById("pic");
+            e.preventDefault();
+            e.target.appendChild(pic); //移动被拖放的元素
+        }
+    </script>
+</head>
+<link href="css/style.css" type="text/css" rel="stylesheet"/>
+<body>
+    <div class="mr-cont">
+        <h1>拖放图片</h1>
+        <div id="left" ondragover="dragOver(event)" ondrop="dragDrop(event)">
+            <img src="img/face.png" id="pic"/>
+        </div>
+        <div id="right" ondragover="dragOver(event)" ondrop="dragDrop(event)"></div>
+    </div>
+</body>
+</html>

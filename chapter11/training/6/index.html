@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出用户的出生年月</title>
+    <script type="text/javascript">
+        function showBirth()
+        {
+            var year=form1.year.value;
+            var month=form1.month.value;
+            if(year!="" && month!="")
+            {
+                alert("您的出生年月是"+year+"年"+month+"月");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="form1">
+        <label>出生年月：</label>
+        <select name="year" onchange="showBirth()">
+            <option value="">请选择年份</option>
+            <script type="text/javascript">
+                for(var i=1920;i<=2026;++i)
+                {
+                    document.write("<option value="+i+">"+i+"年</option>");
+                }
+            </script>
+        </select>
+        <select name="month" onchange="showBirth()">
+            <option value="">请选择月份</option>
+            <script type="text/javascript">
+                for(var i=1;i<=12;++i)
+                {
+                    document.write("<option value="+i+">"+i+"月</option>");
+                }
+            </script>
+        </select>
+    </form>
+</body>
+</html>
