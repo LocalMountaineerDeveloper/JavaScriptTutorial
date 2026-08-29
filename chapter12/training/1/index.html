@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现背景色和前景色的互换</title>
+    <script type="text/javascript">
+        function changeColor()
+        {
+            var cColor=document.body.style.color;
+            var bgColor=document.body.style.backgroundColor;
+            document.body.style.backgroundColor=cColor;
+            document.body.style.color=bgColor;
+        }
+    </script>
+</head>
+<body style="background-color:#FFCCFF; color:#000000;">
+    明日科技出品必属佳品
+    <input type="button" value="交互颜色" onclick="changeColor()"/>
+</body>
+</html>

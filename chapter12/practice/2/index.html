@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出和关闭图片对话框</title>
+    <script type="text/javascript">
+        function openNewWindow()
+        {
+            var box=document.getElementById("box");
+            box.style.display="block"; //设置元素显示
+        }
+        function closeNewWindow()
+        {
+            var box=document.getElementById("box");
+            box.style.display="none"; //设置元素隐藏
+        }
+    </script>
+</head>
+<style>
+    .box
+    {
+        display:none;
+        width:260px;
+        height:260px;
+        text-align:center;
+        border:1px solid blue;
+        position:relative;
+    }
+    .box img
+    {
+        margin-top:30px;
+    }
+    .box span
+    {
+        width:52px;
+        height:16px;
+        position:absolute;
+        top:3px;
+        right:2px;
+        background-image:url(delete.gif);
+        cursor:pointer;
+    }
+</style>
+<body>
+    <a href="javascript:void(0)" onclick="openNewWindow()">
+        打开图片对话框
+    </a>
+    <div id="box" class="box">
+        <span onclick="closeNewWindow()"></span>
+        <img src="face.png"/>
+    </div>
+</body>
+</html>

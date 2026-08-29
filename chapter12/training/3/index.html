@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态添加文字</title>
+    <script type="text/javascript">
+        var str="JavaScript从入门到精通";
+        var i=0;
+        function addWord()
+        {
+            var txt=document.createElement("span");
+            txt.style.color="#FF0000";
+            txt.innerHTML=str.charAt(i);
+            document.getElementById("show").appendChild(txt);
+            ++i;
+        }
+    </script>
+</head>
+<body>
+    <form name="form">
+        <input type="button" name="btn" value="添加文字" onclick="addWord()"/>
+    </form>
+    <p id="show"></p>
+</body>
+</html>

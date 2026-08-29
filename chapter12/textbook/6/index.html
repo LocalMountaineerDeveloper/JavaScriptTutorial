@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打开新文档并输出内容</title>
+    <script type="text/javascript">
+        function openNewDocument()
+        {
+            var nd;
+            nd=window.open();
+            nd.document.open();
+            nd.document.write("<html><head><title>一个新的文档</title></head><body>");
+            nd.document.write("<img src='1.jpg'/><br>");
+            nd.document.write("这里是写入的新内容<br>");
+            nd.document.write("</body></html>");
+            nd.document.close();
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="打开新文档" onclick="openNewDocument()"/>
+</body>
+</html>

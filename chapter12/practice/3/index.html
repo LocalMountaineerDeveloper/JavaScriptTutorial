@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态添加用户头像</title>
+    <script type="text/javascript">
+        var i=0;
+        function addProfilePhoto()
+        {
+            var image_array=new Array("5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg");
+            var img=document.createElement("img");
+            img.src="images/"+image_array[i];
+            img.style.margin="5px";
+            if(i<image_array.length)
+            {
+                document.getElementById("show").appendChild(img);
+            }
+            ++i;
+        }
+    </script>
+</head>
+<body>
+    <form name="form">
+        <input type="button" name="btn" value="添加用户头像" onclick="addProfilePhoto()"/>
+    </form>
+    <p id="show"></p>
+</body>
+</html>

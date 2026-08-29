@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现动态标题栏</title>
+    <script type="text/javascript">
+        var n=0;
+        function title()
+        {
+            ++n;
+            if(n==3)
+            {
+                n=1;
+            }
+            if(n==1)
+            {
+                document.title="☆★动态标题栏☆★";
+            }
+            if(n==2)
+            {
+                document.title="☆★个人主页☆★";
+            }
+            setTimeout("title()",500);
+        }
+    </script>
+</head>
+<body>
+    <img src="1.jpg"/>
+    <script type="text/javascript">
+        title();
+    </script>
+</body>
+</html>

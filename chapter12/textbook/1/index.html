@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景和文字自动变色</title>
+    <script type="text/javascript">
+        var color_array=new Array("red","green","blue","yellow","navy","purple","grey");
+        var n=0;
+        function turnColors()
+        {
+            ++n;
+            document.body.style.backgroundColor=color_array[n];
+            document.body.style.color=color_array[n-1];
+            if(n==color_array.length-1)
+            {
+                n=0;
+            }
+            setTimeout("turnColors()",100);
+        }
+    </script>
+</head>
+<body>
+    成功永远属于马上行动的人
+    <script type="text/javascript">
+        turnColors();
+    </script>
+</body>
+</html>
