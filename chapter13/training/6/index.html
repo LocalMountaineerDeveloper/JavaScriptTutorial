@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改超链接的文本和链接地址</title>
+    <script type="text/javascript">
+        function changeLink()
+        {
+            document.getElementById("baidu").innerHTML="必应";
+            document.getElementById("baidu").href="https://cn.bing.com";
+        }
+    </script>
+</head>
+<body>
+    <a id="baidu" href="https://www.baidu.com">百度</a>
+    <input type="button" onclick="changeLink()" value="修改"/>
+</body>
+</html>

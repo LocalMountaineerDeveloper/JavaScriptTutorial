@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除编号对应的影片资讯</title>
+    <script type="text/javascript">
+        function deleteMovieInfo()
+        {
+            var num=document.getElementById("num").value;
+            var deleteNode=document.getElementById("movie");
+            if(deleteNode.hasChildNodes())
+            {
+                deleteNode.removeChild(document.getElementById(num));
+            }
+        }
+    </script>
+</head>
+<style>
+    ul
+    {
+        list-style-type:none;
+    }
+</style>
+<body>
+    <div>
+        <h3>最新电影资讯</h3>
+        <ul id="movie">
+            <li id="1">1.《金蝉脱壳》两大动作巨星联手</li>
+            <li id="2">2.《阿甘正传》励志而传奇的一生</li>
+            <li id="3">3.《爱乐之城》爱情与梦想的交织</li>
+            <li id="4">4.《头号玩家》游戏梦想照进现实</li>
+        </ul>
+    </div>
+    <form name="myForm">
+        输入影片资讯编号：<input type="text" name="num" id="num"/>
+        <input type="button" value="删除" onclick="deleteMovieInfo()"/>
+    </form>
+</body>
+</html>

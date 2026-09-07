@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示时间和问候语</title>
+    <script type="text/javascript">
+        function showTime()
+        {
+            var greet_str="";
+            var datetime=new Date();
+            var hour=datetime.getHours();
+            var minute=datetime.getMinutes();
+            var second=datetime.getSeconds();
+            if(hour>=0 && hour<6)
+            {
+                greet_str="凌晨好";
+            }else if(hour>=6 && hour<9)
+            {
+                greet_str="早上好";
+            }else if(hour>=9 && hour<12)
+            {
+                greet_str="上午好";
+            }else if(hour>=12 && hour<14)
+            {
+                greet_str="中午好";
+            }else if(hour>=14 && hour<18)
+            {
+                greet_str="下午好";
+            }else if(hour>=18 && hour<20)
+            {
+                greet_str="傍晚好";
+            }else if(hour>=20 && hour<24)
+            {
+                greet_str="晚上好";
+            }
+            window.setTimeout("showTime()",1000); //每隔1秒重新获取一次时间
+            document.getElementById("time").innerHTML="现在是：<b>"+String(hour).padStart(2,"0")+":"+String(minute).padStart(2,"0")+":"+String(second).padStart(2,"0")+"</b>";
+            document.getElementById("greet1").innerHTML="<b>"+greet_str+"</b>";
+            document.getElementById("greet2").innerText="<b>"+greet_str+"</b>";
+        }
+    </script>
+</head>
+<body>
+    <div id="time">显示当前时间</div>
+    <div id="greet1">显示问候语</div>
+    <div id="greet2">测试对比</div>
+    <script type="text/javascript">
+        window.onload=showTime;
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插入结点</title>
+    <script type="text/javascript">
+        function createNode(str)
+        {
+            var newP=document.createElement("p");
+            var newText=document.createTextNode(str);
+            newP.appendChild(newText); //将文本结点添加到创建的p元素中
+            return newP;
+        }
+        function insertNode(nodeId,str)
+        {
+            var node=document.getElementById(nodeId);
+            var newNode=createNode(str);
+            if(node.parentNode)
+            {
+                node.parentNode.insertBefore(newNode,node);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2 id="h2">在上面插入结点</h2>
+    <form id="form" name="form">
+        输入文本：<input type="text" name="text"/>
+        <input type="button" value="插入" onclick="insertNode('h2',form.text.value);"/>
+    </form>
+</body>
+</html>

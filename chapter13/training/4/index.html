@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动两个列表中的指定元素</title>
+    <script type="text/javascript">
+        function move()
+        {
+            var node1=document.getElementById("vegetables").lastElementChild;
+            var node2=document.getElementById("fruits").lastElementChild;
+            document.getElementById("vegetables").appendChild(node2);
+            document.getElementById("fruits").appendChild(node1);
+        }
+    </script>
+</head>
+<style>
+    ul
+    {
+        float:left;
+    }
+    input
+    {
+        display:block;
+        clear:both;
+    }
+</style>
+<body>
+    <ul id="vegetables">
+        <li>黄瓜</li>
+        <li>茄子</li>
+        <li>芒果</li>
+    </ul>
+    <ul id="fruits">
+        <li>西瓜</li>
+        <li>蜜橘</li>
+        <li>萝卜</li>
+    </ul>
+    <input type="button" value="移动" onclick="move()"/>
+</body>
+</html>

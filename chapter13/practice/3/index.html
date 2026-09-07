@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择表情图片</title>
+    <script type="text/javascript">
+        function showEmotion(option)
+        {
+            var imgSrc=option.value;
+            var box=document.getElementById("box");
+            box.innerHTML="";
+            var img=document.createElement("img");
+            img.src=imgSrc;
+            box.appendChild(img);
+        }
+    </script>
+</head>
+<body>
+    <form name="form">
+        <label>请选择表情图片：</label>
+        <select name="expression" onchange="showEmotion(this)">
+            <option value="images/01.png">发呆</option>
+            <option value="images/02.png">睡觉</option>
+            <option value="images/03.png">难过</option>
+            <option value="images/04.png">调皮</option>
+            <option value="images/05.png">装酷</option>
+        </select>
+    </form>
+    <div id="box">
+        <img src="images/01.png"/>
+    </div>
+</body>
+</html>

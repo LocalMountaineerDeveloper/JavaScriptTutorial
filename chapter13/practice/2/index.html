@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>年、月、日的联动</title>
+    <script type="text/javascript">
+        function append(day,value)
+        {
+            var optionNode=document.createElement("option");
+            optionNode.value=value;
+            optionNode.innerText=value+"日";
+            day.appendChild(optionNode);
+        }
+
+        function getDay()
+        {
+            var year=document.getElementById("year").value;
+            var month=document.getElementById("month").value;
+            var day=document.getElementById("day");
+            day.innerHTML="";
+            if(month==4 || month==6 || month==9 || month==11)
+            {
+                for(var j=1;j<=30;++j)
+                {
+                    append(day,j);
+                }
+            }else if(month==2)
+            {
+                if(year%400==0 || year%4==0 && year%100!=0)
+                {
+                    for(var j=1;j<=29;++j)
+                    {
+                        append(day,j);
+                    }
+                }else
+                {
+                    for(var j=1;j<=28;++j)
+                    {
+                        append(day,j);
+                    }
+                }
+            }else
+            {
+                for(var j=1;j<=31;++j)
+                {
+                    append(day,j);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="form" name="form" method="post" action="">
+        <select name="year" id="year" onchange="getDay()">
+            <script type="text/javascript">
+                var myDate=new Date();
+                for(i=1970;i<=myDate.getFullYear();++i)
+                {
+                    document.write("<option value='"+i+"' "+(i==1996?"selected":"")+">"+i+"年</option>");
+                }
+            </script>
+        </select>
+        <select name="month" id="month" onchange="getDay()">
+            <script type="text/javascript">
+                for(var i=1;i<=12;++i)
+                {
+                    document.write("<option value='"+i+"' "+(i==1?"selected":"")+">"+i+"月</option>");
+                }
+            </script>
+        </select>
+        <select name="day" id="day">
+            <script type="text/javascript">
+                for(i=1;i<=31;++i)
+                {
+                    document.write("<option value='"+i+"' "+(i==1?"selected":"")+">"+i+"日</option>");
+                }
+            </script>
+        </select>
+    </form>
+</body>
+</html>

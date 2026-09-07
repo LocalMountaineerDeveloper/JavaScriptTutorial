@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复制下拉菜单</title>
+    <script type="text/javascript">
+        function cloneOriginalNode(isDeepClone)
+        {
+            var originalNode=document.getElementById("type");
+            var newNode=originalNode.cloneNode(isDeepClone);
+            var newBrNode=document.createElement("br");
+            var here=document.getElementById("here");
+            here.appendChild(newNode);
+            here.appendChild(newBrNode);
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <select name="type" id="type">
+            <option value="">请选择学历</option>
+            <option value="0">博士</option>
+            <option value="1">硕士</option>
+            <option value="2">本科</option>
+            <option value="3">专科</option>
+            <option value="4">高中</option>
+        </select>
+        <p>
+            <div id="here"></div>
+        </p>
+        <input type="button" value="复制" onclick="cloneOriginalNode(false)"/>
+        <input type="button" value="深度复制" onclick="cloneOriginalNode(true)"/>
+    </form>
+</body>
+</html>

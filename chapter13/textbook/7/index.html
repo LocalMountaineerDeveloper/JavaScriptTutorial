@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>替换标记和文本</title>
+    <script type="text/javascript">
+        function replaceNode(newText,newElement)
+        {
+            var originalNode=document.getElementById("b1");
+            if(originalNode)
+            {
+                var newNode=document.createElement(newElement);
+                newNode.id="b1";
+                var newTextNode=document.createTextNode(newText);
+                newNode.appendChild(newTextNode);
+                originalNode.parentNode.replaceChild(newNode,originalNode);
+            }
+        }
+    </script>
+</head>
+<style>
+    input
+    {
+        margin-top:3px;
+    }
+</style>
+<body>
+    <b id="b1">一寸光阴一寸金</b>
+    <p>
+        替换后的标记：<input id="elementInput" type="text" size="15"/><br>
+        替换后的文本：<input id="textInput" type="text" size="15"/><br>
+    </p>
+    <input type="button" value="替换" onclick="replaceNode(textInput.value,elementInput.value)"/>
+</body>
+</html>

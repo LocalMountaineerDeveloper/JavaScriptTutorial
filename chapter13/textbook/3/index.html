@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>补全古诗最后一句</title>
+    <script type="text/javascript">
+        function completePoem()
+        {
+            var div=document.createElement("div"); //创建div元素
+            div.className="poem";
+            var last=form.last.value;
+            txt=document.createTextNode(last); //创建文本结点
+            div.appendChild(txt);
+            document.getElementById("poemDiv").appendChild(div);
+        }
+    </script>
+</head>
+<style>
+    #poemDiv /* #代表ID选择器：用于精确匹配页面中独一无二的某一个元素，如id="poemDiv"，在同一个HTML页面中只能出现一次，CSS权重优先级最高 */
+    {
+        width:300px;
+        height:180px;
+        background:url(poem.png);
+        font-weight:bolder;
+    }
+    .poemTitle /* .代表类（Class）选择器：用于匹配页面中一组可以重复出现的元素，如class="poemTitle"，在同一个HTML页面中可以出现多次 */
+    {
+        height:50px;
+        line-height:50px;
+        margin-left:100px;
+        font-size:24px;
+        color:#0000FF;
+    }
+    .poem
+    {
+        margin:0 auto;
+        margin-left:100px;
+        height:30px;
+        line-height:30px;
+        color:#0000FF;
+        font-size:18px;
+    }
+</style>
+<body>
+    <div id="poemDiv">
+        <div class="poemTitle">登鹳雀楼</div>
+        <div class="poem">白日依山尽，</div>
+        <div class="poem">黄河入海流。</div>
+        <div class="poem">欲穷千里目，</div>
+    </div>
+    <form name="form">
+        <p>
+            请输入最后一句：<input type="text" name="last"/>
+            <input type="button" value="添加" onclick="completePoem()"/>
+        </p>
+    </form>
+</body>
+</html>

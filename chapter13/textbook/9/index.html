@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现广告图片的轮换效果</title>
+    <script type="text/javascript">
+        var element=document.getElementsByClassName("i");
+        var position=0;
+        function changeImage()
+        {
+            element[position].style.display="none";
+            ++position;
+            if(position==element.length)
+            {
+                position=0;
+            }
+            element[position].style.display="block";
+        }
+        setInterval("changeImage()",2000);
+    </script>
+</head>
+<style>
+    #tabs
+    {
+        width:1200px;
+        height:320px;
+        overflow:hidden;
+        float:left;
+        position:relative;
+    }
+    #tabs>a:not(:first-child) /* 选中 #tabs 容器下，除了第一个 <a> 标签（子元素）以外的所有 <a> 标签。 */
+    {
+        display:none;
+    }
+</style>
+<body>
+    <div id="tabs">
+        <a class="i" href="#"><img src="banner/1.jpg"/></a>
+        <a class="i" href="#"><img src="banner/2.jpg"/></a>
+    </div>
+</body>
+</html>

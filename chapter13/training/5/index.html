@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断选择的答案</title>
+    <script type="text/javascript">
+        function check()
+        {
+            var answer=null;
+            var options=document.getElementsByName("option");
+            for(var i=0;i<options.length;++i)
+            {
+                if(options[i].checked)
+                {
+                    answer=options[i].value;
+                }
+            }
+            if(answer==null)
+            {
+                alert("请选择答案");
+            }else if(answer=="B")
+            {
+                alert("答案正确。");
+            }else
+            {
+                alert("答案不正确！")
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>在《倚天屠龙记》中，张三丰是__派的掌门？</h3>
+    <input type="radio" name="option" value="A"/>A少林&nbsp;&nbsp;
+    <input type="radio" name="option" value="B"/>B武当&nbsp;&nbsp;
+    <input type="radio" name="option" value="C"/>C峨眉&nbsp;&nbsp;
+    <input type="radio" name="option" value="D"/>D昆仑&nbsp;&nbsp;
+    <br>
+    <p><input type="button" name="button" value="提交答案" onclick="check()"/></p>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历文档树</title>
+    <script type="text/javascript">
+        function nodeSearch(txt,nodeName)
+        {
+            switch(nodeName)
+            {
+                case "previousSibling":
+                    if(txt.previousSibling)
+                    {
+                        txt=txt.previousSibling;
+                    }else
+                    {
+                        alert("无兄弟结点");
+                    }
+                    break;
+                case "nextSibling":
+                    if(txt.nextSibling)
+                    {
+                        txt=txt.nextSibling;
+                    }else
+                    {
+                        alert("无兄弟结点");
+                    }
+                    break;
+                case "parent":
+                    if(txt.parentNode)
+                    {
+                        txt=txt.parentNode;
+                    }else
+                    {
+                        alert("无父结点");
+                    }
+                    break;
+                case "firstChild":
+                    if(txt.hasChildNodes())
+                    {
+                        txt=txt.firstChild;
+                    }else
+                    {
+                        alert("无子结点");
+                    }
+                    break;
+                case "lastChild":
+                    if(txt.hasChildNodes())
+                    {
+                        txt=txt.lastChild;
+                    }else
+                    {
+                        alert("无子结点");
+                    }
+                    break;
+            }
+            txtUpdate(txt);
+            return txt;
+        }
+        function txtUpdate(txt)
+        {
+            window.document.form.name.value=txt.nodeName;
+            window.document.form.type.value=txt.nodeType;
+            window.document.form.value.value=txt.nodeValue;
+        }
+    </script>
+</head>
+<body>
+    <form name="form" action="#" method="get">
+        结点名称：<input type="text" id="name"/><br>
+        结点类型：<input type="text" id="type"/><br>
+        结点的值：<input type="text" id="value"/><br>
+        <input type="button" value="父结点" onclick="txt=nodeSearch(txt,'parent');"/>
+        <input type="button" value="第一个子结点" onclick="txt=nodeSearch(txt,'firstChild');"/>
+        <input type="button" value="最后一个子结点" onclick="txt=nodeSearch(txt,'lastChild');"/>
+        <input type="button" value="前一个兄弟结点" onclick="txt=nodeSearch(txt,'previousSibling');"/>
+        <input type="button" value="后一个兄弟结点" onclick="txt=nodeSearch(txt,'nextSibling');"/>
+        <input type="button" value="返回根结点" onclick="txt=document.documentElement; txtUpdate(txt);"/>
+    </form>
+    <script type="text/javascript">
+        var txt=document.documentElement;
+        txtUpdate(txt);
+    </script>
+</body>
+</html>

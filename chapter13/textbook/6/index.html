@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除结点</title>
+    <script type="text/javascript">
+        function deleteNode()
+        {
+            var deleteNode=document.getElementById("delete");
+            if(deleteNode.hasChildNodes())
+            {
+                deleteNode.removeChild(deleteNode.lastChild);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>删除结点</h2>
+    <div id="delete">
+        <p>千山鸟飞绝</p><p>万径人踪灭</p><p>孤舟蓑笠翁</p><p>独钓寒江雪</p> <!--注意这里点击删除按钮后第一个删除的是换行符结点，第二个删除的才是<p>结点-->
+    </div>
+    <form>
+        <input type="button" value="删除" onclick="deleteNode()"/>
+    </form>
+</body>
+</html>

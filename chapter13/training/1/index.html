@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加指定颜色的文字</title>
+    <script type="text/javascript">
+        function addText()
+        {
+            var div=document.createElement("div");
+            var text=document.getElementById("myForm").input.value;
+            var textNode=document.createTextNode(text);
+            div.style.color=document.getElementById("myForm").color.value;
+            div.appendChild(textNode);
+            document.getElementById("show").appendChild(div);
+        }
+    </script>
+</head>
+<body>
+    <div id="show"></div>
+    <form name="myForm" id="myForm">
+        请输入文字：<input type="text" name="input" id="input"/>
+        <select name="color" id="color">
+            <option value="red">红色</option>
+            <option value="green">绿色</option>
+            <option value="blue">蓝色</option>
+        </select>
+        <input type="button" value="添加" onclick="addText()"/>
+    </form>
+</body>
+</html>

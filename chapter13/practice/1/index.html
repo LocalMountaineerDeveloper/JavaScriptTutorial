@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将粗体字改为斜体字</title>
+    <script type="text/javascript">
+        function changeFont()
+        {
+            var oldNode=document.getElementById("b_node");
+            var newNode=document.createElement("i");
+            var newTextNode=document.createTextNode(oldNode.firstChild.nodeValue);
+            newNode.appendChild(newTextNode);
+            oldNode.parentNode.replaceChild(newNode,oldNode);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <b id="b_node">一生挚爱</b>
+    </div>
+    <a href="javascript:changeFont()">将粗体改为斜体</a>
+</body>
+</html>
