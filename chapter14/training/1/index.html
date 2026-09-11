@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出警告对话框</title>
+    <style>
+        ul /*这里的ul分开写与合并写效果是一样的，属于个人习惯，浏览器解析时会合并应用到页面上的所有<ul>标签*/
+        {
+            list-style:none;
+        }
+        ul
+        {
+            width:300px;
+            height:30px;
+            line-height:30px;
+            border-bottom:1px dashed #333333;
+        }
+        ul:first-child
+        {
+            font-weight:bolder;
+            border:none;
+        }
+        ul li
+        {
+            width:100px;
+            text-align:center;
+            float:left;
+        }
+    </style>
+    <script type="text/javascript">
+        function listen()
+        {
+            alert("只有会员才能播放歌曲，请登入！");
+        }
+    </script>
+</head>
+<body>
+    <div id="div">
+        <ul>
+            <li>歌曲名称</li>
+            <li>主唱</li>
+            <li>在线试听</li>
+        </ul>
+        <ul>
+            <li>你的样子</li>
+            <li>林志炫</li>
+            <li><a href="#" onclick="listen()"><img src="images/listen.png"/></a></li>
+        </ul>
+        <ul>
+            <li>只要有你</li>
+            <li>孙楠/那英</li>
+            <li><a href="#" onclick="listen()"><img src="images/listen.png"/></a></li>
+        </ul>
+        <ul>
+            <li>宽容</li>
+            <li>张信哲</li>
+            <li><a href="#" onclick="listen()"><img src="images/listen.png"/></a></li>
+        </ul>
+    </div>
+</body>
+</html>

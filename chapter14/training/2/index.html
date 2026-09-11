@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出确认对话框</title>
+    <script type="text/javascript">
+        function logout()
+        {
+            var bool=window.confirm("您确定退出登录吗？");
+            if(bool==true)
+            {
+                alert("您已退出登录！");
+            }else
+            {
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="#" onclick="return logout()">退出登录</a>
+</body>
+</html>

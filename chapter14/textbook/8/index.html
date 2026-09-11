@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面从上向下滚动</title>
+    <script type="text/javascript">
+        var position=0;
+        var timer=setTimeout("scroller()",50);
+        function scroller()
+        {
+            scrollTo(0,position++);
+            clearTimeout(timer);
+            timer=setTimeout("scroller()",50);
+        }
+    </script>
+</head>
+<body>
+    <img src="1.png">
+    <script type="text/javascript">
+        scroller();
+    </script>
+</body>
+</html>

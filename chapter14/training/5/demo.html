@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript">
+        function drop()
+        {
+            var height=window.screen.availHeight;
+            if(window.moveBy) //如果当前环境支持 window.moveBy 方法，就判定为true
+            {
+                for(var i=height;i>0;--i) //教材这里写法是var i=Math.floor(height/1)，但实际上availHeight本身就是一个整数，不需要再除以1并向下取整数
+                {
+                    window.moveBy(0,1);
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="drop()">
+    <img src="1.jpg" width="557" height="176"/>
+</body>
+</html>

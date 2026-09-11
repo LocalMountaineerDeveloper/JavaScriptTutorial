@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择选项并输出结果</title>
+</head>
+<body>
+    <div id="show">请回答问题</div>
+    <script type="text/javascript">
+        var answer=window.prompt("2024年奥运会在哪座城市举办？\n\nA.罗马\nB.北京\nC.伦敦\nD.巴黎","");
+        switch(answer)
+        {
+            case "a":
+            case "A":
+                document.getElementById("show").innerHTML="答案不正确！";
+                break;
+            case "b":
+            case "B":
+                document.getElementById("show").innerHTML="答案不正确！";
+                break;
+            case "c":
+            case "C":
+                document.getElementById("show").innerHTML="答案不正确！";
+                break;
+            case "d":
+            case "D":
+                document.getElementById("show").innerHTML="答案正确！";
+                break;
+            default:
+                document.getElementById("show").innerHTML="只能填入字母a,A,b,B,c,C,d,D！";
+                break;
+        }
+    </script>
+</body>
+</html>

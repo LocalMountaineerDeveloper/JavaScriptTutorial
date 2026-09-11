@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过按钮打开新窗口</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function newWindow()
+        {
+            window.open("newWindow.html","","toolbar,menubar,scrollbars,resizable,status,location,directories,height=400,width=500");
+        }
+    </script>
+    <form name="form" method="post" action="">
+        <input type="button" name="button" value="创建新窗口" onclick="newWindow()"/>
+    </form>
+</body>
+</html>

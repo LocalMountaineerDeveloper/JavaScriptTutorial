@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关闭打开的子窗口</title>
+    <script type="text/javascript">
+        var newWindow=window.open("newIndex.html","newWindow","width=520,height=226");
+        function closeWindow()
+        {
+            newWindow.close();
+        }
+    </script>
+</head>
+<body>
+    <form name="form">
+        <input type="button" name="button" value="关闭子窗口" onclick="closeWindow()"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环显示图片</title>
+    <script type="text/javascript">
+        var a=1;
+        function showPicture()
+        {
+            var box=document.getElementById("box");
+            box.innerHTML+="<img src='images/0"+a+".png'/>";
+            ++a;
+            if(a>5)
+            {
+                a=1;
+                window.setTimeout(function()
+                    {
+                        box.innerHTML="";
+                    },1000);
+            }
+            window.setTimeout(showPicture,1000);
+        }
+    </script>
+</head>
+<body onload="showPicture()">
+    <div id="box"></div>
+</body>
+</html>

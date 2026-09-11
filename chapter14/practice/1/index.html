@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算两个数的和并判断结果</title>
+    <script type="text/javascript">
+        var num1,num2,result,answer;
+        while(true)
+        {
+            num1=Math.floor(Math.random()*9)+1;
+            num2=Math.floor(Math.random()*9)+1;
+            result=num1+num2;
+            answer=prompt(num1+"+"+num2+"=","0");
+            if(answer!=null)
+            {
+                if(confirm(((answer==result)?"正确":"错误")+"！是否继续？"))
+                {
+                    continue;
+                }else
+                {
+                    window.alert("回答结束。");
+                    break;
+                }
+            }else
+            {
+                window.alert("答案不能为空！");
+                continue;
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

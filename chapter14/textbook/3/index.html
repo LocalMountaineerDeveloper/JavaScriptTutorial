@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出提示对话框</title>
+    <script type="text/javascript">
+        function doClick()
+        {
+            var msg=document.getElementById("input");
+            var btn=document.getElementById("button");
+            msg.value=window.prompt(btn.value,"默认返回信息");
+        }
+    </script>
+</head>
+<body>
+    <input id="input" type="text" size="20" placeholder="请在此输入信息"/>
+    <br><br>
+    <input id="button" type="button" value="显示提示对话框" onclick="doClick()"/>
+</body>
+</html>

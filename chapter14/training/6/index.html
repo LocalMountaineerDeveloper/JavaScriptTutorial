@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单计时器</title>
+    <script type="text/javascript">
+        var flag=false;
+        var timeTick;
+        function startTimer()
+        {
+            if(flag==false)
+            {
+                setTimeout(function()
+                {
+                    continueTimer();flag=true;
+                },1000);
+            }
+        }
+        function continueTimer()
+        {
+            var i=document.getElementById("time").value;
+            ++i;
+            document.getElementById("time").value=i;
+            timeTick=setTimeout("continueTimer()",1000);
+        }
+        function pauseTimer()
+        {
+            clearTimeout(timeTick);
+            flag=false;
+        }
+    </script>
+</head>
+<body>
+    <form id="form" name="form" method="post" action="">
+        <input type="text" name="time" id="time" size="1" value="0"/>
+        <input type="button" name="start" value="开始计时" onclick="startTimer()"/>
+        <input type="button" name="pause" value="暂停计时" onclick="pauseTimer()"/>
+    </form>
+</body>
+</html>
