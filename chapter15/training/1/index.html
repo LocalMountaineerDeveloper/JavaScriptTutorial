@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单击按钮跳转和刷新页面</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {  //DOMContentLoaded会在HTML解析完成（但图片等资源可能还没加载完）时触发，此时所有元素都可访问。如果没有DOMContentLoaded，那么getElementsByTagName会拿到空结果，使得无法在目标元素上绑定事件监听器
+            var buttons=document.getElementsByTagName("button");
+            buttons[0].addEventListener("click",function()
+            {
+                location.assign("https://cn.bing.com/");
+            });
+            buttons[1].addEventListener("click",function()
+            {
+                location.reload();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>跳转页面</button>
+    <button>刷新页面</button>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>newIndex</title>
+    <style>
+        .style1
+        {
+            font-size:9pt; /* pt是“1/72英寸”，是为纸张印刷设计的物理单位。在96dpi下，1pt=1.333px */
+            color:#FFFFFF;
+        }
+        body
+        {
+            margin-left:0px;
+            margin-top:0px;
+        }
+        .style3
+        {
+            font-size:9pt;
+            color:#000000;
+            margin-left:26px;
+        }
+    </style>
+    <script type="text/javascript">
+        function closeChildWindow()
+        {
+            alert("关闭子窗口！");
+            window.opener.location.reload(); //刷新父窗口中的网页
+            window.close();
+        }
+    </script>
+</head>
+<body>
+    <table width="400" height="224" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="17" bgcolor="#9A3334">
+                <div align="center" class="style1">明日学院简介</div>
+            </td>
+        </tr>
+        <tr>
+            <td height="192">
+                <table width="373" height="167" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <span class="style3">明日学院，是吉林省明日科技有限公司倾力打造的在线实用技能学习平台，该平台于2016年正式上线，主要为学习者提供海量、优质的课程，课程结构严谨，用户可以根据自身的学习程度，自主安排学习进度。我们的宗旨是，为变成学习者提供一站式服务，培养用户的编程思维。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div align="right">
+                                <input type="submit" name="submit" value="关闭" onclick="closeChildWindow()"/>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="13" bgcolor="#9A3334">&nbsp;</td>
+        </tr>
+    </table>
+    <p>&nbsp;</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

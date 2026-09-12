@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单击按钮3秒后跳转页面</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            var buttons=document.getElementsByTagName("button");
+            var divs=document.getElementsByTagName("div");
+            buttons[0].addEventListener("click",function()
+            {
+                var time=3;
+                setInterval(function()
+                {
+                    if(time==0)
+                    {
+                        location.href="https://www.baidu.com";
+                    }else
+                    {
+                        divs[0].innerHTML=time+"秒后跳转页面……";
+                        --time;
+                    }
+                },1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>跳转页面</button>
+    <div></div>
+</body>
+</html>

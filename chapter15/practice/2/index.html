@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制弹出窗口的居中显示</title>
+    <style>
+        body
+        {
+            font-size:14px;
+            margin-top:0px;
+        }
+    </style>
+    <script type="text/javascript">
+        function manage()
+        {
+            var newWindow=window.open("login.html","","width=342,height=284");
+            width=screen.width;
+            height=screen.height;
+            newWindow.moveTo((width-342)/2,(height-284)/2);
+        }
+    </script>
+</head>
+<body>
+    <img src="Images/re_top.gif" width="208" height="56" border="0" usemap="#Map"/>
+    <map name="Map">
+        <area shape="rect" coords="82,17,125,39" href="#" onclick="manage()"/>
+        <area shape="circle" coords="49,28,14"/>
+    </map>
+</body>
+</html>
