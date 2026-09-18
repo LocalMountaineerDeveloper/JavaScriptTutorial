@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现随意摆放的照片墙</title>
+    <style>
+        body
+        {
+            background:url(images/bg.png);
+        }
+        #img1
+        {
+            position:absolute;
+            width:130px;
+            height:97px;
+            top:20px;
+            left:30px;
+            transform:rotate(-30deg);
+        }
+        #img2
+        {
+            position:absolute;
+            border:solid 1px #CCC;
+            width:130px;
+            height:97px;
+            top:120px;
+            left:130px;
+            transform:rotate(-10deg);
+        }
+        #img3
+        {
+            position:absolute;
+            border:solid 1px #CCC;
+            width:130px;
+            height:97px;
+            top:220px;
+            left:230px;
+            transform:rotate(30deg);
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            var img1=document.getElementById("img1");
+            var img2=document.getElementById("img2");
+            var img3=document.getElementById("img3");
+            img1.style.left=30+"px";
+            img1.style.top=20+"px";
+            img2.style.left=130+"px";
+            img2.style.top=120+"px";
+            img3.style.left=230+"px";
+            img3.style.top=220+"px";
+
+            function mouseDown(event1)
+            {
+                var originTargetLeft=parseInt(event1.target.style.left);
+                var originTargetTop=parseInt(event1.target.style.top);
+                var startX=event1.clientX;
+                var startY=event1.clientY;
+
+                document.onmousemove=function(event2)
+                {
+                    var endX=event2.clientX;
+                    var endY=event2.clientY;
+                    var finalX=endX-startX+originTargetLeft;
+                    var finalY=endY-startY+originTargetTop;
+                    event1.target.style.left=finalX+"px";
+                    event1.target.style.top=finalY+"px";
+                };
+
+                document.onmouseup=function()
+                {
+                    document.onmousemove=null;
+                }
+            }
+
+            img1.addEventListener("mousedown",mouseDown);
+            img2.addEventListener("mousedown",mouseDown);
+            img3.addEventListener("mousedown",mouseDown);
+        });
+    </script>
+</head>
+<body>
+    <img id="img1" src="images/Lighthouse.jpg" alt="Lighthouse.jpg" draggable="false"/>
+    <img id="img2" src="images/Penguins.jpg" alt="Penguins.jpg" draggable="false"/>
+    <img id="img3" src="images/Tulips.jpg" alt="Tulips.jpg" draggable="false"/>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>被选中的行发生背景变色</title>
+    <script type="text/javascript">
+        function over(id)
+        {
+            eval(id).style.backgroundColor="#0000FF"; //id是一个字符串，不是DOM元素，所以不能直接写成id.style.backgroundColor="#0000FF";，eval在这里起的作用是“把字符串当成变量名去求值”，
+            eval(id).style.color="#FFFFFF";           // 而拿到对应的DOM元素。这是一种过时且不推荐的写法，现代代码应该用 document.getElementById(id)
+        }
+        function out(id)
+        {
+            eval(id).style.backgroundColor="#FFFFFF";
+            eval(id).style.color="#000000";
+        }
+    </script>
+</head>
+<body>
+    <table width="234" height="77" border="1">
+        <tr align="center" id="tr1" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td width="52">编号</td>
+            <td width="65">商品</td>
+            <td width="95">价格(元)</td>
+        </tr>
+        <tr align="center" id="tr2" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>01</td>
+            <td>品牌手机</td>
+            <td>2000</td>
+        </tr>
+        <tr align="center" id="tr3" onmouseover="over(this.id)" onmouseout="out(this.id)">
+            <td>02</td>
+            <td>品牌电脑</td>
+            <td>5000</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跟随鼠标指针移动的图片</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            var x,y;
+
+            function mouseHandle(event)
+            {
+                x=event.x+document.body.clientLeft;
+                y=event.y+document.body.clientHeight;
+            }
+
+            function gifFollowMouse()
+            {
+                var gif=document.getElementById("div");
+                gif.style.left=x+"px";
+                gif.style.top=y+"px";
+                window.setTimeout(gifFollowMouse,10);
+            }
+
+            document.onmousemove=mouseHandle;
+            gifFollowMouse();
+        });
+    </script>
+</head>
+<body background="mr.jpg">
+    <div id="div" style="position:absolute">
+        <img src="Mymouse.gif" width="32" height="32"/>
+    </div>
+</body>
+</html>

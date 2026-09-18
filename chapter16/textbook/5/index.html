@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百叶窗</title>
+    <script type="text/javascript">
+        window.addEventListener("load",function()
+        {
+            var speed=30;
+            var temp=new Array();
+            var oddHeight=document.body.clientHeight;
+            var evenHeight=0;
+            for(var i=1;i<=16;++i)
+            {
+                temp[i]=document.getElementById("i"+i).style;
+                temp[i].width=document.body.clientWidth/16+"px";
+                temp[i].height=document.body.clientHeight+"px";
+                temp[i].left=(i-1)*parseInt(temp[i].width)+"px";
+            }
+
+            function louver()
+            {
+                oddHeight-=speed;
+                for(var i=1;i<=16;++i)
+                {
+                    temp[i].clip="rect(0px auto "+oddHeight+"px 0px)";
+                }
+                evenHeight+=speed;
+                for(var i=2;i<=16;i+=2)
+                {
+                    temp[i].clip="rect("+evenHeight+"px auto auto auto)";
+                }
+                if(oddHeight<=0)
+                {
+                    clearInterval(opening);
+                }
+            }
+            var opening=window.setInterval(louver,100);
+        });
+    </script>
+</head>
+<body>
+    <center><img src="1.png"/></center>
+    <script type="text/javascript">
+        for(var i=1;i<=16;++i)
+        {
+            var div=document.createElement("div");
+            div.id="i"+i;
+            div.style.position="absolute";
+            div.style.left="0px";
+            div.style.top="0px";
+            div.style.background="#0066FF";
+            div.style.border="0.1px solid #0066FF";
+            document.body.appendChild(div);
+        }
+    </script>
+</body>
+</html>

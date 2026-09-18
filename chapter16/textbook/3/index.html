@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单元格边框变色</title>
+    <script type="text/javascript">
+        var pattern=1;
+        function changeColor()
+        {
+            for(var i=0;i<9;++i)
+            {
+                if(pattern==1)
+                {
+                    eval("td"+i).style.borderColor="#00FF00";
+                }else if(pattern==2)
+                {
+                    eval("td"+i).style.borderColor="#6666FF";
+                }
+            }
+            pattern+=1;
+            if(pattern==3)
+            {
+                pattern=1;
+            }
+            setTimeout("changeColor()",200);
+        }
+    </script>
+</head>
+<body>
+    <table id="table" cellspacing="0" border="2" width="380">
+        <tr>
+            <td width="60" id="td0">种类</td>
+            <td width="158" id="td1">书名</td>
+            <td width="56" id="td2">单价</td>
+        </tr>
+        <tr>
+            <td id="td3">JavaScript</td>
+            <td id="td4">JavaScript从入门到精通</td>
+            <td id="td5">50</td>
+        </tr>
+        <tr>
+            <td id="td6">HTML</td>
+            <td id="td7">HTML5从入门到精通</td>
+            <td id="td8">50</td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        changeColor();
+    </script>
+</body>
+</html>

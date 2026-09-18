@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>烟花效果</title>
+    <style>
+        body
+        {
+            background-color:#000000;
+        }
+        html,body
+        {
+            height:100%;
+            margin:0;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            var color_array2=["#FF0000","#00FF00","#000AFF","#FF00FF","#FFA500","#FFFF00","#00FF00","#FFFFFF","#FFFFF0"];
+            var color_array3=["#FFA500","#55FF66","#AC9DFC","#FFF000","#FFFFF0"];
+            var radius;
+            var horizontalRange;
+            var animation_minFrameValue=5;
+            var animation_currentFrame=0;
+            var defaultColor="#FFA000";
+            var circleCenter_xCoordinate=250;
+            var circleCenter_yCoordinate=250;
+            var fireworkPoints=document.getElementById("fireworkPoints");
+
+            // 原理：这是烟花动画的主循环。每次调用时，根据窗口尺寸计算烟花绽放的半径和水平范围，
+            // 然后绘制当前帧的粒子状态，推进动画时间，并检查是否需要更换爆炸中心。最后通过定时器
+            // 每20毫秒再次调用自身，形成连续的动画效果。
+            function setOffFireworks()
+            {
+                // 根据窗口高度计算绽放半径，使烟花大小自适应屏幕；水平范围用于限制爆炸中心的随机区域。
+                radius=window.document.body.clientHeight/3;
+                horizontalRange=window.document.body.clientWidth/8;
+                // 绘制当前帧：根据动画时间计算每个粒子的位置和颜色。
+                blossom();
+                // 推进动画时间轴，每帧增加5，控制动画进度。
+                animation_currentFrame+=animation_minFrameValue;
+                // 检查一轮绽放是否结束，若结束则随机选择新的爆炸中心和底色。
+                changeCoordinate();
+                // 每20毫秒循环一次，约50帧/秒，形成流畅动画。
+                window.setTimeout(setOffFireworks,20);
+            }
+
+            // 原理：根据当前动画时间 animation_currentFrame，计算每个烟花粒子的位置和颜色。
+            // 粒子位置采用极坐标参数方程：以 (circleCenter_xCoordinate, circleCenter_yCoordinate) 为圆心，
+            // 半径受正弦函数调制产生膨胀收缩，角度随粒子索引和时间变化产生旋转散开效果。
+            // 颜色在绽放初期统一为底色，中后期随机取色，模拟烟花从聚合到多彩散开的过程。
+            function blossom()
+            {
+                // 遍历所有粒子，逐个更新它们的状态。
+                for(var i=0;i<fireworkPoints.children.length;++i)
+                {
+                    var randomColor=Math.round(Math.random()*(color_array2.length-1));
+                    // 绽放前90帧统一使用底色，形成从中心聚集的视觉效果。
+                    if(animation_currentFrame<=90)
+                    {
+                        fireworkPoints.children[i].style.backgroundColor=defaultColor;
+                    }
+                    // 90帧之后每个粒子随机取色，模拟烟花散开后的多彩效果。
+                    if(animation_currentFrame>90)
+                    {
+                        fireworkPoints.children[i].style.backgroundColor=color_array2[randomColor];
+                    }
+                    // 使用极坐标计算粒子位置：角度随粒子索引 i 和时间变化，半径受 sin(550+时间/100) 调制，
+                    // 产生周期性的膨胀与收缩，从而形成烟花绽放的动感。
+                    /*
+                    * 这里是整个烟花形状最关键的部分。i*5 的作用不是简单地让所有粒子一起运动，而是给每一个粒子一个不同的角度偏移。因此 50 个粒子会分布在不同的方向：
+                    *              粒子
+                    *              ↗ ↖
+                    *         粒子      粒子
+                    *         ●           ●
+                    *         粒子      粒子
+                    *              ↘ ↙
+                    *              粒子
+                    * 同时，animation_currentFrame 不断变化，所有粒子的运动状态也随时间持续改变。最终形成的是一组围绕中心向外运动的粒子。
+                    * */
+                    fireworkPoints.children[i].style.left=circleCenter_xCoordinate+radius*Math.cos((animation_currentFrame+i*5)/3)*Math.sin(550+animation_currentFrame/100)+"px";
+                    fireworkPoints.children[i].style.top=circleCenter_yCoordinate+radius*Math.sin((animation_currentFrame+i*5)/3)*Math.sin(550+animation_currentFrame/100)+"px";
+                }
+            }
+
+            // 原理：当一轮烟花动画达到220帧时，认为绽放结束。此时将动画时间轴重置为-10，
+            // 随机选择新的底色和爆炸中心坐标，并将整个烟花容器移动到新中心。
+            // 重置为负数是为了让下一轮开始时粒子从中心收缩后再绽放，避免突兀。
+            function changeCoordinate()
+            {
+                // 判断当前动画是否已完成一轮（220帧）。
+                if(animation_currentFrame>=220)
+                {
+                    // 时间轴回退到-10，使下一轮从负帧开始，粒子会先向中心收缩再散开。
+                    animation_currentFrame=-10;
+                    // 随机选择新的底色，用于下一轮绽放初期的统一颜色。
+                    var randomColor2=Math.round(Math.random()*(color_array3.length-1));
+                    defaultColor=color_array3[randomColor2];
+                    // 随机生成新的爆炸中心坐标，水平方向限制在窗口宽度的3.5/8以内，垂直方向留出底部空间。
+                    circleCenter_xCoordinate=Math.round(Math.random()*(horizontalRange*3.5));
+                    circleCenter_yCoordinate=Math.round(Math.random()*(window.document.body.clientHeight-250));
+                    // 将整个烟花容器移动到新的爆炸中心，考虑页面滚动偏移。
+                    fireworkPoints.style.left=circleCenter_xCoordinate+document.body.scrollLeft+"px";
+                    fireworkPoints.style.top=circleCenter_yCoordinate+document.body.scrollTop+"px";
+                    // 避免爆炸中心太靠近页面边缘，若坐标过小则适当偏移，保证烟花完整显示。
+                    if(circleCenter_xCoordinate<20 || circleCenter_yCoordinate<20)
+                    {
+                        circleCenter_xCoordinate+=90;
+                        circleCenter_yCoordinate+=90;
+                    }
+                }
+            }
+
+            setOffFireworks();
+        });
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        // 初始化烟花粒子：创建一个绝对定位的容器 fireworkPoints，并在其中生成50个1px大小的彩色点作为烟花粒子。
+        // 这些粒子将作为后续动画的基本单元，容器整体移动代表爆炸中心，粒子相对容器偏移代表绽放形状。
+        var color_array=["#FFFFFF","#FFF000","#FFA000","#FF00FF","#00FF00","#0000FF","#FF0000"];
+        var fireworkPoints=document.createElement("div");
+        fireworkPoints.id="fireworkPoints";
+        fireworkPoints.style.position="absolute";
+        fireworkPoints.style.top="0px";
+        fireworkPoints.style.left="0px";
+        var n=0;
+        for(var i=0;i<50;++i)
+        {
+            var fireworkPoint=document.createElement("div");
+            fireworkPoint.style.position="relative";
+            fireworkPoint.style.width="1px";
+            fireworkPoint.style.height="1px";
+            if(n==color_array.length)
+            {
+                n=0;
+            }
+            fireworkPoint.style.backgroundColor=color_array[n++];
+            fireworkPoint.style.fontSize="3px";
+            fireworkPoint.innerText=".";
+            fireworkPoints.appendChild(fireworkPoint);
+        }
+        document.body.appendChild(fireworkPoints);
+    </script>
+</body>
+</html>
+```

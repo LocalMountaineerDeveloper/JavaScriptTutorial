@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>限制表格的宽度</title>
+    <style>
+        table
+        {
+            border:2px solid #000000;
+            border-collapse:collapse;
+        }
+        table td
+        {
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <table id="table">
+        <tr>
+            <td>
+                读书是明日科技新上线的模块，也是明日科技多年编程项目、编程经验的积累，适应各种用户学习，更有不断更新的电子书资源将陆续上线。读书是明日科技新上线的模块，也是明日科技多年编程项目、编程经验的积累，适应各种用户学习，更有不断更新的电子书资源将陆续上线。
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        document.getElementById("table").align="center";
+        document.getElementById("table").style.width="100px";
+        document.getElementById("table").style.tableLayout="fixed";
+    </script>
+</body>
+</html>

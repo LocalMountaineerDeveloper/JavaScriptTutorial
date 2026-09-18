@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽屉风格的滑出菜单</title>
+    <style>
+        .menu
+        {
+            width:200px;
+            list-style:none; /*设置列表无样式*/
+            position:fixed; /*固定布局*/
+            top:30px;
+            left:20px;
+        }
+        .menu li
+        {
+            margin-top:10px;
+        }
+        .menu li a
+        {
+            display:block; /*设置为块级元素*/
+            background:orange;
+            width:120px;
+            font-size:14px;
+            text-decoration:none;
+            color:white;
+            padding:10px 15px 10px 12px;
+
+            /*
+            WebKit 是浏览器排版引擎，早期被Safari、旧版Chrome、旧版Android浏览器等使用，厂商为了让开发者能提前使用一些新特性，同时又不与标准冲突，就发明了带前缀的属性，
+            所以 -webkit- 是一种浏览器厂商前缀（vendor prefix），用来让浏览器厂商在某个 CSS 属性还没有成为标准之前，先支持自己的实验性实现。
+            */
+            -webkit-border-top-right-radius:10px; /*设置右上圆角边框*/
+            -webkit-border-bottom-right-radius:10px;
+            -webkit-transition:padding 0.5s; /*设置过渡效果，当元素的 padding 值发生变化时，不要瞬间跳变，而是用0.5秒的时间平滑过渡。*/
+        }
+        .menu li a:hover
+        {
+            background:lightgreen;
+            color:blue;
+        }
+    </style>
+    <script type="text/javascript">
+        function pullOut(event)
+        {
+            event.target.style.paddingLeft="30px";
+        }
+
+        function pullIn(event)
+        {
+            event.target.style.paddingLeft="12px";
+        }
+    </script>
+</head>
+<body>
+    <ul class="menu">
+        <li>
+            <a href="javascript:void(0)" onmouseover="pullOut(event);" onmouseout="pullIn(event)">HTML/CSS讨论区</a>
+            <a href="javascript:void(0)" onmouseover="pullOut(event);" onmouseout="pullIn(event)">JavaScript讨论区</a>
+            <a href="javascript:void(0)" onmouseover="pullOut(event);" onmouseout="pullIn(event)">C语言讨论区</a>
+            <a href="javascript:void(0)" onmouseover="pullOut(event);" onmouseout="pullIn(event)">Java讨论区</a>
+            <a href="javascript:void(0)" onmouseover="pullOut(event);" onmouseout="pullIn(event)">Android讨论区</a>
+            <a href="javascript:void(0)" onmouseover="pullOut(event);" onmouseout="pullIn(event)">Python讨论区</a>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大文本并设置颜色</title>
+    <script type="text/javascript">
+        var color_array=["red","green","blue","purple","yellow","grey","black"];
+        var size=8;
+        var step=2;
+        function enlargeAndChange()
+        {
+            size+=step;
+            document.getElementById("p1").style.fontSize=size+"px";
+            document.getElementById("p1").style.color=color_array[Math.floor(Math.random()*color_array.length)];
+        }
+    </script>
+</head>
+<body>
+    <p id="p1" style="font-size:8px;">
+        JavaScript从入门到精通
+    </p>
+    <br>
+    <button type="button" onclick="enlargeAndChange();">放大并随机更换字体颜色</button>
+</body>
+</html>
