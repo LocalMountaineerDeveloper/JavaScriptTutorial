@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>应用单选按钮实现选择题</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            var form=document.getElementById("form");
+            var show=document.getElementById("show");
+            var button=document.getElementById("button");
+            button.addEventListener("click",function()
+            {
+                if(form.actor.value==="")
+                {
+                    show.innerHTML="请选择答案";
+                }else if(form.actor.value==="金·凯瑞")
+                {
+                    show.innerHTML="答案正确";
+                }else
+                {
+                    show.innerHTML="答案不正确";
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form name="form" id="form">
+        电影《变相怪杰》的主演是谁？
+        <p>
+            <input type="radio" name="actor" value="布拉德·皮特"/>布拉德·皮特
+            <input type="radio" name="actor" value="亚当·桑德斯"/>亚当·桑德斯
+            <input type="radio" name="actor" value="金·凯瑞"/>金·凯瑞
+            <input type="radio" name="actor" value="杰夫·丹尼尔斯"/>杰夫·丹尼尔斯
+        </p>
+        <input type="button" name="button" id="button" value="提交答案"/>
+    </form><br>
+    <div id="show"></div>
+</body>
+</html>

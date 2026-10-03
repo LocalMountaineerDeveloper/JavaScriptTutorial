@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取用户个人信息</title>
+    <style>
+        body,td,th
+        {
+            font-size:12px;
+            padding:5px;
+        }
+    </style>
+    <script type="text/javascript">
+        function getInfo()
+        {
+            var message="";
+            if(document.form.name.value==="")
+            {
+                alert("姓名不能为空！");
+                document.form.name.focus();
+                return false;
+            }
+            message+="姓名："+document.form.name.value+"\n";
+
+            message+="性别：";
+            if(document.querySelectorAll("input[name='sex']:checked").length===0)
+            {
+                alert("至少勾选一个性别！");
+                document.form.sex[0].focus();
+                return false;
+            }
+            for(var i=0;i<document.form.sex.length;++i)
+            {
+                if(document.form.sex[i].checked)
+                {
+                    message+=document.form.sex[i].value+"\n";
+                }
+            }
+
+            message+="爱好：";
+            if(document.querySelectorAll("input[name='interest']:checked").length===0)
+            {
+                message+="没有爱好。"+" ";
+            }else
+            {
+                for(var i=0;i<document.form.interest.length;++i)
+                {
+                    if(document.form.interest[i].checked)
+                    {
+                        message+=document.form.interest[i].value+" ";
+                    }
+                }
+            }
+
+            message+="\n自我评价：";
+            if(document.form.comment.value==="")
+            {
+                message+="没有自我评价。"
+            }else
+            {
+                message+=document.form.comment.value;
+            }
+            alert(message);
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form id="form" name="form" method="post" onsubmit="return getInfo();">
+        <table width="503" border="1" style="border-collapse:collapse;">
+            <tr>
+                <td align="center" height="46" colspan="2">
+                    <h2>请输入个人信息</h2>
+                </td>
+            </tr>
+            <tr>
+                <td width="82" height="20" align="right">姓名：</td>
+                <td width="414" height="20">
+                    <input type="text" name="name"/>
+                </td>
+            </tr>
+            <tr>
+                <td height="20" align="right">性别：</td>
+                <td height="20">
+                    <input type="radio" name="sex" value="男"/>男&nbsp;&nbsp;
+                    <input type="radio" name="sex" value="女"/>女
+                </td>
+            </tr>
+            <tr>
+                <td height="20" align="right">爱好</td>
+                <td height="20">
+                    <input type="checkbox" name="interest" value="运动"/>运动
+                    <input type="checkbox" name="interest" value="弹琴"/>弹琴
+                    <input type="checkbox" name="interest" value="唱歌"/>唱歌
+                    <input type="checkbox" name="interest" value="旅游"/>旅游
+                    <input type="checkbox" name="interest" value="下棋"/>下棋
+                    <input type="checkbox" name="interest" value="书法"/>书法
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">自我评价：</td>
+                <td>
+                    <textarea name="comment" cols="30" rows="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" name="submit" value="提交"/>
+                    <input type="reset" name="reset" value="重置"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

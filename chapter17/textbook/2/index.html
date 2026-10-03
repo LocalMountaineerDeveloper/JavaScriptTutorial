@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取表单元素的值</title>
+    <style>
+        body
+        {
+            background-color:#FFF8EB;
+            margin-top:10px;
+        }
+    </style>
+    <script type="text/javascript">
+        function inputCheck()
+        {
+            var prompt="获取内容如下：\n";
+            if(document.form.author.value!=="")
+            {
+                prompt+="作者名称："+document.form.author.value+"\n";
+            }else
+            {
+                alert("作者名称为空，不能提交表单！");
+                return false;
+            }
+            if(document.form.title.value!=="")
+            {
+                prompt+="文章主题："+document.form.title.value+"\n";
+            }else
+            {
+                alert("文章主题为空，不能提交表单！");
+                return false;
+            }
+            if(document.form.content.value!=="")
+            {
+                prompt+="文章内容："+document.form.content.value+"\n";
+            }else
+            {
+                alert("文章内容为空，不能提交表单！");
+                return false;
+            }
+            if(document.form.prompt.value!=="")
+            {
+                prompt+=document.form.prompt.value;
+            }
+            alert(prompt);
+            return true;
+        }
+    </script>
+</head>
+<body style="font-size:12px">
+    <table width="500" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="left" valign="top">
+                <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td height="22" align="left">
+                            <img src="images/dian.gif" width="7" height="7"/> 文章添加
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="1">
+                            <img src="images/xian.gif" width="366" height="1"/>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <table width="500" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <form name="form" method="post" onsubmit="return inputCheck();">
+                        <tr>
+                            <td height="28" align="right">作者名称：</td>
+                            <td height="28">
+                                <input name="author" type="text" id="author"/>
+                            </td>
+                            <td height="28" align="right">文章主题：</td>
+                            <td height="28">
+                                <input name="title" type="text" id="title"/>
+                            </td>
+                            <td height="22" align="right">文章内容：</td>
+                            <td height="22">
+                                <textarea name="content" cols="45" rows="6" id="content"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="28" colspan="2" align="center">
+                                <input name="prompt" type="hidden"  id="prompt" value="文章添加成功！"/>
+                                <input name="add" type="submit" id="add" value="添 加"/>
+                                &nbsp;
+                                <input type="reset" name="reset" value="重 置"/>
+                            </td>
+                        </tr>
+                    </form>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

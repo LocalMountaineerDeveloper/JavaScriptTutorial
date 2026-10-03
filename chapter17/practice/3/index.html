@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市二级联动菜单</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            var form=document.getElementById("form");
+            var province=form.province;
+            var city=form.city;
+
+            form.province.addEventListener("change",function()
+            {
+                if(province.value==="Jilin")
+                {
+                    city.innerHTML="<option>长春市</option><option>吉林市</option>"
+                }else if(province.value==="Liaoning")
+                {
+                    city.innerHTML="<option>沈阳市</option><option>大连市</option>"
+                }else
+                {
+                    city.innerHTML="<option>哈尔滨市</option><option>大庆市</option>"
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <form id="form">
+        选择城市：
+        <select name="province">
+            <option value="Jilin">吉林省</option>
+            <option value="Liaoning">辽宁省</option>
+            <option value="Heilongjiang">黑龙江省</option>
+        </select>
+        <select name="city">
+            <option>长春市</option>
+            <option>吉林市</option>
+        </select>
+    </form>
+</body>
+</html>

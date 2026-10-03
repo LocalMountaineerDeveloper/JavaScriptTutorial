@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>限制选择课程的个数</title>
+    <style>
+        body,td,th
+        {
+            font-size:12px;
+            padding:5px;
+        }
+    </style>
+    <script type="text/javascript">
+        function selectLessons(lastSelection)
+        {
+            var checkboxes=document.getElementsByName("lesson");
+            var count=0;
+            for(var i=0;i<checkboxes.length;++i)
+            {
+                if(checkboxes[i].checked)
+                {
+                    ++count;
+                    if(count>6)
+                    {
+                        alert("您只能最多选择6门课程！");
+                        lastSelection.checked=false;
+                        break;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="lessons_form" name="lessons_form">
+        <h2>请选择课程</h2>
+        <input type="checkbox" name="lesson" value="C语言" onclick="selectLessons(this);"/>C语言<br>
+        <input type="checkbox" name="lesson" value="机械制图" onclick="selectLessons(this);"/>机械制图<br>
+        <input type="checkbox" name="lesson" value="单片机" onclick="selectLessons(this);"/>单片机<br>
+        <input type="checkbox" name="lesson" value="自动控制" onclick="selectLessons(this);"/>自动控制<br>
+        <input type="checkbox" name="lesson" value="传感器" onclick="selectLessons(this);"/>传感器<br>
+        <input type="checkbox" name="lesson" value="高等数学" onclick="selectLessons(this);"/>高等数学<br>
+        <input type="checkbox" name="lesson" value="计算机基础" onclick="selectLessons(this);"/>计算机基础<br>
+        <input type="checkbox" name="lesson" value="Oracle数据库" onclick="selectLessons(this);"/>Oracle数据库<br>
+        <input type="checkbox" name="lesson" value="商务英语" onclick="selectLessons(this);"/>商务英语<br>
+        <input type="checkbox" name="lesson" value="PLC设计基础" onclick="selectLessons(this);"/>PLC设计基础<br>
+    </form>
+</body>
+</html>

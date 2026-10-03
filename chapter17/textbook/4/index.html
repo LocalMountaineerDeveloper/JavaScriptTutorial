@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作简单的选课页面</title>
+    <script type="text/javascript">
+        function addToMyCourse()
+        {
+            var selectedCourse=document.getElementById("selectableCourse"); //获取“可选课程”下拉菜单选项个数
+            var myCourse=document.getElementById("myCourse");
+            var temp=[];
+            //由于selectedCourse.selectedOptions是一个动态集合，如果直接写myCourse.appendChild(selectedCourse.selectedOptions[i]);会导致移走一个时
+            //长度和索引发生改变，会导致一些选中的项被跳过没有移入另一个下拉菜单
+            for(var i=0;i<selectedCourse.selectedOptions.length;++i)
+            {
+                //不需要再额外创建临时option对象，如 var option=new Option(selectedCourse.selectedOptions[i].text,selectedCourse.selectedOptions[i].value);
+                temp.push(selectedCourse.selectedOptions[i]);
+            }
+            for(var i=0;i<temp.length;++i)
+            { //DOM结点在文档中只能有一个父结点，把一个option移动时浏览器会自动把它从原来的父结点移除再挂在到新父结点下
+                myCourse.appendChild(temp[i]);
+            }
+        }
+
+        function removeFromMyCourse()
+        {
+            var selectedCourse=document.getElementById("myCourse");
+            var selectableCourse=document.getElementById("selectableCourse");
+            var temp=[];
+            for(var i=0;i<selectedCourse.selectedOptions.length;++i)
+            {
+                temp.push(selectedCourse.selectedOptions[i]);
+            }
+            for(var i=0;i<temp.length;++i)
+            {
+                selectableCourse.appendChild(temp[i]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="classForm">
+        <table>
+            <tr>
+                <td>可选课程</td>
+                <td></td>
+                <td>已选课程</td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="selectableCourse" id="selectableCourse" size="6" multiple="multiple">
+                        <option value="单片机">单片机</option>
+                        <option value="自动化">自动化</option>
+                        <option value="机械制图">机械制图</option>
+                        <option value="智能仪器">智能仪器</option>
+                        <option value="工程力学">工程力学</option>
+                        <option value="电路原理">电路原理</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="button" value=">>" onclick="addToMyCourse();"/><br>
+                    <input type="button" value="<<" onclick="removeFromMyCourse();"/>
+                </td>
+                <td>
+                    <select name="myCourse" id="myCourse" size="6" multiple="multiple"></select>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

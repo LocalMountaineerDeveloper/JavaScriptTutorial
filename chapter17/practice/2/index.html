@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框的全选、全不选或反选</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            var form=document.getElementById("form");
+            //var interests=document.getElementsByName("interest");
+            var interests=form.interest;
+
+            form.checkAll.addEventListener("click",function()
+            {
+                for(var i=0;i<interests.length;++i)
+                {
+                    interests[i].checked=true;
+                }
+            });
+
+            form.checkNo.addEventListener("click",function()
+            {
+                for(var i=0;i<interests.length;++i)
+                {
+                    interests[i].checked=false;
+                }
+            });
+
+            form.inverse.addEventListener("click",function()
+            {
+                for(var i=0;i<interests.length;++i)
+                {
+                    if(interests[i].checked)
+                    {
+                        interests[i].checked=false;
+                    }else
+                    {
+                        interests[i].checked=true;
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="form">
+        <input type="checkbox" name="interest" value="看电影"/>看电影
+        <input type="checkbox" name="interest" value="听音乐"/>听音乐
+        <input type="checkbox" name="interest" value="演奏乐器"/>演奏乐器
+        <input type="checkbox" name="interest" value="打篮球"/>打篮球
+        <input type="checkbox" name="interest" value="看书"/>看书
+        <input type="checkbox" name="interest" value="上网"/>上网
+        <p>
+            <input type="button" name="checkAll" value="全选"/>
+            <input type="button" name="checkNo" value="全不选"/>
+            <input type="button" name="inverse" value="反选"/>
+        </p>
+    </form>
+</body>
+</html>

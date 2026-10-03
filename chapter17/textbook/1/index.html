@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证表单内容是否为空</title>
+    <style>
+        *
+        {
+            margin:0;
+            padding:0;
+        }
+        body
+        {
+            font-size:12px;
+        }
+        .title
+        {
+            font-size:18px;
+            line-height:50px;
+            margin-left:150px;
+        }
+        .one label
+        {
+            width:100px;
+            float:left;
+            text-align:right;
+            height:20px;
+            line-height:20px;
+        }
+        .one input
+        {
+            border:1px solid #999;
+            height:20px;
+        }
+        .two
+        {
+            padding-left:150px;
+        }
+    </style>
+    <script type="text/javascript">
+        function checkInput()
+        {
+            if(document.form.username.value==="")
+            {
+                alert("请输入用户名！");
+                document.form.username.focus();
+                return false;
+            }
+            if(document.form.password.value==="")
+            {
+                alert("请输入密码！");
+                document.form.password.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="form">
+        <div class="title">用户登录</div>
+        <div class="one">
+            <label for="username">用户名：</label>
+            <input type="text" name="username" id="username"/>
+        </div>
+        <div class="one">
+            <label for="password">密码：</label>
+            <input type="password" name="password" id="password"/>
+        </div>
+        <div class="two">
+            <input type="submit" name="submit" value="登录" onclick="return checkInput()"/>
+            <input type="reset" name="reset" value="重置"/>
+        </div>
+    </form>
+</body>
+</html>
