@@ -1,0 +1,135 @@
+td
+{
+    font-size:9pt;
+    color:#000000;
+}
+a:hover
+{
+    font-size:9pt;
+    color:#FF6600;
+}
+a
+{
+    font-size:9pt;
+    text-decoration:none;
+    color:#676767;
+}
+img
+{
+    border:0;
+}
+.blur
+{
+    font-size:9pt;
+    color:#034683;
+    font-familty:"Times New Roman";
+}
+.bgColor
+{
+    font-size:9pt;
+    color:#1980DB;
+}
+.grey_btn
+{
+    font-family:"宋体";
+    font-size:9pt;
+    color:#333333;
+    background-color:#EEEEEE;
+    cursor:hand;
+    padding:1px;
+    height:19px;
+    border-top:1px solid #FFFFFF;
+    border-right:1px solid #666666;
+    border-bottom:1px solid #666666;
+    border-left:1px solid #FFFFFF;
+}
+input
+{
+    font-family:"宋体";
+    font-size:9pt;
+    color:#333333;
+    border:1px solid #999999;
+}
+
+.grey_word
+{
+    color:#333333;
+}
+.darkgrey_word
+{
+    color:#999999;
+}
+.lightgrey_word
+{
+    color:#DDDDDD;
+}
+.orange_word
+{
+    color:#FF6600;
+}
+.blue_word
+{
+    color:#123F73
+}
+.white_word
+{
+    color:#FFFFFF;
+}
+
+body
+{
+    margin:0px;
+}
+.textarea
+{
+    font-family:"宋体";
+    font-size:9pt;
+    color:#333333;
+    border:1px solid #999999;
+}
+.shadow
+{
+    font-size:13pt;
+    /*filter:dropShadow(Color=#111111,offX=1,offY=0,positive=1);*/
+    filter:drop-shadow(1px 0 0 #111111); /*filter: drop-shadow(offset-x offset-y blur-radius color)*/
+    height:10pt;
+    color:#FF9900;
+}
+.tableBorder_B
+{
+    padding:5px;
+    border-bottom:#AAAAAA 1px solid;
+}
+.tableBorder_B1
+{
+    border-bottom-width:1px;
+    border-bottom-style:dotted;
+    border-bottom-color:#CCCCCC;
+}
+.tableBorder_LTR
+{
+    padding:5px;
+    border-left:#AAAAAA 1px solid;
+    border-top:#AAAAAA 1px solid;
+    border-right:#AAAAAA 1px solid;
+}
+.tableBorder_LBR
+{
+    padding:5px;
+    border-left:#AAAAAA 1px solid;
+    border-bottom:#AAAAAA 1px solid;
+    border-right:#AAAAAA 1px solid;
+}
+.tableBorder_L
+{
+    padding:5px;
+    border-left:#AAAAAA 1px solid;
+}
+.noBorder
+{
+    border-style:none;
+}
+.hidden_a_line
+{
+
+}

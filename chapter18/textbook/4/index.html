@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机生成登录图像验证码</title>
+    <style>
+        *
+        {
+            margin:0;
+            padding:0;
+        }
+        body
+        {
+            font-size:12px;
+        }
+        .main
+        {
+            background-image:url(Images/login.jpg);
+            width:300px;
+            height:240px;
+        }
+        form
+        {
+            padding-top:70px;
+        }
+        .one
+        {
+            margin:10px 0;
+        }
+        .one label
+        {
+            width:100px;
+            float:left;
+            text-align:right;
+            height:20px;
+            line-height:20px;
+        }
+        .two
+        {
+            padding-left:150px;
+        }
+    </style>
+    <script type="text/javascript">
+        var str="";
+        var img="";
+        var strSrc=["明","天","日","科","技","会","更","好","创","新"];
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            for(var i=0;i<4;++i)
+            {
+                var n=Math.floor(Math.random()*strSrc.length);
+                str+=strSrc[n];
+                img+="<img src='Images/checkcode/"+n+".gif' width='19' height='20'/>";
+                document.getElementById("div0").innerHTML=img;
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="main">
+        <form id="form0">
+            <div class="one">
+                <label for="name">用户名：</label>
+                <input type="text" id="name" name="name"/>
+            </div>
+            <div class="one">
+                <label for="password">密码：</label>
+                <input type="password" id="password" name="password"/>
+            </div>
+            <div class="one">
+                <label for="captcha">验证码：</label>
+                <input type="text" size="5" id="captcha" name="captcha"/>
+                <span id="div0"></span>
+            </div>
+            <div class="two">
+                <input type="submit" id="submit" name="submit" value="登入"/>
+                <input type="reset" id="reset" name="reset" value="重置"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+*
+{
+    padding:0;
+    margin:0;
+}
+.content
+{
+    width:504px;
+    margin:20px auto;
+    text-align:center;
+}
+.content>*
+{ /* 选中所有 class="content" 的元素，给它们的所有直接子元素设置style */
+    margin-top:20px;
+}
+.content>div
+{ /* 选中所有 class="content" 的元素，给它们的直接子元素中标签为<div>的那些元素设置style */
+    border:2px dashed #00FFFF;
+}
+span
+{
+    color:#F00;
+    display:inline-block; /* 将元素设置为“行内块级元素”，它同时具备行内元素（inline）和块级元素（block）的特征 */
+    margin-left:6px;
+}
+label
+{
+    font:normal 16px "宋体";
+    display:inline-block;
+    margin:20px auto;
+}
+
+#pic
+{
+    width:500px;
+}

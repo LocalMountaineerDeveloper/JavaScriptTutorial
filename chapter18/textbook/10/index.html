@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图像总是置于顶端</title>
+    <style>
+        #div0
+        {
+            position:absolute;
+            left:0;
+            top:0;
+            z-index:25;
+        }
+        #img0
+        {
+            width:52px;
+            height:249px;
+        }
+        #div1
+        {
+            text-align:center;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let div0=document.getElementById("div0");
+
+            function pinToTop(relativeTop,reverseRelativeLeft)
+            {
+                div0.style.top=document.documentElement.scrollTop+relativeTop+"px";
+                div0.style.left=document.documentElement.scrollLeft+document.documentElement.clientWidth-reverseRelativeLeft-div0.clientWidth+"px";
+                setTimeout(pinToTop,10,relativeTop,reverseRelativeLeft);
+            }
+
+            pinToTop(10,30);
+        });
+    </script>
+</head>
+<body>
+    <div id="div0">
+        <img id="img0" src="mrsoft.jpg" alt="mrsoft"/>
+    </div>
+    <div id="div1">
+        <img src="gougo.png" alt="gougo"/>
+    </div>
+</body>
+</html>

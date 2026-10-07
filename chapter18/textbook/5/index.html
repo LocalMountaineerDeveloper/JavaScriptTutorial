@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动广告</title>
+    <style>
+        body
+        {
+            width:1000px;
+            height:1000px;
+        }
+    </style>
+    <script type="text/javascript">
+        var transitionConstant=0.03;
+        var layers;
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function floaters()
+            {
+                this.items=[];
+                this.addItem=function(id,x,y,content)
+                {
+                    var node=document.createElement("div");
+                    node.id=id;
+                    node.style.zIndex="10"; //用来设置或返回元素的堆叠顺序（Z轴前后顺序）的属性，数值越大的元素会显示在数值较小的元素前面（上方），该属性只对定位元素有效
+                    node.style.position="absolute";
+                    node.style.width="80px";
+                    node.style.height="60px";
+                    node.style.left=x+"px";
+                    node.style.top=y+"px";
+                    node.innerHTML=content;
+                    document.body.appendChild(node);
+
+                    var newItem={};
+                    newItem.object=document.getElementById(id);
+                    if(x>80)
+                    {
+                        x=0;
+                    }
+                    if(y>60)
+                    {
+                        y=0;
+                    }
+                    newItem.x=x;
+                    newItem.y=y;
+                    this.items.push(newItem);
+                }
+                this.play=function()
+                {
+                    layers=this.items;
+                    window.setInterval(play,40);
+                }
+            }
+
+            function play()
+            {
+                for(var i=0;i<layers.length;++i)
+                {
+                    var obj=layers[i].object;
+                    var obj_x=layers[i].x;
+                    var obj_y=layers[i].y;
+                    if(obj.offsetLeft!==(document.body.scrollLeft+obj_x))
+                    {
+                        var dx=(document.body.scrollLeft+obj_x-obj.offsetLeft)*transitionConstant;
+                        dx=(dx>0?1:-1)*Math.ceil(Math.abs(dx));
+                        obj.style.left=obj.offsetLeft+dx+"px";
+                    }
+                    if(obj.offsetTop!==(document.body.scrollTop+obj_y))
+                    {
+                        var dy=(document.body.scrollTop+obj_y-obj.offsetTop)*transitionConstant;
+                        dy=(dy>0?1:-1)*Math.ceil(Math.abs(dy));
+                        obj.style.top=obj.offsetTop+dy+"px";
+                    }
+                    obj.style.display=""; //清除通过JS设置的行内display样式，让元素恢复其CSS默认的显示方式
+                }
+            }
+
+            var strFloat=new floaters();
+            strFloat.addItem("followAd",1500,1000,"<img src='ad.jpg'/>");
+            strFloat.play();
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

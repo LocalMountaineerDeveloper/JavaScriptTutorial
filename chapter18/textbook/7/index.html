@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进度条的显示</title>
+    <link href="css/progress.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            var n=0;
+
+            function progressChange(n)
+            {
+                var progress=document.getElementById("progress");
+                //progress.firstChild.nodeValue=n+"%";
+                progress.innerText=n+"%";
+                progress.style.width=n*2+"px";
+                if(n<100)
+                {
+                    ++n;
+                    window.setTimeout(progressChange,100,n);
+                }
+            }
+
+            progressChange(n);
+        });
+    </script>
+</head>
+<body>
+    <p id="progressBar"><span id="progress">0%</span></p>
+</body>
+</html>

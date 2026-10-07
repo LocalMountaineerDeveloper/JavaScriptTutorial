@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无间断的图像循环滚动效果</title>
+    <style>
+        #box
+        {
+            width:1800px;
+            margin:0 auto;
+            overflow:hidden;
+            border:1px solid #0000FF;
+        }
+        #inner
+        {
+            width:800%;
+        }
+        #div1
+        {
+            float:left;
+        }
+        #div2
+        {
+            float:left;
+        }
+        img
+        {
+            width:350px;
+            height:350px;
+            float:left;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            var box=document.getElementById("box");
+            var div1=document.getElementById("div1");
+            var div2=document.getElementById("div2");
+            var intervalTime=5;
+            div2.innerHTML=div1.innerHTML;
+
+            function imageHorizontalMarquee()
+            {
+                if(box.scrollLeft>=div1.offsetWidth)
+                { //offsetWidth 表示元素的布局宽度（包含内容的border, padding, 内容本身width，但不包含内容的margin）；scrollLeft 表示元素内容向左滚动的距离
+                    box.scrollLeft-=div1.offsetWidth; //当 div 的内容超出了可视区域并出现了水平滚动条时，scrollLeft 指的是元素左边缘到其当前可见内容最左侧之间的像素距离。
+                }else
+                {
+                    ++box.scrollLeft;
+                }
+            }
+
+            window.setInterval(imageHorizontalMarquee,intervalTime);
+        });
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div id="inner">
+            <div id="div1">
+                <img src="1.png"/>
+                <img src="2.png"/>
+                <img src="3.png"/>
+                <img src="4.png"/>
+                <img src="5.png"/>
+                <img src="6.png"/>
+                <img src="7.png"/>
+                <img src="8.png"/>
+                <img src="9.png"/>
+                <img src="10.png"/>
+                <img src="11.png"/>
+                <img src="12.png"/>
+            </div>
+            <div id="div2"></div>
+        </div>
+    </div>
+</body>
+</html>

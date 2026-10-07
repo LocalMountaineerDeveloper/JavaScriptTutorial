@@ -1,0 +1,13 @@
+#progressBar
+{
+    width:200px;
+    border:1px solid #000;
+    background:#FFF;
+    color:#FFF;
+}
+#progress
+{
+    display:block;
+    width:0px;
+    background:blue;
+}

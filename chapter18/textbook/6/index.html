@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图像渐变效果</title>
+    <style>
+        img
+        {
+            border:1px solid #000000;
+            opacity:0;
+        }
+    </style>
+    <script type="text/javascript">
+        var opacity=0;
+        var isDecreasement=false;
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function gradient()
+            {
+                if(isDecreasement)
+                {
+                    opacity-=1;
+                    document.getElementById("image").style.opacity=String(opacity/100);
+                    if(opacity===0)
+                    {
+                        isDecreasement=false;
+                    }
+                }else
+                {
+                    opacity+=1;
+                    document.getElementById("image").style.opacity=String(opacity/100);
+                    if(opacity===100)
+                    {
+                        isDecreasement=true;
+                    }
+                }
+            }
+            window.setInterval(gradient,25);
+        });
+    </script>
+</head>
+<body>
+    <img src="1.png" id="image"/>
+</body>
+</html>

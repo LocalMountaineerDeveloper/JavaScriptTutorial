@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图像固定在页面左下角</title>
+    <style>
+        body
+        {
+            width:1200px;
+            height:1500px;
+        }
+
+        #div0
+        {
+            position:absolute;
+        }
+        #img0
+        {
+            height:200px;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let div0=document.getElementById("div0");
+            let img0=document.getElementById("img0");
+            function pinToLeftBottom()
+            {
+                div0.style.left=document.documentElement.scrollLeft+"px";
+                div0.style.top=document.documentElement.scrollTop+document.documentElement.clientHeight-img0.height+"px";
+                window.setTimeout(pinToLeftBottom,20);
+            }
+            pinToLeftBottom();
+        });
+    </script>
+</head>
+<body>
+    <div id="div0">
+        <img id="img0" src="img.jpg" alt="img0"/>
+    </div>
+</body>
+</html>

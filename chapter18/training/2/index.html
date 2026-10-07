@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图像置换</title>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function()
+        {
+            let image=document.getElementById("book1");
+            function mouseOverImageChange()
+            {
+                image.src="images/book2.jpg";
+            }
+            function mouseOutImageChange()
+            {
+                image.src="images/book1.jpg"
+            }
+            image.addEventListener("mouseover", mouseOverImageChange);
+            image.addEventListener("mouseout", mouseOutImageChange);
+        })
+    </script>
+</head>
+<body>
+    <img id="book1" src="images/book1.jpg" alt="book1"/>
+</body>
+</html>

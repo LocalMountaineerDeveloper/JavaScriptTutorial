@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时隐藏图像</title>
+    <style>
+        label
+        {
+            display:none;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let countdown=10;
+            let textfield=document.getElementById("textfield");
+            let img0=document.getElementById("img0");
+            function hideImage()
+            {
+                if(countdown<=0)
+                {
+                    img0.style.visibility="hidden";
+                    textfield.value="图片已隐藏";
+                }else
+                {
+                    textfield.value="图片会在"+countdown+"秒后隐藏";
+                    --countdown;
+                    setTimeout(hideImage,1000);
+                }
+            }
+            hideImage();
+        });
+    </script>
+</head>
+<body>
+    <label for="textfield">倒计时提示</label>
+    <input id="textfield" type="text" size="15"/>
+    <div id="div0">
+        <img id="img0" src="img.jpg" alt="img.jpg"/>
+    </div>
+</body>
+</html>

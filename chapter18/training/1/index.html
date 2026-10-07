@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>为图片添加指定宽度的边框</title>
+    <style>
+        #line
+        {
+            width:200px;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function addBorder()
+            {
+                let line=document.getElementById("line");
+                line.style.border=document.getElementById("input0").value+"px"+" solid black";
+            }
+            document.getElementById("input1").addEventListener("click",addBorder);
+        });
+    </script>
+</head>
+<body>
+    <form id="form0">
+        <label for="input0">边框宽度：</label>
+        <input id="input0" type="number" value="0"/>
+        <label for="input1">添加边框</label>
+        <input id="input1" type="button" value="添加边框"/>
+    </form>
+    <br>
+    <img id="line" src="line.jpg" alt="line"/>
+</body>
+</html>

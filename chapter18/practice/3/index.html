@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>不断改变形状的图像</title>
+    <script type="text/javascript">
+        let size=0;
+        let reachedCriticality=false;
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let img0=document.getElementById("img0");
+            function distortion()
+            {
+                if(!reachedCriticality)
+                {
+                    ++size;
+                    img0.width+=size;
+                    img0.height-=size;
+                    if(size===20)
+                    {
+                        reachedCriticality=true;
+                    }
+                }else
+                {
+                    --size;
+                    img0.width-=size;
+                    img0.height+=size;
+                    if(size===0)
+                    {
+                        reachedCriticality=false;
+                    }
+                }
+                setTimeout(distortion,40);
+            }
+            distortion();
+        });
+    </script>
+</head>
+<body>
+    <img id="img0" src="img.jpg" alt="img.jpg"/>
+</body>
+</html>

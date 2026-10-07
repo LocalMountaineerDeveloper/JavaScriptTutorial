@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>不断闪烁的图像</title>
+    <style>
+        #div0
+        {
+            position:absolute;
+            left:150px;
+            top:0;
+        }
+        #span0
+        {
+            font-size:12pt;
+            color:#FF0000;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function imageBlink()
+            {
+                let div0= document.getElementById("div0");
+                div0.style.visibility=(div0.style.visibility==="hidden")?"visible":"hidden";
+                setTimeout(imageBlink,200);
+            }
+
+            imageBlink();
+        });
+    </script>
+</head>
+<body>
+    <div id="div0">
+        <a href="https://mingrisoft.com" target="_blank">
+            <img src="Temp.jpg" alt="广告"/>
+            <br>
+            <span id="span0">明日科技官网</span>
+        </a>
+    </div>
+</body>
+</html>

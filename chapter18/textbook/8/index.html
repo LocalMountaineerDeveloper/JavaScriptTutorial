@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图像的时钟显示</title>
+    <style>
+        .style0
+        {
+            color:#52C6FF;
+        }
+    </style>
+    <script type="text/javascript">
+        let imgs=[];
+        for(let i=0;i<10;++i)
+        {
+            imgs[i]=new Image();
+            imgs[i].src="img/"+i+".jpg";
+        }
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function displayClock()
+            {
+                let now=new Date();
+
+                let hour=now.getHours();
+                //hour=(hour<10?"0":"")+hour;
+                hour=String(hour).padStart(2,"0");
+                document.getElementById("hour_tens").src=imgs[hour.charAt(0)].src;
+                document.getElementById("hour_tens").alt=hour.charAt(0);
+                document.getElementById("hour_ones").src=imgs[hour.charAt(1)].src;
+                document.getElementById("hour_ones").alt=hour.charAt(1);
+
+                let minute=now.getMinutes();
+                minute=String(minute).padStart(2,"0");
+                document.getElementById("minute_tens").src=imgs[minute.charAt(0)].src;
+                document.getElementById("minute_tens").alt=minute.charAt(0);
+                document.getElementById("minute_ones").src=imgs[minute.charAt(1)].src;
+                document.getElementById("minute_ones").alt=minute.charAt(1);
+
+                let second=now.getSeconds();
+                second=String(second).padStart(2,"0");
+                document.getElementById("second_tens").src=imgs[second.charAt(0)].src;
+                document.getElementById("second_tens").alt=second.charAt(0);
+                document.getElementById("second_ones").src=imgs[second.charAt(1)].src;
+                document.getElementById("second_ones").alt=second.charAt(1);
+
+                window.setTimeout(displayClock,1000);
+            }
+
+            displayClock();
+        });
+    </script>
+</head>
+<body>
+    <p class="style0">
+        当前时间：
+    </p>
+    <img id="hour_tens" src="img/0.jpg" alt="0"/>
+    <img id="hour_ones" src="img/0.jpg" alt="0"/>
+    <img src="img/10.jpg" alt=":"/>
+    <img id="minute_tens" src="img/0.jpg" alt="0"/>
+    <img id="minute_ones" src="img/0.jpg" alt="0"/>
+    <img src="img/10.jpg" alt=":"/>
+    <img id="second_tens" src="img/0.jpg" alt="0"/>
+    <img id="second_ones" src="img/0.jpg" alt="0"/>
+</body>
+</html>
