@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<groupList>
+    <group name="A组">
+        <team>卡塔尔 厄瓜多尔 塞内加尔 荷兰</team>
+    </group>
+    <group name="B组">
+        <team>英格兰 伊朗 美国 威尔士</team>
+    </group>
+    <group name="C组">
+        <team>阿根廷 沙特阿拉伯 墨西哥 波兰</team>
+    </group>
+    <group name="D组">
+        <team>法国 澳大利亚 丹麦 突尼斯</team>
+    </group>
+    <group name="E组">
+        <team>西班牙 哥斯达黎加 德国 日本</team>
+    </group>
+    <group name="F组">
+        <team>比利时 加拿大 摩洛哥 克罗地亚</team>
+    </group>
+    <group name="G组">
+        <team>巴西 塞尔维亚 瑞士 喀麦隆</team>
+    </group>
+    <group name="H组">
+        <team>葡萄牙 加纳 乌拉圭 韩国</team>
+    </group>
+</groupList>

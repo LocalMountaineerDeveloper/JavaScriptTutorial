@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出商品信息</title>
+    <script type="text/javascript">
+        let text="<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n"+
+            "<commodities>\n"+
+            "    <commodity>\n"+
+            "        <name>戴尔笔记本电脑</name>\n"+
+            "        <brand>戴尔</brand>\n"+
+            "        <price>4387</price>\n"+
+            "    </commodity>\n"+
+            "</commodities>";
+
+        text=text.replace(/>\s+</g, "><").trim(); //去除换行符以及标签之间的空白字符
+
+        let parser=new DOMParser();
+        let xmlDoc=parser.parseFromString(text,"text/xml");
+
+        let nodes=xmlDoc.documentElement.firstElementChild.childNodes;
+        let display="";
+        for(let i=0;i<nodes.length;++i)
+        {
+            display+=nodes[i].nodeName+": "+nodes[i].childNodes[0].nodeValue+"<br>";
+        }
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            document.getElementById("div0").innerHTML=display;
+        });
+    </script>
+</head>
+<body>
+    <div id="div0"></div>
+</body>
+</html>

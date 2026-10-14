@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<employees>
+    <employee id="1">
+        <number>1001</number>
+        <name>Tony</name>
+        <position>Web前端</position>
+        <tel>84978981</tel>
+        <address>长春市朝阳区</address>
+        <email>vwnpihga-fwne@fwfpe.vnow</email>
+    </employee>
+    <employee id="2">
+        <number>1002</number>
+        <name>Kelly</name>
+        <position>一二线运维</position>
+        <tel>23456015</tel>
+        <address>长春市高新区</address>
+        <email>vwnpihgae@fwfpe.vnow-fwetc</email>
+    </employee>
+    <employee id="3">
+        <number>1003</number>
+        <name>Jimmy</name>
+        <position>造型师</position>
+        <tel>31005450</tel>
+        <address>长春市朝阳区</address>
+        <email>vwnpihgae-fsfwer@vcxpe.fobwer</email>
+    </employee>
+</employees>

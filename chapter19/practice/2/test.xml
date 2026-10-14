@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<meals>
+    <meal>
+        <type>早餐搭配</type>
+        <title>鸡蛋+全麦面包+蔬菜汁</title>
+        <content>    早餐一定要营养均衡搭配，鸡蛋富含蛋白质，为身体补充所需能量，面包片添加饱腹感，蔬菜汁能够促进肠胃的蠕动，清理肠道，为迎接新的一天做好准备。</content>
+    </meal>
+    <meal>
+        <type>午餐搭配</type>
+        <title>鸡胸肉+蔬菜+海鲜</title>
+        <content>    脱脂鸡肉的热量较低，适合减肥女性，蔬菜是一日三餐都必不可少的，可以为人体补充足够的维生素，海鲜可以选择鱼类，鱼肉的蛋白质较高。</content>
+    </meal>
+    <meal>
+        <type>晚餐搭配</type>
+        <title>稀饭+水果+酸奶</title>
+        <content>    晚餐尽量选择低脂、易消化的事物，且注意不宜吃得过饱。酸奶可以促进肠胃蠕动，稀饭和水果容易消化。</content>
+    </meal>
+</meals>

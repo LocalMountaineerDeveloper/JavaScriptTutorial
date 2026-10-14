@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页显示2022年世界杯的分组情况</title>
+    <style>
+        div
+        {
+            font-size:12px;
+        }
+        a
+        {
+            font-size:9pt;
+            text-decoration:none;
+            color:#3C404D;
+        }
+        a:hover
+        {
+            font-size:9pt;
+            color:#FF0000;
+        }
+        ul
+        {
+            list-style:none;
+        }
+        li
+        {
+            margin:10px;
+        }
+        li span:first-child
+        {
+            margin:15px;
+        }
+        .bottom span:last-child
+        {
+            display:block;
+            float:right;
+            width:90%;
+        }
+        #box
+        {
+            width:366px;
+            height:391px;
+            margin:5px auto;
+        }
+        #box div:last-child
+        {
+            float:right;
+            margin-right:50px;
+        }
+    </style>
+    <script type="text/javascript">
+        let text="<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n"+
+            "<groupList>\n"+
+            "    <group name=\"A组\">\n"+
+            "        <team>卡塔尔 厄瓜多尔 塞内加尔 荷兰</team>\n"+
+            "    </group>\n"+
+            "    <group name=\"B组\">\n"+
+            "        <team>英格兰 伊朗 美国 威尔士</team>\n"+
+            "    </group>\n"+
+            "    <group name=\"C组\">\n"+
+            "        <team>阿根廷 沙特阿拉伯 墨西哥 波兰</team>\n"+
+            "    </group>\n"+
+            "    <group name=\"D组\">\n"+
+            "        <team>法国 澳大利亚 丹麦 突尼斯</team>\n"+
+            "    </group>\n"+
+            "    <group name=\"E组\">\n"+
+            "        <team>西班牙 哥斯达黎加 德国 日本</team>\n"+
+            "    </group>\n"+
+            "    <group name=\"F组\">\n"+
+            "        <team>比利时 加拿大 摩洛哥 克罗地亚</team>\n"+
+            "    </group>\n"+
+            "    <group name=\"G组\">\n"+
+            "        <team>巴西 塞尔维亚 瑞士 喀麦隆</team>\n"+
+            "    </group>\n"+
+            "    <group name=\"H组\">\n"+
+            "        <team>葡萄牙 加纳 乌拉圭 韩国</team>\n"+
+            "    </group>\n"+
+            "</groupList>";
+
+        let parser=new DOMParser();
+        let xmlDoc=parser.parseFromString(text,"text/xml");
+
+        let groups=xmlDoc.getElementsByTagName("group");
+        let maxPage=Math.ceil(groups.length/3);
+        let lastIndex=groups.length%3;
+        let curPage=1;
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let group1=document.getElementById("group1");
+            let group2=document.getElementById("group2");
+            let group3=document.getElementById("group3");
+            let team1=document.getElementById("team1");
+            let team2=document.getElementById("team2");
+            let team3=document.getElementById("team3");
+
+            function showPage(action)
+            {
+                if(action==="prev")
+                {
+                    --curPage;
+                    if(curPage<=0)
+                    {
+                        curPage=1;
+                    }
+                }else if(action==="next")
+                {
+                    ++curPage;
+                    if(curPage>maxPage)
+                    {
+                        curPage=maxPage;
+                    }
+                }
+
+                if(curPage===maxPage)
+                {
+                    for(let i=1;i<=3;++i)
+                    {
+                        if(i>lastIndex)
+                        {
+                            document.getElementById("group"+i).innerHTML="（空）";
+                            document.getElementById("team"+i).innerHTML="（空）";
+                        }else
+                        {
+                            document.getElementById("group"+i).innerHTML=groups[curPage*3-3+i-1].getAttribute("name");
+                            document.getElementById("team"+i).innerHTML=groups[curPage*3-3+i-1].getElementsByTagName("team")[0].textContent;
+                        }
+                    }
+                }else
+                {
+                    group1.innerHTML=groups[curPage*3-3].getAttribute("name");
+                    team1.innerHTML=groups[curPage*3-3].getElementsByTagName("team")[0].textContent;
+                    group2.innerHTML=groups[curPage*3-2].getAttribute("name");
+                    team2.innerHTML=groups[curPage*3-2].getElementsByTagName("team")[0].textContent;
+                    group3.innerHTML=groups[curPage*3-1].getAttribute("name");
+                    team3.innerHTML=groups[curPage*3-1].getElementsByTagName("team")[0].textContent;
+                }
+            }
+
+            document.getElementById("prevAnchor").addEventListener("click",function(){showPage("prev")});
+            document.getElementById("nextAnchor").addEventListener("click",function(){showPage("next")});
+
+            showPage("prev");
+        });
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div>
+            <div>
+                <h3>2022年世界杯分组情况</h3>
+            </div>
+            <ul>
+                <li>
+                    <span id="group1"></span>
+                    <span id="team1"></span>
+                </li>
+                <li>
+                    <span id="group2"></span>
+                    <span id="team2"></span>
+                </li>
+                <li>
+                    <span id="group3"></span>
+                    <span id="team3"></span>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <a id="prevAnchor" href="#">上一页</a>
+            &nbsp;
+            <a id="nextAnchor" href="#">下一页</a>
+        </div>
+    </div>
+</body>
+</html>

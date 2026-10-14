@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<musicList>
+    <music>
+        <name>此情可待</name>
+        <lyricsBy>理查德·马克斯</lyricsBy>
+        <musicBy>理查德·马克斯</musicBy>
+        <singer>理查德·马克斯</singer>
+    </music>
+    <music>
+        <name>我心永恒</name>
+        <lyricsBy>韦尔·杰宁斯</lyricsBy>
+        <musicBy>詹姆斯·霍纳</musicBy>
+        <singer>席琳·迪翁</singer>
+    </music>
+</musicList>

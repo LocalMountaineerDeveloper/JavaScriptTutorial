@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<comments>
+    <comment>
+        <id>1</id>
+        <author>Tony</author>
+        <datetime>2023-03-21T11:10:12Z</datetime>
+        <topic>登山露营</topic>
+        <content>随着登山春游高峰期的到来，市民登山、露营等户外活动逐渐增多……</content>
+    </comment>
+    <comment>
+        <id>2</id>
+        <author>Kelly</author>
+        <datetime>2023-03-27T04:20:19Z</datetime>
+        <topic>健身</topic>
+        <content>多样的运动方式、不同的项目体验，丰富了民众的健身生活。</content>
+    </comment>
+    <comment>
+        <id>3</id>
+        <author>Jimmy</author>
+        <datetime>2023-04-05T21:08:53Z</datetime>
+        <topic>城市巡游</topic>
+        <content>每座城市都有其独特的精华和韵味，分享城市深度探索体验，感受城市人文之美，用旅行的方式解锁城市精神！</content>
+    </comment>
+    <comment>
+        <id>4</id>
+        <author>Alice</author>
+        <datetime>2023-4-19T14:22:47Z</datetime>
+        <topic>小桥流水</topic>
+        <content>观赏古镇风光的绝佳地方，高山田园小桥流水美得像幅油画，早起看晨雾，傍晚拍夕阳。</content>
+    </comment>
+</comments>

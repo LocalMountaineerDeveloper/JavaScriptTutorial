@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页显示一日三餐的健康食谱</title>
+    <style>
+        div
+        {
+            font-size:12px;
+        }
+        a
+        {
+            font-size:9pt;
+            text-decoration:none;
+            color:#3C404D;
+        }
+        a:hover
+        {
+            font-size:9pt;
+            color:#FF0000;
+        }
+        #box
+        {
+            width:500px;
+            height:391px;
+            margin:5px auto;
+
+        }
+        .box ul
+        {
+            list-style:none;
+        }
+        .box ul li
+        {
+            font-family:"微软雅黑",sans-serif; /*指定一个通用字体族sans-serif(无衬线字体，通常是Arial、微软雅黑、黑体)作为兜底，意思是如果浏览器没有找到“微软雅黑”字体，*/
+            margin:20px auto; /* 就使用 sans-serif 这个通用族，让浏览器自己选一个无衬线字体 */
+        }
+        .box ul li:first-child
+        {
+            font-size:18px;
+            font-weight:bolder;
+            color:#669900
+        }
+        #box div:last-child
+        {
+            float:right;
+            margin-right:50px;
+        }
+    </style>
+    <script type="text/javascript">
+        let text="<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"+
+            "<meals>\n"+
+            "    <meal>\n"+
+            "        <type>早餐搭配</type>\n"+
+            "        <title>鸡蛋+全麦面包+蔬菜汁</title>\n"+
+            "        <content>    早餐一定要营养均衡搭配，鸡蛋富含蛋白质，为身体补充所需能量，面包片添加饱腹感，蔬菜汁能够促进肠胃的蠕动，清理肠道，为迎接新的一天做好准备。</content>\n"+
+            "    </meal>\n"+
+            "    <meal>\n"+
+            "        <type>午餐搭配</type>\n"+
+            "        <title>鸡胸肉+蔬菜+海鲜</title>\n"+
+            "        <content>    脱脂鸡肉的热量较低，适合减肥女性，蔬菜是一日三餐都必不可少的，可以为人体补充足够的维生素，海鲜可以选择鱼类，鱼肉的蛋白质较高。</content>\n"+
+            "    </meal>\n"+
+            "    <meal>\n"+
+            "        <type>晚餐搭配</type>\n"+
+            "        <title>稀饭+水果+酸奶</title>\n"+
+            "        <content>    晚餐尽量选择低脂、易消化的事物，且注意不宜吃得过饱。酸奶可以促进肠胃蠕动，稀饭和水果容易消化。</content>\n"+
+            "    </meal>\n"+
+            "</meals>";
+
+        let parser=new DOMParser();
+        let xmlDoc=parser.parseFromString(text,"text/xml");
+
+        let meals=xmlDoc.getElementsByTagName("meal");
+        let maxPage=meals.length;
+        let curPage=1;
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let typeElement=document.getElementById("type");
+            let titleElement=document.getElementById("title");
+            let contentElement=document.getElementById("content");
+
+            function showPage(action)
+            {
+                if(action==="prev")
+                {
+                    --curPage;
+                    if(curPage<=0)
+                    {
+                        curPage=1;
+                    }
+                }else if(action==="next")
+                {
+                    ++curPage;
+                    if(curPage>=maxPage)
+                    {
+                        curPage=maxPage;
+                    }
+                }
+                let curType=meals[curPage-1].getElementsByTagName("type");
+                let curTitle=meals[curPage-1].getElementsByTagName("title");
+                let curContent=meals[curPage-1].getElementsByTagName("content");
+
+                typeElement.innerHTML=curType[0].textContent;
+                titleElement.innerHTML=curTitle[0].textContent;
+                contentElement.innerHTML=curContent[0].textContent;
+            }
+
+            document.getElementById("prevAnchor").addEventListener("click",function(){showPage("prev");});
+            document.getElementById("nextAnchor").addEventListener("click",function(){showPage("next");});
+
+            showPage("prev");
+        });
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div class="box">
+            <ul>
+                <li id="type"></li>
+                <li id="title"></li>
+                <li id="content"></li>
+            </ul>
+        </div>
+        <div>
+            <a id="prevAnchor" href="#">上一页</a>
+            &nbsp;
+            <a id="nextAnchor" href="#">下一页</a>
+        </div>
+    </div>
+</body>
+</html>

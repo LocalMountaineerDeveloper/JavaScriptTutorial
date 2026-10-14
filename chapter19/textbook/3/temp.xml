@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<employees>
+    <employee id="1" attendance="运维总监">
+        <number>1001</number>
+        <name>Tony</name>
+        <position>前端</position>
+        <tel>84978981</tel>
+        <address>长春市朝阳区</address>
+        <email>cvoinqrw@vofw-fsw.cns</email>
+    </employee>
+</employees>

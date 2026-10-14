@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取指定XML元素的属性值</title>
+    <script type="text/javascript">
+        let text="<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"+
+            "<employees>\n"+
+            "    <employee id=\"1\" attendance=\"运维总监\">\n"+
+            "        <number>1001</number>\n"+
+            "        <name>Tony</name>\n"+
+            "        <position>前端</position>\n"+
+            "        <tel>84978981</tel>\n"+
+            "        <address>长春市朝阳区</address>\n"+
+            "        <email>cvoinqrw@vofw-fsw.cns</email>\n"+
+            "    </employee>\n"+
+            "</employees>"
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function getXml()
+            {
+                let parser=new DOMParser();
+                let xmlDoc=parser.parseFromString(text,"text/xml");
+                let employeesNode=xmlDoc.documentElement;
+                let employeeNode=employeesNode.firstElementChild;
+                let numberNode=employeeNode.firstElementChild;
+                let nameNode=numberNode.nextElementSibling;
+                let positionNode=nameNode.nextElementSibling;
+                let telNode=positionNode.nextElementSibling;
+                let addressNode=telNode.nextElementSibling;
+                let emailNode=addressNode.nextElementSibling;
+
+                let attendance=employeeNode.attributes.getNamedItem("attendance");
+
+                document.getElementById("div0").innerText="员工信息："+numberNode.textContent+"，"+nameNode.textContent+"；职务："+attendance.value+"；"+positionNode.textContent+"，"+telNode.textContent+"，"+addressNode.textContent+"，"+emailNode.textContent;
+            }
+
+            document.getElementById("button0").addEventListener("click",getXml);
+        });
+    </script>
+</head>
+<body>
+    <input id="button0" type="button" value="获取XML元素中的数据"/>
+    <br>
+    <br>
+    <div id="div0"></div>
+</body>
+</html>

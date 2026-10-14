@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取XML元素的位置</title>
+    <script type="text/javascript">
+        let text='<?xml version="1.0" encoding="utf-8"?><employees><employee id="1"><number>1001</number><name>Tony</name><position>Web前端</position><tel>84978981</tel><address>长春市朝阳区</address><email>vnowtwonvpzns@yahoo.com</email></employee></employees>';
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function getXml()
+            {
+                let parser=new DOMParser();
+                let xmlDoc=parser.parseFromString(text,"text/xml");
+
+                let employeesNode,employeeNode,numberNode,nameNode,positionNode,telNode,addressNode,emailNode;
+                employeesNode=xmlDoc.documentElement;
+                employeeNode=employeesNode.firstChild;
+                numberNode=employeeNode.firstChild;
+                nameNode=numberNode.nextSibling;
+                positionNode=nameNode.nextSibling;
+                telNode=positionNode.nextSibling;
+                addressNode=telNode.nextSibling;
+                emailNode=addressNode.nextSibling;
+
+                document.getElementById("div0").innerText="员工信息："+numberNode.firstChild.nodeValue+"，"+nameNode.firstChild.nodeValue+"，"+positionNode.firstChild.nodeValue+"，"+telNode.firstChild.nodeValue+"，"+addressNode.firstChild.nodeValue+"，"+emailNode.firstChild.nodeValue;
+            }
+            document.getElementById("button0").addEventListener("click",getXml);
+        });
+    </script>
+</head>
+<body>
+    <input id="button0" type="button" value="获取XML元素中的数据"/>
+    <br>
+    <br>
+    <div id="div0"></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出所有歌曲信息</title>
+    <script type="text/javascript">
+        let text="<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"+
+            "<musicList>\n"+
+            "    <music>\n"+
+            "        <name>此情可待</name>\n"+
+            "        <lyricsBy>理查德·马克斯</lyricsBy>\n"+
+            "        <musicBy>理查德·马克斯</musicBy>\n"+
+            "        <singer>理查德·马克斯</singer>\n"+
+            "    </music>\n"+
+            "    <music>\n"+
+            "        <name>我心永恒</name>\n"+
+            "        <lyricsBy>韦尔·杰宁斯</lyricsBy>\n"+
+            "        <musicBy>詹姆斯·霍纳</musicBy>\n"+
+            "        <singer>席琳·迪翁</singer>\n"+
+            "    </music>\n"+
+            "</musicList>";
+
+        let parser=new DOMParser();
+        let xmlDoc=parser.parseFromString(text,"text/xml");
+        let musics=xmlDoc.getElementsByTagName("music");
+        let displayText="";
+
+        for(let i=0;i<musics.length;++i)
+        {
+            let name=musics[i].firstElementChild;
+            let lyricsBy=name.nextElementSibling;
+            let musicBy=lyricsBy.nextElementSibling;
+            let singer=musicBy.nextElementSibling;
+
+            displayText+="歌曲名称："+name.textContent+"；作词："+lyricsBy.textContent+"；作曲："+musicBy.textContent+"；歌手："+singer.textContent+"。<br>";
+        }
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function getMusicDetail()
+            {
+                document.getElementById("div0").innerHTML=displayText;
+            }
+
+            document.getElementById("button0").addEventListener("click",getMusicDetail);
+        });
+    </script>
+</head>
+<body>
+    <input id="button0" type="button" value="获取歌曲信息"/>
+    <br><br>
+    <div id="div0"></div>
+</body>
+</html>

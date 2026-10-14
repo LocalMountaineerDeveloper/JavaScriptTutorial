@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对读取的XML数据进行分页操作</title>
+    <style>
+        div
+        {
+            font-size:12px;
+        }
+        a
+        {
+            font-size:9pt;
+            text-decoration:none;
+            color:#3C404D;
+        }
+        a:hover
+        {
+            color:#FF0000;
+        }
+        .top
+        {
+            padding-top:226px;
+            width:80%; /*宽度是父容器宽度的80%*/
+            margin:0 auto; /*上下外边距0，左右外边距自动。由于容器没有占满父容器，浏览器会自动把剩余的20%空间平均分到左右两边，实现水平居中*/
+        }
+        .top span:nth-child(2)
+        { /*.top里面的某个span，如果它是它父元素的第2个子元素，就给它左边距50px。这里的nth源于英文中的1st 2nd 3rd 4th 5th... 序数词的写法，所以称作 n th，于是写为nth*/
+            margin-left:50px;
+        }
+        .top span:nth-child(3)
+        {
+            margin-left:130px;
+        }
+        .mid
+        {
+            width:80%;
+            margin:10px auto;
+        }
+        .bottom
+        {
+            width:80%;
+            margin:20px auto;
+        }
+        .bottom span:last-child
+        { /*.bottom里面的某个span，如果它是它父元素的最后一个子元素，就设定以下样式*/
+            display:block;
+            float:right;
+            width:90%;
+        }
+        #box
+        {
+            width:766px;
+            height:391px;
+            background-image:url("images/bg.jpg");
+            margin:5px auto;
+        }
+        #box div:last-child
+        {
+            float:right;
+            margin-right:50px;
+            margin-top:20px;
+        }
+    </style>
+    <script type="text/javascript">
+        let text="<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"+
+            "<comments>\n"+
+            "    <comment>\n"+
+            "        <id>1</id>\n"+
+            "        <author>Tony</author>\n"+
+            "        <datetime>2023-03-21T11:10:12Z</datetime>\n"+
+            "        <topic>登山露营</topic>\n"+
+            "        <content>随着登山春游高峰期的到来，市民登山、露营等户外活动逐渐增多……</content>\n"+
+            "    </comment>\n"+
+            "    <comment>\n"+
+            "        <id>2</id>\n"+
+            "        <author>Kelly</author>\n"+
+            "        <datetime>2023-03-27T04:20:19Z</datetime>\n"+
+            "        <topic>健身</topic>\n"+
+            "        <content>多样的运动方式、不同的项目体验，丰富了民众的健身生活。</content>\n"+
+            "    </comment>\n"+
+            "    <comment>\n"+
+            "        <id>3</id>\n"+
+            "        <author>Jimmy</author>\n"+
+            "        <datetime>2023-04-05T21:08:53Z</datetime>\n"+
+            "        <topic>城市巡游</topic>\n"+
+            "        <content>每座城市都有其独特的精华和韵味，分享城市深度探索体验，感受城市人文之美，用旅行的方式解锁城市精神！</content>\n"+
+            "    </comment>\n"+
+            "    <comment>\n"+
+            "        <id>4</id>\n"+
+            "        <author>Alice</author>\n"+
+            "        <datetime>2023-4-19T14:22:47Z</datetime>\n"+
+            "        <topic>小桥流水</topic>\n"+
+            "        <content>观赏古镇风光的绝佳地方，高山田园小桥流水美得像幅油画，早起看晨雾，傍晚拍夕阳。</content>\n"+
+            "    </comment>\n"+
+            "</comments>";
+
+        let parser=new DOMParser();
+        let xmlDoc=parser.parseFromString(text,"text/xml");
+        let comments=xmlDoc.getElementsByTagName("comment");
+        let pages=comments.length;
+        let currentPage=1;
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function showPage(action)
+            {
+                if(action==="nextAnchor")
+                {
+                    ++currentPage;
+                    if(currentPage>=pages)
+                    {
+                        currentPage=pages;
+                    }
+                }else if(action==="prevAnchor")
+                {
+                    --currentPage;
+                    if(currentPage<=0)
+                    {
+                        currentPage=1;
+                    }
+                }
+
+                let id=comments[currentPage-1].getElementsByTagName("id");
+                let author=comments[currentPage-1].getElementsByTagName("author");
+                let datetime=comments[currentPage-1].getElementsByTagName("datetime");
+                let topic=comments[currentPage-1].getElementsByTagName("topic");
+                let content=comments[currentPage-1].getElementsByTagName("content");
+
+                document.getElementById("id").innerHTML=id[0].textContent;
+                document.getElementById("author").innerHTML=author[0].textContent;
+                document.getElementById("datetime").innerHTML=datetime[0].textContent;
+                document.getElementById("topic").innerHTML=topic[0].textContent;
+                document.getElementById("content").innerHTML=content[0].textContent;
+            }
+
+            document.getElementById("nextAnchor").addEventListener("click",function(){showPage("nextAnchor");});
+            document.getElementById("prevAnchor").addEventListener("click",function(){showPage("prevAnchor");});
+
+            showPage("prevAnchor");
+        });
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div class="top">
+            <span>评论员ID号：
+                <span id="id"></span>
+            </span>
+            <span>作者：
+                <span id="author"></span>
+            </span>
+            <span>发表日期：
+                <span id="datetime"></span>
+            </span>
+        </div>
+        <div class="mid">
+            <span>评论主题：
+                <span id="topic"></span>
+            </span>
+        </div>
+        <div class="bottom">
+            <span>评论内容：</span>
+            <span id="content"></span>
+        </div>
+        <div>
+            <a id="prevAnchor" href="#">上一篇</a>
+            &nbsp;
+            <a id="nextAnchor" href="#">下一篇</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>应用名称获取XML元素中的数据</title>
+    <script type="text/javascript">
+        let text="<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"+
+            "<employees>\n"+
+            "    <employee id=\"1\">\n"+
+            "        <number>1001</number>\n"+
+            "        <name>Tony</name>\n"+
+            "        <position>Web前端</position>\n"+
+            "        <tel>84978981</tel>\n"+
+            "        <address>长春市朝阳区</address>\n"+
+            "        <email>vwnpihga-fwne@fwfpe.vnow</email>\n"+
+            "    </employee>\n"+
+            "    <employee id=\"2\">\n"+
+            "        <number>1002</number>\n"+
+            "        <name>Kelly</name>\n"+
+            "        <position>一二线运维</position>\n"+
+            "        <tel>23456015</tel>\n"+
+            "        <address>长春市高新区</address>\n"+
+            "        <email>vwnpihgae@fwfpe.vnow-fwetc</email>\n"+
+            "    </employee>\n"+
+            "    <employee id=\"3\">\n"+
+            "        <number>1003</number>\n"+
+            "        <name>Jimmy</name>\n"+
+            "        <position>造型师</position>\n"+
+            "        <tel>31005450</tel>\n"+
+            "        <address>长春市朝阳区</address>\n"+
+            "        <email>vwnpihgae-fsfwer@vcxpe.fobwer</email>\n"+
+            "    </employee>\n"+
+            "</employees>"
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function getXml()
+            {
+                let parser=new DOMParser();
+                let xmlDoc=parser.parseFromString(text,"text/xml");
+
+                let numberNode=xmlDoc.getElementsByTagName("number");
+                let nameNode=xmlDoc.getElementsByTagName("name");
+                let positionNode=xmlDoc.getElementsByTagName("position");
+                let telNode=xmlDoc.getElementsByTagName("tel");
+                let addressNode=xmlDoc.getElementsByTagName("address");
+                let emailNode=xmlDoc.getElementsByTagName("email");
+
+                let displayText="员工信息：<br>";
+                for(let i=0;i<numberNode.length;++i)
+                {
+                    displayText=displayText+numberNode[i].textContent+"，"+nameNode[i].textContent+"，"+positionNode[i].textContent+"，"+telNode[i].textContent+"，"+addressNode[i].textContent+"，"+emailNode[i].textContent;
+                    displayText+="<br>";
+                }
+
+                document.getElementById("div0").innerHTML=displayText;
+            }
+
+            document.getElementById("button0").addEventListener("click",getXml);
+        });
+    </script>
+</head>
+<body>
+    <input id="button0" type="button" value="获取XML元素中的数据"/>
+    <div id="div0"></div>
+</body>
+</html>

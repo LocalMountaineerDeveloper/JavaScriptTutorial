@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<commodities>
+    <commodity name="无线鼠标">
+        <purpose>电脑办公</purpose>
+        <num>3</num>
+        <price>68(元)</price>
+    </commodity>
+    <commodity name="游戏笔记本">
+        <purpose>电脑办公</purpose>
+        <num>2</num>
+        <price>7965(元)</price>
+    </commodity>
+    <commodity name="移动硬盘">
+        <purpose>电脑办公</purpose>
+        <num>4</num>
+        <price>299(元)</price>
+    </commodity>
+</commodities>

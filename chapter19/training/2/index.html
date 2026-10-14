@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出影片信息</title>
+    <script type="text/javascript">
+        let text="<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n"+
+            "<movieList>\n"+
+            "    <movie>\n"+
+            "        <title>满江红</title>\n"+
+            "        <star>沈腾</star>\n"+
+            "        <year>2023</year>\n"+
+            "    </movie>\n"+
+            "</movieList>";
+        text=text.replace(/>\s+</g,"><").trim();
+
+        let parser=new DOMParser();
+        let xmlDoc=parser.parseFromString(text,"text/xml");
+
+        let movie=xmlDoc.documentElement.firstElementChild.childNodes;
+        let display="";
+
+        for(let i=0;i<movie.length;++i)
+        {
+            display+=movie[i].nodeName+": "+movie[i].firstChild.nodeValue+"<br>";
+        }
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function getMovieData()
+            {
+                document.getElementById("div0").innerHTML=display;
+            }
+
+            document.getElementById("button0").addEventListener("click",getMovieData);
+        });
+    </script>
+</head>
+<body>
+    <input id="button0" type="button" value="获取影片数据"/>
+    <br><br>
+    <div id="div0"></div>
+</body>
+</html>

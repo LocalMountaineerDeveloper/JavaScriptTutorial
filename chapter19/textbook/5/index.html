@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在表格中读取XML数据</title>
+    <style>
+        *
+        {
+            font-size:12px;
+        }
+        #box
+        {
+            width:777px;
+            height:482px;
+            background-image:url("images/bg.jpg");
+        }
+        .content
+        {
+            width:551px;
+            height:253px;
+            padding-top:239px;
+            margin-left:204px;
+        }
+    </style>
+    <script type="text/javascript">
+        let text="<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n"+
+            "<commodities>\n"+
+            "    <commodity name=\"无线鼠标\">\n"+
+            "        <purpose>电脑办公</purpose>\n"+
+            "        <num>3</num>\n"+
+            "        <price>68(元)</price>\n"+
+            "    </commodity>\n"+
+            "    <commodity name=\"游戏笔记本\">\n"+
+            "        <purpose>电脑办公</purpose>\n"+
+            "        <num>2</num>\n"+
+            "        <price>7965(元)</price>\n"+
+            "    </commodity>\n"+
+            "    <commodity name=\"移动硬盘\">\n"+
+            "        <purpose>电脑办公</purpose>\n"+
+            "        <num>4</num>\n"+
+            "        <price>299(元)</price>\n"+
+            "    </commodity>\n"+
+            "</commodities>";
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            function readXml()
+            {
+                let parser=new DOMParser();
+                let xmlDoc=parser.parseFromString(text,"text/xml");
+                createTable(xmlDoc);
+            }
+
+            function createTable(xmlDoc)
+            {
+                let table=document.createElement("table");
+                table.setAttribute("width","100%");
+                table.style.borderCollapse="collapse";
+
+                let tableHead=table.createTHead(); //创建表头区域
+                tableHead.style.backgroundColor="#EEEEEE";
+
+                let tableHeadRow=tableHead.insertRow(); //创建表头所在的行
+                tableHeadRow.style.height="27px"; //设置表头的高度
+                tableHeadRow.style.textAlign="center";
+                tableHeadRow.style.border="1px solid #0000FF";
+
+                let th=document.createElement("th");
+                th.textContent="商品名称";
+                tableHeadRow.appendChild(th);
+                th=document.createElement("th");
+                th.textContent="类别";
+                tableHeadRow.appendChild(th);
+                th=document.createElement("th");
+                th.textContent="数量";
+                tableHeadRow.appendChild(th);
+                th=document.createElement("th");
+                th.textContent="单价";
+                tableHeadRow.appendChild(th);
+
+                let tableBody=table.createTBody();
+
+                let commodity=xmlDoc.getElementsByTagName("commodity");
+                for(let i=0;i<commodity.length;++i)
+                {
+                    //let name=commodity[i].attributes.getNamedItem("name").value;
+                    let name=commodity[i].getAttribute("name");
+                    let purpose=xmlDoc.getElementsByTagName("purpose")[i].textContent;
+                    let num=xmlDoc.getElementsByTagName("num")[i].textContent;
+                    let price=xmlDoc.getElementsByTagName("price")[i].textContent;
+
+                    let tableBodyRow=tableBody.insertRow();
+                    tableBodyRow.style.height="27px";
+                    tableBodyRow.style.textAlign="center";
+                    tableBodyRow.style.border="1px solid #0000FF";
+
+                    let cell=tableBodyRow.insertCell();
+                    cell.textContent=name;
+                    cell=tableBodyRow.insertCell();
+                    cell.textContent=purpose;
+                    cell=tableBodyRow.insertCell();
+                    cell.textContent=num;
+                    cell=tableBodyRow.insertCell();
+                    cell.textContent=price;
+                }
+
+                document.getElementById("parentTable").appendChild(table);
+            }
+
+            readXml();
+        });
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div class="content">
+            <div id="parentTable"></div>
+        </div>
+    </div>
+</body>
+</html>
