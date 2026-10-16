@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出水果的分类信息</title>
+    <script type="text/javascript">
+        let fruits=
+            [
+                {
+                    "type":"浆果类",
+                    "name":["草莓","桑葚","覆盆子"],
+                },
+                {
+                    "type":"瓜果类",
+                    "name":["哈密瓜","香瓜","西瓜"],
+                },
+                {
+                    "type":"柑橘类",
+                    "name":["甜橙","柠檬","柚子"],
+                },
+            ]
+
+        document.write("<h1>水果分类</h1>");
+        for(let i in fruits)
+        {
+            document.write("<h2>"+fruits[i].type+"：</h2>");
+            document.write("<p>");
+            for(let j in fruits[i].name)
+            {
+                document.write(fruits[i].name[j]+" ");
+            }
+            document.write("</p>");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

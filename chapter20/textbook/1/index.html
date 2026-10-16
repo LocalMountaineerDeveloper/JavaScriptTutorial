@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出商品信息</title>
+    <script type="text/javascript">
+        let shop=
+            {
+                "name":"爆裂飞车",
+                "type":"玩具类",
+                "brand":"小当家",
+                "price":"69元"
+            };
+
+        document.write("名称："+shop.name);
+        document.write("<br>类别："+shop.type);
+        document.write("<br>品牌："+shop.brand);
+        document.write("<br>价格："+shop.price+"<br><br><br>");
+
+        let person=
+            [
+                {
+                    "name":"Tony",
+                    "sex":"男",
+                },
+                {
+                    "name":"Kelly",
+                    "sex":"女",
+                }
+            ]
+
+        for(let i in person)
+        {
+            for(let j in person[i])
+            {
+                document.write(j+"："+person[i][j]);
+                document.write(" ");
+            }
+            document.write("<br>");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

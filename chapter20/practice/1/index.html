@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历员工信息</title>
+    <script type="text/javascript">
+        let employees=
+            [
+                {
+                    "number":"001",
+                    "name":"张三",
+                    "position":"程序员",
+                    "telephone":"152********",
+                    "address":"吉林省长春市",
+                },
+                {
+                    "number":"002",
+                    "name":"李四",
+                    "position":"一二线运维",
+                    "telephone":"133********",
+                    "address":"黑龙江省黑河市",
+                },
+                {
+                    "number":"003",
+                    "name":"王五",
+                    "position":"项目总监",
+                    "telephone":"137********",
+                    "address":"辽宁省丹东市",
+                },
+            ];
+
+        for(let i in employees)
+        {
+            for(let j in employees[i])
+            {
+                document.write(j+"："+employees[i][j]+"<br>");
+            }
+            document.write("<br>");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

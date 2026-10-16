@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出手机信息</title>
+    <script type="text/javascript">
+        let book=
+            {
+                "primaryCategory":"IT图书",
+                "secondaryCategory":"编程图书",
+                "detail":
+                    [
+                        {
+                            "name":"网页技术",
+                            "list":["HTML","CSS","JavaScript"],
+                        },
+                        {
+                            "name":"数据库",
+                            "list":["Oracle","MySQL","SQL Server"],
+                        }
+                    ],
+            };
+        let display="<h1>"+book.primaryCategory+"</h1><h2>"+book.secondaryCategory+"</h2>";
+        for(let i in book.detail)
+        {
+            display+="<h3>"+book.detail[i].name+"</h3>";
+            display+="<p>";
+            for(let j in book.detail[i].list)
+            {
+                display+=book.detail[i].list[j]+" ";
+            }
+            display+="</p>";
+        }
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            document.getElementById("demo").innerHTML=display;
+        });
+    </script>
+</head>
+<body>
+    <div id="demo"></div>
+</body>
+</html>

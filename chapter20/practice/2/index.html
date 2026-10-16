@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现省市区三级联动</title>
+    <style>
+        label
+        {
+            display:none;
+        }
+    </style>
+    <script type="text/javascript">
+        let data=
+            [
+                {
+                    "province":"黑龙江省",
+                    "children":
+                        [
+                            {
+                                "prefecture":"哈尔滨市",
+                                "children":
+                                    {
+                                        "county":["南岗区","香坊区","道里区"]
+                                    }
+                            },
+                            {
+                                "prefecture":"齐齐哈尔市",
+                                "children":
+                                    {
+                                        "county":["龙沙区","建华区","铁锋区"]
+                                    }
+                            },
+                            {
+                                "prefecture":"牡丹江市",
+                                "children":
+                                    {
+                                        "county":["东安区","西安区","爱民区"]
+                                    }
+                            }
+                        ],
+                },
+                {
+                    "province":"吉林省",
+                    "children":
+                        [
+                            {
+                                "prefecture":"长春市",
+                                "children":
+                                    {
+                                        "county":["朝阳区","南关区","高新区"]
+                                    }
+                            },
+                            {
+                                "prefecture":"吉林市",
+                                "children":
+                                    {
+                                        "county":["船营区","昌邑区","龙潭区"]
+                                    }
+                            },
+                            {
+                                "prefecture":"四平市",
+                                "children":
+                                    {
+                                        "county":["铁西区","铁东区","双辽市"]
+                                    }
+                            }
+                        ],
+                },
+                {
+                    "province":"辽宁省",
+                    "children":
+                        [
+                            {
+                                "prefecture":"沈阳市",
+                                "children":
+                                    {
+                                        "county":["和平区","沈河区","大东区"]
+                                    }
+                            },
+                            {
+                                "prefecture":"大连市",
+                                "children":
+                                    {
+                                        "county":["中山区","西岗区","金州区"]
+                                    }
+                            },
+                            {
+                                "prefecture":"鞍山市",
+                                "children":
+                                    {
+                                        "county":["铁东区","铁西区","立山区"]
+                                    }
+                            }
+                        ],
+                },
+            ];
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let province=document.getElementById("province");
+            let prefecture=document.getElementById("prefecture");
+            let county=document.getElementById("county");
+
+            let fragment=document.createDocumentFragment(); //JavaScript中用来创建一个空的、轻量级的文档片段，大幅提升批量插入 DOM 时的页面性能，以及作为临时内存容器来频繁修改节点
+
+            for(let i=0;i<data.length;++i)
+            {
+                let option=document.createElement("option");
+                option.innerHTML=data[i].province;
+                option.value=data[i].province;
+                fragment.appendChild(option);
+            }
+            province.appendChild(fragment); //当DocumentFragment插入到真实的 DOM 树中之后，它自身会被自动清空，不需要再调用fragment.replaceChildren()清空一遍;
+
+            let prefectureArray=[];
+            let countyArray=[];
+
+            province.addEventListener("change",function()
+            {
+                prefecture.innerHTML="<option value=\"\">---请选择----</option>";
+                county.innerHTML="<option value=\"\">---请选择----</option>";
+
+                for(let i in data)
+                {
+                    if(this.value===data[i].province)
+                    {
+                        prefectureArray=data[i].children;
+                        break;
+                    }
+                }
+                for(let i in prefectureArray)
+                {
+                    let option=document.createElement("option");
+                    option.innerHTML=prefectureArray[i].prefecture;
+                    option.value=prefectureArray[i].prefecture;
+                    fragment.appendChild(option);
+                }
+                prefecture.appendChild(fragment);
+            });
+
+            prefecture.addEventListener("change",function()
+            {
+                county.innerHTML="<option value=\"\">---请选择---</option>";
+
+                for(let i in prefectureArray)
+                {
+                    if(this.value===prefectureArray[i].prefecture)
+                    {
+                        countyArray=prefectureArray[i].children.county;
+                        break;
+                    }
+                }
+                for(let i in countyArray)
+                {
+                    let option=document.createElement("option");
+                    option.innerHTML=countyArray[i];
+                    option.value=countyArray[i];
+                    fragment.appendChild(option);
+                }
+                county.appendChild(fragment);
+            });
+        });
+    </script>
+</head>
+<body>
+    <label for="province"></label>
+    <select id="province" name="">
+        <option value="">---请选择---</option>
+    </select>
+    <label for="prefecture"></label>
+    <select id="prefecture" name="">
+        <option value="">---请选择----</option>
+    </select>
+    <label for="county"></label>
+    <select id="county" name="">
+        <option value="">---请选择---</option>
+    </select>
+</body>
+</html>

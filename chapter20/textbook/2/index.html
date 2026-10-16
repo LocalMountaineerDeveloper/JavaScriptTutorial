@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出定义的教程信息</title>
+    <script type="text/javascript">
+        let course=
+            {
+                "name":"JavaScript教程",
+                "detail":
+                    [
+                        {
+                            "title":"JavaScript简介",
+                            "list":["简述","基本语法","实例"],
+                        },
+                        {
+                            "title":"JavaScript基础",
+                            "list":["数据类型","变量","运算符"],
+                        },
+                        {
+                            "title":"流程控制",
+                            "list":["条件判断","循环控制","跳转语句"],
+                        }
+                    ]
+            };
+
+        let text="<h1>"+course.name+"</h1>";
+        for(let i in course.detail)
+        {
+            text+="<h2>"+course.detail[i].title+"</h2>";
+            for(let j in course.detail[i].list)
+            {
+                text+="<p>"+course.detail[i].list[j]+"</p>";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            document.getElementById("div0").innerHTML=text;
+        });
+    </script>
+</head>
+<body>
+    <div id="div0"></div>
+</body>
+</html>

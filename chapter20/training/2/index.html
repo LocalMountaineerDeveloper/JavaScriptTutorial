@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出不同分类的小说</title>
+    <script type="text/javascript">
+        let novels=
+            [
+                {
+                    "type":"古典名著",
+                    "name":["水浒传","西游记","金瓶梅","聊斋志异"],
+                },
+                {
+                    "type":"武侠小说",
+                    "name":["天龙八部","倚天屠龙记","射雕英雄传","连城诀"],
+                },
+            ];
+
+        document.write("<h1>小说分类</h1>");
+        for(let i in novels)
+        {
+            document.write("<h2>"+novels[i].type+"</h2>");
+            document.write("<p>");
+            for(let j in novels[i].name)
+            {
+                document.write(novels[i].name[j]+" ");
+            }
+            document.write("</p>");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
