@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对文本禁止使用上下文菜单/右键菜单</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            document.getElementById("p0").addEventListener("contextmenu",function(event)
+            {
+                event.preventDefault();
+                alert("不允许使用上下文菜单/右键菜单");
+            });
+        });
+    </script>
+</head>
+<body>
+    <p id="p0">
+        对文本禁止使用上下文菜单/右键菜单
+    </p>
+</body>
+</html>

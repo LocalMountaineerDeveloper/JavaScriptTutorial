@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义控制上下文菜单/右键菜单</title>
+    <script type="text/javascript">
+        document.addEventListener("contextmenu",function(event)
+        {
+            if(!event.ctrlKey)
+            {
+                event.preventDefault();
+                alert("不允许通过上下文菜单/右键菜单方式进行复制，请使用Ctrl+C的方式复制！");
+            }
+        });
+    </script>
+</head>
+<body>
+    自定义控制上下文菜单/右键菜单
+</body>
+</html>

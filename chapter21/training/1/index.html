@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>屏蔽Ctrl+C快捷键</title>
+    <script type="text/javascript">
+        document.addEventListener("keydown",function(event)
+        {
+            if(event.ctrlKey && (event.key.toLowerCase()==="c"))
+            {
+                event.preventDefault();
+                alert("当前设置不允许使用Ctrl+C快捷键！");
+            }
+        });
+
+        /*
+        * 如果只是想不要复制，使用document.addEventListener("copy",function(e){e.preventDefault();});添加监听器是现代写法，会自动适配跨平台，
+        * 无论用户是通过 Ctrl + C、Cmd + C、鼠标右键菜单、还是浏览器顶部的“编辑 -> 复制”触发，它都会自动统一触发，无需区分操作系统
+        * */
+    </script>
+</head>
+<body>
+    屏蔽Ctrl+C快捷键
+</body>
+</html>

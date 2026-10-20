@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>禁止选择网页文本</title>
+    <script type="text/javascript">
+        document.addEventListener("selectstart",function(event)
+        {
+            event.preventDefault();
+            alert("禁止选择文本！");
+        });
+    </script>
+</head>
+<body>
+    禁止选择网页文本
+</body>
+</html>

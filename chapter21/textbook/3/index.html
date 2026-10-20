@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>禁止复制网页内容</title>
+    <style>
+        #div0
+        {
+            width:500px;
+            margin:0 auto;
+        }
+        #h1_0
+        {
+            font-weight:bold;
+            font-size:20px
+        }
+        #p0
+        {
+            color:#F00;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("copy",function(event)
+        {
+            event.preventDefault();
+            alert("禁止用户复制本网页内容！");
+        });
+    </script>
+</head>
+<body>
+    <div id="div0">
+        <h1 id="h1_0">服务条款</h1>
+        <p id="p0">欢迎来到明日学院，为了保障您的权益，请在使用明日学院服务之前，详细阅读此服务协议（以下简称“本协议”）所有内容，如您不同意本协议任何条款，请勿注册账号或使用本平台。</p>
+    </div>
+</body>
+</html>

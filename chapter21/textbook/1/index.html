@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>屏蔽部分按键</title>
+    <script type="text/javascript">
+        document.addEventListener("keydown",function(event)
+        {
+            if(event.key==="Backspace")
+            {
+                event.preventDefault();
+                alert("当前设置不允许使用Backspace键！");
+            }
+            if(event.key==="Enter")
+            {
+                event.preventDefault();
+                alert("当前设置不允许使用Enter键！");
+            }
+            if(event.key==="F5")
+            {
+                event.preventDefault();
+                alert("当前设置不允许使用F5键！");
+            }
+            if(event.altKey && event.key.startsWith("Arrow"))
+            {
+                event.preventDefault();
+                alert("当前设置不允许使用Alt+方向键！");
+            }
+            if(event.shiftKey && event.key==="F10")
+            {
+                event.preventDefault();
+                alert("当前设置不允许使用Shift+F10快捷键！");
+            }
+        });
+    </script>
+</head>
+<body>
+    <img src="shopcart.png" alt="shopcart"/>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>屏蔽上下文菜单/右键菜单</title>
+    <script type="text/javascript">
+        document.addEventListener("contextmenu",function(event)
+        {
+            event.preventDefault();
+            alert("当前设置不允许使用上下文菜单/右键菜单！");
+        });
+    </script>
+</head>
+<body>
+    <img src="shopcart.png" alt="shopcart"/>
+</body>
+</html>
