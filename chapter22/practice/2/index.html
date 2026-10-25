@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用XMLHttpRequest对象读取XML文件</title>
+    <script type="text/javascript">
+        let xmlHttp;
+        function createXmlHttpRequest()
+        {
+            xmlHttp=new XMLHttpRequest();
+            if(!xmlHttp)
+            {
+                alert("new xmlHttpRuqest()时发生错误！");
+            }else
+            {
+                return xmlHttp;
+            }
+        }
+        function stateHandler()
+        {
+            if(xmlHttp.readyState===4 && xmlHttp.status===200)
+            {
+                let xmlDoc=xmlHttp.responseXML;
+                /*
+                * XMLHttpRequest 本身就已经自带了自动解析 XML 的功能，会自动检测 Content-Type，自动调用解析器，不需要手写DOMParser
+                * */
+                let items=xmlDoc.getElementsByTagName("item");
+                let itemNames=xmlDoc.getElementsByTagName("name");
+                let itemNumber=xmlDoc.getElementsByTagName("number");
+                let itemTel=xmlDoc.getElementsByTagName("tel");
+                let displayText="";
+                for(let i=0;i<items.length;++i)
+                {
+                    displayText+="名称：";
+                    displayText+=itemNames[i].textContent;
+                    displayText+="<br>编号：";
+                    displayText+=itemNumber[i].textContent;
+                    displayText+="<br>电话：";
+                    displayText+=itemTel[i].textContent;
+                }
+                document.getElementById("webpage").innerHTML=displayText;
+            }
+        }
+        function requestXml()
+        {
+            createXmlHttpRequest();
+            xmlHttp.onreadystatechange=stateHandler;
+            xmlHttp.open("GET","index.xml",true);
+            xmlHttp.send(null);
+        }
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            document.getElementById("a0").addEventListener("click",requestXml);
+        });
+    </script>
+</head>
+<body>
+    <a id="a0" href="#">请求XML文件</a>
+    <br>
+    <div id="webpage"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过XMLHttpRequest对象读取HTML文件</title>
+    <script type="text/javascript">
+        /*将本小节文件放入 XAMPP\htdocs\(自定义文件夹) 运行*/
+        let xmlHttp; //定义XmlHttpRequest对象
+        function createXmlHttpRequest()
+        {
+            xmlHttp=new XMLHttpRequest();
+            if(!xmlHttp)
+            {
+                alert("返回创建的对象或显示错误信息！");
+            }else
+            {
+                return xmlHttp;
+            }
+        }
+        function statHandler()
+        {
+            if(xmlHttp.readyState===4 && xmlHttp.status===200)
+            { //若请求已完成并请求成功
+                document.getElementById("webpage").innerHTML=xmlHttp.responseText;
+            }
+        }
+        function requestHtml()
+        {
+            createXmlHttpRequest(); //调用函数创建XmlHttpRequest对象
+            xmlHttp.onreadystatechange=statHandler; //指定回调函数
+            xmlHttp.open("GET","text.html",true); //调用text.html文件
+            xmlHttp.send(null);
+        }
+
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            document.getElementById("a0").addEventListener("click",requestHtml);
+        });
+    </script>
+</head>
+<body>
+    <a href="#" id="a0">请求HTML文件</a>
+    <div id="webpage"></div>
+</body>
+</html>

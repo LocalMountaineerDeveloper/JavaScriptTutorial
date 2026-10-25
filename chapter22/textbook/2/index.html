@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过XMLHttpRequest对象读取JSON文件</title>
+    <script>
+        /*将本小节文件放入 XAMPP\htdocs\(自定义文件夹) 运行*/
+        let xmlHttp;
+        function createXmlHttpRequest()
+        {
+            xmlHttp=new XMLHttpRequest();
+            if(!xmlHttp)
+            {
+                alert("返回创建的对象或显示错误信息。");
+            }else
+            {
+                return xmlHttp;
+            }
+        }
+        function requestJson()
+        {
+            createXmlHttpRequest();
+            xmlHttp.onreadystatechange=stateHandler;
+            xmlHttp.open("GET","data.json",true);
+            xmlHttp.send(null);
+        }
+        function stateHandler()
+        {
+            if(xmlHttp.readyState===4 && xmlHttp.status===200)
+            {
+                let data=JSON.parse(xmlHttp.responseText);
+                let str="";
+                for(let key in data)
+                {
+                    str+=data[key].title+":"+data[key].value+"<br>";
+                }
+                document.getElementById("show").innerHTML=str;
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function()
+        {
+            document.getElementById("button0").addEventListener("click",requestJson);
+        });
+    </script>
+</head>
+<body>
+    <button id="button0">获取JSON数据</button>
+    <div id="show"></div>
+</body>
+</html>
