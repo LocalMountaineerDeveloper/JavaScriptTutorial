@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if和v-else指令判断是否输出DOM元素及其包含的子元素</title>
+    <script src="../../vue.global.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let vm=Vue.createApp(
+                {
+                    data:function()
+                    {
+                        return{
+                            year:2023
+                        };
+                    },
+                    methods:
+                        {
+                            show:function(days)
+                            {
+                                alert(this.year+"年2月份有"+days+"天");
+                                return days;
+                            }
+                        }
+                }).mount("#app");
+        })
+    </script>
+</head>
+<body>
+    <div id="app">
+        <p v-if="year%400===0 || year%100!==0 && year%4===0">
+            {{show(29)}}
+        </p>
+        <p v-else>
+            {{show(28)}}
+        </p>
+    </div>
+</body>
+</html>

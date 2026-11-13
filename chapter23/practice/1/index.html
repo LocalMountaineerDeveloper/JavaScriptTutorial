@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue3实现格式化显示当前日期和时间</title>
+    <script src="../../vue.global.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let vm=Vue.createApp(
+                {
+                    data:function()
+                    {
+                        return{
+                            nowDate:new Date(),
+                            timer:null
+                        };
+                    },
+                    computed:
+                        {
+                            formatDate:function()
+                            {
+                                let year=this.nowDate.getFullYear();
+                                let month=this.nowDate.getMonth()+1;
+                                let date=this.nowDate.getDate();
+                                let hour=this.nowDate.getHours();
+                                let minute=this.nowDate.getMinutes();
+                                let second=this.nowDate.getSeconds();
+                                return year+"-"+month+"-"+date+"-"+hour+":"+minute+":"+second;
+                            }
+                        },
+                    mounted:function()
+                    {
+                        let _this=this;
+                        function updateTime()
+                        {
+                            _this.nowDate=new Date();
+                            _this.timer=window.setTimeout(updateTime,1000);
+                        }
+                        updateTime();
+                    },
+                    beforeDestroy:function()
+                    { //实例销毁之前调用
+                        if(this.timer)
+                        {
+                            clearTimeout(this.timer);
+                        }
+                    }
+                }).mount("#app");
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        {{formatDate}}
+    </div>
+</body>
+</html>

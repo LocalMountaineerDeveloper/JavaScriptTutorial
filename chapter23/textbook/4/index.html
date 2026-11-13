@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on指令监听DOM事件</title>
+    <script src="../../vue.global.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let vm=Vue.createApp(
+                {
+                    data:function()
+                    {
+                        return{
+                            url:"images/banner.jpg"
+                        };
+                    },
+                    methods:
+                        {
+                            visible:function(opacity)
+                            {
+                                let pic=document.getElementById("pic");
+                                pic.style.opacity=String(opacity);
+                            }
+                        }
+                }).mount("#app");
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <img id="pic" alt="pic" v-bind:src="url" v-on:mouseover="visible(0.5)" v-on:mouseout="visible(1)"/>
+    </div>
+</body>
+</html>

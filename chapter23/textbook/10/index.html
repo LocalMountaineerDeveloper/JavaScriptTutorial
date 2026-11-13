@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性computed选项统计购物车中的商品总价</title>
+    <style>
+        body
+        {
+            font-family:微软雅黑,sans-serif;
+            font-size:14px;
+        }
+        .title
+        {
+            background:#F6F6F6;
+            font-size:18px;
+        }
+        .title,.content
+        {
+            width:400px;
+            height:36px;
+            line-height:36px;
+            border:1px solid #DDDDDD;
+        }
+        .title:not(:first-child),.content
+        {
+            border-top:none;
+        }
+        .title div
+        {
+            width:100px;
+            text-align:center;
+            float:left;
+        }
+        .content
+        {
+            clear:both;
+        }
+        .content div
+        {
+            width:100px;
+            text-align:center;
+            float:left;
+        }
+        p
+        {
+            width:380px;
+            text-align:right;
+        }
+    </style>
+    <script src="../../vue.global.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let vm=Vue.createApp(
+                {
+                    data:function()
+                    {
+                        return{
+                            shop:
+                                [
+                                    {
+                                        name:"戴尔笔记本电脑",
+                                        price:3999,
+                                        count:3
+                                    },
+                                    {
+                                        name:"OPPO Reno9",
+                                        price:2699,
+                                        count:2
+                                    }
+                                ]
+                        };
+                    },
+                    computed:
+                        {
+                            totalPrice:function()
+                            {
+                                let totalPrice=0;
+                                this.shop.forEach(function(item)
+                                {
+                                    totalPrice+=item.price*item.count;
+                                });
+                                return totalPrice;
+                            }
+                        }
+                }).mount("#app");
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div class="title">
+            <div>商品名称</div>
+            <div>单价</div>
+            <div>数量</div>
+            <div>金额</div>
+        </div>
+        <div class="content" v-for="item in shop">
+            <div>{{item.name}}</div>
+            <div>{{item.price.toFixed(2)}}</div>
+            <div>{{item.count}}</div>
+            <div>{{(item.price*item.count).toFixed(2)}}</div>
+        </div>
+        <p>合计：￥{{totalPrice.toFixed(2)}}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue3实现简单计算器</title>
+    <script src="../../vue.global.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let vm=Vue.createApp(
+                {
+                    data:function()
+                    {
+                        return{
+                            num1:"",
+                            num2:"",
+                            operator:"+",
+                            result:""
+                        }
+                    },
+                    methods:
+                    {
+                        getResult:function()
+                        {
+                            switch(this.operator)
+                            {
+                                case "+":
+                                    this.result=Number(this.num1)+Number(this.num2);
+                                    break;
+                                case "-":
+                                    this.result=Number(this.num1)-Number(this.num2);
+                                    break;
+                                case "*":
+                                    this.result=Number(this.num1)*Number(this.num2);
+                                    break;
+                                case "/":
+                                    this.result=Number(this.num1)+Number(this.num2);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
+                }).mount("#app");
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <input v-model="num1" size="5"/>
+        <select v-model="operator">
+            <option selected>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+        <input v-model="num2" size="5"/>
+        =
+        <input v-model="result" v-on:focus="getResult()" size="5"/>
+    </div>
+</body>
+</html>

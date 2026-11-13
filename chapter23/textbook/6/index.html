@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-show指令判断是否显示或隐藏DOM元素</title>
+    <script src="../../vue.global.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let vm=Vue.createApp(
+                {
+                    data:function()
+                    {
+                        return{
+                            bText:"隐藏图片",
+                            show:true
+                        };
+                    },
+                    methods:
+                        {
+                            toggle:function()
+                            {
+                                this.bText==="隐藏图片"?this.bText="显示图片":this.bText="隐藏图片";
+                                this.show=!this.show;
+                            }
+                        }
+                }).mount("#app");
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" :value="bText" v-on:click="toggle"/> <!-- :value是v-bind:value的缩写形式 -->
+        <div v-show="show">
+            <img src="face.png" alt="face"/>
+        </div>
+    </div>
+</body>
+</html>

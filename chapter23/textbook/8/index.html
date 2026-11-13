@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出九九乘法表</title>
+    <style>
+        span
+        {
+            font-size:16px;
+            display:inline-block;
+            width:80px;
+            height:30px;
+        }
+    </style>
+    <script src="../../vue.global.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let vm=Vue.createApp({}).mount("#app");
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div v-for="n in 9">
+            <span v-for="m in n">
+                {{m}}*{{n}}={{m*n}}
+            </span>
+        </div>
+    </div>
+</body>
+</html>

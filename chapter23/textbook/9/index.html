@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索商品信息</title>
+    <style>
+        body
+        {
+            font-family:微软雅黑,sans-serif;
+        }
+        .search input
+        {
+            width:350px;
+            height:30px;
+        }
+        .item
+        {
+            width:350px;
+            height:100px;
+            line-height:100px;
+            margin:2px;
+            border-bottom:1px solid #999999;
+        }
+        .item img
+        {
+            width:100px;
+            margin-left:30px;
+            float:left;
+        }
+        .item span
+        {
+            margin-left:20px;
+            height:100px;
+            line-height:100px;
+        }
+    </style>
+    <script src="../../vue.global.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let vm=Vue.createApp(
+                {
+                    data:function()
+                    {
+                        return {
+                            searchStr:"",
+                            items:
+                                [
+                                    {
+                                        name:"芭比娃娃",
+                                        image:"images/1.jpg"
+                                    },
+                                    {
+                                        name:"零食收纳盒",
+                                        image:"images/3.jpg"
+                                    },
+                                    {
+                                        name:"卡通毛巾",
+                                        image:"images/5.jpg"
+                                    },
+                                    {
+                                        name:"扫地机器人",
+                                        image:"images/9.jpg"
+                                    },
+                                    {
+                                        name:"网络机顶盒",
+                                        image:"images/10.jpg"
+                                    },
+                                    {
+                                        name:"移动硬盘",
+                                        image:"images/12.jpg"
+                                    }
+                                ]
+                        }
+                    },
+                    computed:
+                        {
+                            results:function()
+                            {
+                                let items=this.items;
+                                if(this.searchStr==="")
+                                {
+                                    return items;
+                                }
+                                let searchStr=this.searchStr.trim().toLowerCase();
+                                items=items.filter(function(temp)
+                                {
+                                    if(temp.name.toLowerCase().indexOf(searchStr)!==-1)
+                                    {
+                                        return temp;
+                                    }
+                                });
+                                return items;
+                            }
+                        }
+                }).mount("#app");
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div class="search">
+            <input type="text" v-model="searchStr" placeholder="请输入搜索内容"/>
+        </div>
+        <div>
+            <div class="item" v-for="item in results">
+                <img v-bind:src="item.image" alt="image"/>
+                <span>{{item.name}}</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

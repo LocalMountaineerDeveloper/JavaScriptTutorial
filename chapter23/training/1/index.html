@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指针放大和缩小图片</title>
+    <script src="../../vue.global.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let vm=Vue.createApp(
+                {
+                    data:function()
+                    {
+                        return{
+                            url:"images/flower.jpg"
+                        };
+                    },
+                    methods:
+                        {
+                            enlarge:function()
+                            {
+                                let pic=document.getElementById("pic");
+                                pic.style.width=pic.clientWidth*1.2+"px";
+                            },
+                            resume:function()
+                            {
+                                let pic=document.getElementById("pic");
+                                pic.style.width=pic.naturalWidth+"px";
+                            }
+                        }
+                }).mount("#app");
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <img id="pic" v-bind:src="url" v-on:mouseover="enlarge()" v-on:mouseout="resume()"/>
+    </div>
+</body>
+</html>

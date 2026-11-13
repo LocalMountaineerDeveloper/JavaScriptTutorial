@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind指令为HTML元素绑定属性</title>
+    <style>
+        .title
+        {
+            background-color:#0000FF;
+            color:#FFFFFF;
+            border:1px solid #FF00FF;
+            display:inline-block;
+            padding:5px;
+        }
+    </style>
+    <script src="../../vue.global.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let vm=Vue.createApp(
+                {
+                    data:function()
+                    {
+                        return{
+                            value:"title"
+                        };
+                    }
+                }).mount("#app");
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <span v-bind:class="value">成功永远属于马上行动的人</span>
+    </div>
+</body>
+</html>

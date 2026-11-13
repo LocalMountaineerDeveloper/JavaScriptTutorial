@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断输入数字的奇偶性</title>
+    <script src="../../vue.global.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function()
+        {
+            let vm=Vue.createApp(
+            {
+                data:function()
+                {
+                    return{
+                        num:"",
+                        result:""
+                    };
+                },
+                methods:
+                {
+                    judge:function()
+                    {
+                        if(this.num==="")
+                        {
+                            this.result="请输入一个整数。";
+                        }else if(Number.isNaN(this.num))
+                        {
+                            this.result=this.num+"不是一个数字！";
+                        }else if(!Number.isInteger(this.num))
+                        {
+                            this.result=this.num+"不是一个整数！";
+                        }else if(Number(this.num)%2===0)
+                        {
+                            this.result=this.num+"是偶数。";
+                        }else if(Number(this.num)%2===1)
+                        {
+                            this.result=this.num+"是奇数。";
+                        }
+                    }
+                }
+            }).mount("#app");
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <input v-model="num"/>
+        <input type="button" v-on:click="judge()" value="查看结果"/>
+        <p>{{result}}</p>
+    </div>
+</body>
+</html>
